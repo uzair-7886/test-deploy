@@ -8,8 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        mainYellow: '#FFCC00',
+        mainBlue: '#07294E',
+        textColor: '#4B5D68',
+        offWhite:'#F3F1EC'
       },
       fontFamily: {
         enriqueta: "var(--font-enriqueta)",

@@ -1,6 +1,9 @@
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Enriqueta, Roboto } from "next/font/google";
+import Header from "./components/shared/Header";
+import Footer from "./components/shared/Footer";
+
 const enriqueta = Enriqueta({
   variable: "--font-enriqueta",
   subsets: ["latin"],
@@ -13,15 +16,6 @@ const roboto = Roboto({
   weight:"400"
 });
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 export const metadata = {
   title: "Create Next App",
@@ -34,7 +28,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${roboto.variable} ${enriqueta.variable}`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

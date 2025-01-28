@@ -1,3 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  height: 0 !important;
+  width: 0 !important;
+  display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important;    /* Firefox */
+}
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* h1{
+  font-size:62px;
+}
+
+h2{
+  font-size:48px;
+}
+
+
+h3{
+  font-size:34px;
+} */
+
+
+.CardShadow{
+  box-shadow: 10px 32px 34px 10px #07294E40;
+}
+
+.CardShadow2{
+  box-shadow: 14px 22px 17px -11px #07294E40;
+}
+
+.ButtonShadow{
+  box-shadow: 0px 5px 5px 0px #4B5D681A;
+}
+
+.CardDeop{
+  box-shadow: 0px 20px 0px 0px #07294E4D;
+}

@@ -11,6 +11,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        enriqueta: "var(--font-enriqueta)",
+        roboto: "var(--font-roboto)"
+      },
     },
   },
   plugins: [],

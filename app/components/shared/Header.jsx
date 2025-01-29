@@ -61,12 +61,12 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about/philosophy" className="block px-4 py-2 hover:bg-gray-100">
+                  <Link href="/about/our-philosophy" className="block px-4 py-2 hover:bg-gray-100">
                     Our Philosophy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about/team" className="block px-4 py-2 hover:bg-gray-100">
+                  <Link href="/about/our-team" className="block px-4 py-2 hover:bg-gray-100">
                     Our Team
                   </Link>
                 </li>
@@ -150,17 +150,17 @@ const Header = () => {
                 }`}
               >
                 <li>
-                  <Link href="/about/organization" className="block hover:opacity-80">
+                  <Link href="/about/our-organization" className="block hover:opacity-80">
                     Our Organization
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about/philosophy" className="block hover:opacity-80">
+                  <Link href="/about/our-philosophy" className="block hover:opacity-80">
                     Our Philosophy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about/team" className="block hover:opacity-80">
+                  <Link href="/about/our-team" className="block hover:opacity-80">
                     Our Team
                   </Link>
                 </li>

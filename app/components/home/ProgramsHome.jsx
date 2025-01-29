@@ -6,7 +6,7 @@ const ProgramsHome = () => {
   const programsData = [
     {
       id: 1,
-      imageSrc: '/homepage/oxford-fg.jpg',
+      imageSrc: '/HomePage/cj.JPG',
       title: 'Camp For Juniors',
       ageGroup: 'AGES 12-15',
       description:
@@ -14,7 +14,7 @@ const ProgramsHome = () => {
     },
     {
       id: 2,
-      imageSrc: '/homepage/oxford-fg.jpg',
+      imageSrc: '/HomePage/cs.jpg',
       title: 'Camp For Seniors',
       ageGroup: 'AGES 16-19',
       description:
@@ -22,7 +22,7 @@ const ProgramsHome = () => {
     },
     {
       id: 3,
-      imageSrc: '/homepage/oxford-fg.jpg',
+      imageSrc: '/HomePage/us.jpg',
       title: 'University Students',
       ageGroup: 'AGES 19-25',
       description:
@@ -30,7 +30,7 @@ const ProgramsHome = () => {
     },
     {
       id: 4,
-      imageSrc: '/homepage/oxford-fg.jpg',
+      imageSrc: '/HomePage/tf.jpg',
       title: 'Executive Program',
       ageGroup: 'AGES 28+',
       description:

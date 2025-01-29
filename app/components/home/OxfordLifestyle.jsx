@@ -19,10 +19,10 @@ const OxfordLifestyle = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="relative w-full h-56 sm:h-64 md:h-80 rounded-[30px] overflow-hidden shadow-[4px_10px_30px_0px_#0000000F] group">
           <Image
-            src="/homepage/oxford-fg.jpg"
+            src='/HomePage/ca.jpg'
             alt="College Accommodation"
             fill
-            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 imgshadow"
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
             <h3 className="text-white text-lg sm:text-xl font-bold font-poppins">
@@ -33,10 +33,10 @@ const OxfordLifestyle = () => {
 
         <div className="relative w-full h-56 sm:h-64 md:h-80 rounded-[30px] overflow-hidden shadow-[4px_10px_30px_0px_#0000000F] group">
           <Image
-            src="/homepage/oxford-fg.jpg"
+            src='/HomePage/ea.jpg'
             alt="Extracurricular Activities"
             fill
-            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 imgshadow"
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
             <h3 className="text-white text-lg sm:text-xl font-bold">
@@ -47,10 +47,10 @@ const OxfordLifestyle = () => {
 
         <div className="relative w-full h-56 sm:h-64 md:h-80 rounded-[30px] overflow-hidden shadow-[4px_10px_30px_0px_#0000000F] group">
           <Image
-            src="/homepage/oxford-fg.jpg"
+            src='/HomePage/de.jpg'
             alt="Dining Experience"
             fill
-            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 imgshadow"
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
             <h3 className="text-white text-lg sm:text-xl font-bold">
@@ -64,10 +64,10 @@ const OxfordLifestyle = () => {
       <div className="grid grid-cols-1 md:grid-cols-7 gap-6">
         <div className="relative w-full h-56 sm:h-64 md:h-80 md:col-span-3 rounded-[30px] overflow-hidden shadow-[4px_10px_30px_0px_#0000000F] group">
           <Image
-            src="/homepage/oxford-fg.jpg"
+            src='/HomePage/tf.jpg'
             alt="Teaching Facilities"
             fill
-            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 imgshadow"
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
             <h3 className="text-white text-lg sm:text-xl font-bold">
@@ -78,10 +78,10 @@ const OxfordLifestyle = () => {
 
         <div className="relative w-full h-56 sm:h-64 md:h-80 md:col-span-4 rounded-[30px] overflow-hidden shadow-[4px_10px_30px_0px_#0000000F] group">
           <Image
-            src="/homepage/oxford-fg.jpg"
+            src='/HomePage/mo.png'
             alt="Magical Oxford"
             fill
-            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 imgshadow"
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
             <h3 className="text-white text-lg sm:text-xl font-bold">

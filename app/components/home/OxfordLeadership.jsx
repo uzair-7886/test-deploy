@@ -53,7 +53,7 @@ const OxfordLeadership = () => {
               z-10
               rounded-[30px]
               overflow-hidden
-              shadow-[4px_10px_30px_0px_#0000000F]
+              imgshadow
             "
             style={{
               top: '0%',         // 0 / 540
@@ -63,7 +63,7 @@ const OxfordLeadership = () => {
             }}
           >
             <img
-              src="/homepage/oxford-fg.jpg"
+              src="/HomePage/ps.png"
               alt="Public Speaking & Debating"
               className="object-cover w-full h-full"
             />
@@ -91,8 +91,7 @@ const OxfordLeadership = () => {
               z-10
               rounded-[30px]
               overflow-hidden
-              shadow-[4px_10px_30px_0px_#0000000F]
-            "
+              imgshadow            "
             style={{
               top: '57.4%',      // 310 / 540 ≈ 57.4%
               left: '0%',        // 0 / 620
@@ -101,7 +100,7 @@ const OxfordLeadership = () => {
             }}
           >
             <img
-              src="/homepage/oxford-fg.jpg"
+              src="/HomePage/ac.png"
               alt="Admission Counselling"
               className="object-cover w-full h-full"
             />
@@ -128,7 +127,8 @@ const OxfordLeadership = () => {
               z-10
               rounded-[30px]
               overflow-hidden
-              shadow-[4px_10px_30px_0px_#0000000F]
+              imgshadow
+              
             "
             style={{
               top: '14.8%',      // 80 / 540 ≈ 14.8%
@@ -138,7 +138,7 @@ const OxfordLeadership = () => {
             }}
           >
             <img
-              src="/homepage/oxford-fg.jpg"
+              src="/HomePage/cg.png"
               alt="Career Guidance"
               className="object-cover w-full h-full"
             />

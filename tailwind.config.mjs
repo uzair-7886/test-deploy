@@ -15,7 +15,8 @@ export default {
       },
       fontFamily: {
         enriqueta: "var(--font-enriqueta)",
-        roboto: "var(--font-roboto)"
+        roboto: "var(--font-roboto)",
+        poppins: "var(--font-poppins)"
       },
     },
   },

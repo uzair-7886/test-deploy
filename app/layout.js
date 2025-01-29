@@ -1,6 +1,6 @@
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Enriqueta, Roboto } from "next/font/google";
+import { Enriqueta, Roboto, Poppins } from "next/font/google";
 import Header from "./components/shared/Header";
 import Footer from "./components/shared/Footer";
 
@@ -16,6 +16,12 @@ const roboto = Roboto({
   weight:"400"
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight:"500"
+});
+
 
 export const metadata = {
   title: "Create Next App",
@@ -26,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} ${enriqueta.variable}`}
+        className={`${roboto.variable} ${enriqueta.variable} ${poppins.variable}`}
       >
         <Header />
         {children}

@@ -35,7 +35,7 @@ const SubjectCard = ({ title, description, image }) => {
           alt={title}
           width={294}
           height={240}
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full imgshadow"
         />
       </div>
 
@@ -80,7 +80,7 @@ const subjectsData = [
       engage in hands-on learning that fosters creativity and exploration. 
       Our STEM-focused courses equip students.
     `,
-    image: "/homepage/oxford-fg.jpg",
+    image: "/HomePage/stem.JPG",
   },
   {
     title: "HUMANITIES AND SOCIAL SCIENCES",
@@ -92,7 +92,7 @@ const subjectsData = [
       from the likes of Stephen Hawking and Dorothy Hodgkins to explore 
       courses in physical sciences.
     `,
-    image: "/homepage/oxford-fg.jpg",
+    image: "/HomePage/hss.png",
   },
   {
     title: "ARTS AND CREATIVITY",
@@ -104,7 +104,7 @@ const subjectsData = [
       of the likes of J. R. Tolkien, T. S. Eliot, Christopher Hitchens, 
       Oscar Wilde, Emily Davison
     `,
-    image: "/homepage/oxford-fg.jpg",
+    image:  "/HomePage/arts.png",
   },
   {
     title: "LEADERSHIP AND BUSINESS",
@@ -115,7 +115,7 @@ const subjectsData = [
       fields. Some of the famous social scientists associated with Oxford 
       include Adam Smith, Thomas Hobbes and John Locke.
     `,
-    image: "/homepage/oxford-fg.jpg",
+    image:  "/HomePage/lb.JPG",
   },
 ]
 

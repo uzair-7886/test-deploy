@@ -21,9 +21,9 @@ const WhyOxford = () => {
         {/* Image */}
         <div className="w-full">
           <img
-            src="/homepage/oxford-bg.jpg" // Replace with the actual image path
+            src='/Our Organization Page/whyoxford.png'
             alt="Oxford Image"
-            className="w-full h-[370px] object-cover rounded-[30px] my-4"
+            className="w-full h-[370px] object-cover rounded-[30px] my-4 imgshadow"
           />
         </div>
 

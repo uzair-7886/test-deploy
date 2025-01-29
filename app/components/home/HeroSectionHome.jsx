@@ -7,7 +7,7 @@ const HeroSectionHome = () => {
     <div className="relative w-full min-h-screen bg-mainBlue">
       {/* Background Image */}
       <Image
-        src="/homepage/oxford-bg.jpg"
+        src="/HomePage/hero.jpg"
         alt="Oxford Background"
         fill
         className="object-cover opacity-10"
@@ -100,7 +100,7 @@ const HeroSectionHome = () => {
         {/* Right Image */}
         <div className="relative w-full h-[300px] md:h-[400px] lg:h-[519px] lg:w-[703px] rounded-[30px] overflow-hidden">
           <Image
-            src="/homepage/oxford-fg.jpg"
+            src="/HomePage/hero.jpg"
             alt="Oxford Foreground"
             fill
             className="object-cover"

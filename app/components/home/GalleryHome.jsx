@@ -3,15 +3,15 @@ import React from 'react'
 const galleryData = [
   {
     title: "STUDENTS BLOGS",
-    image: "/homepage/oxford-fg.jpg",
+    image:  "/HomePage/sb.png",
   },
   {
     title: "VIDEO GALLERY",
-    image: "/homepage/oxford-fg.jpg",
+    image:  "/HomePage/vg.jpg",
   },
   {
     title: "PHOTO GALLERY",
-    image: "/homepage/oxford-fg.jpg",
+    image: "/HomePage/pg.jpg",
   },
 ]
 

@@ -35,11 +35,11 @@ const OxfordLearning = () => {
           className="relative w-full h-56 sm:h-64 md:h-80 md:col-span-4 rounded-[30px] overflow-hidden shadow-[4px_10px_30px_0px_#0000000F] group"
         >
           <Image
-            src="/homepage/oxford-fg.jpg"  
+            src='/HomePage/tsl.png' 
             alt="Tutorial-Style Learning"
             fill
             className="object-cover transition-transform duration-300 
-                       ease-in-out group-hover:scale-110"
+                       ease-in-out group-hover:scale-110 imgshadow"
           />
           {/* Text overlay */}
           <div className="absolute bottom-0 left-0 right-0 
@@ -58,11 +58,11 @@ const OxfordLearning = () => {
                         rounded-[30px] overflow-hidden 
                         shadow-[4px_10px_30px_0px_#0000000F] group">
           <Image
-            src="/homepage/oxford-fg.jpg"  
+            src='/HomePage/kl.jpg'  
             alt="Keynote Lectures"
             fill
             className="object-cover transition-transform duration-300 
-                       ease-in-out group-hover:scale-110"
+                       ease-in-out group-hover:scale-110 imgshadow"
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 
                           bg-gradient-to-t from-black/70 to-transparent">
@@ -77,11 +77,11 @@ const OxfordLearning = () => {
                         rounded-[30px] overflow-hidden 
                         shadow-[4px_10px_30px_0px_#0000000F] group">
           <Image
-            src="/homepage/oxford-fg.jpg"  
+            src='/HomePage/esp.png'  
             alt="Essay Counselling & Presentation Skills"
             fill
             className="object-cover transition-transform duration-300 
-                       ease-in-out group-hover:scale-110"
+                       ease-in-out group-hover:scale-110 imgshadow"
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 
                           bg-gradient-to-t from-black/70 to-transparent">
@@ -96,11 +96,11 @@ const OxfordLearning = () => {
                         rounded-[30px] overflow-hidden 
                         shadow-[4px_10px_30px_0px_#0000000F] group">
           <Image
-            src="/homepage/oxford-fg.jpg"  
+            src='/HomePage/net.png'  
             alt="Network, Culture & Diversity"
             fill
             className="object-cover transition-transform duration-300 
-                       ease-in-out group-hover:scale-110"
+                       ease-in-out group-hover:scale-110 imgshadow"
           />
           <div className="absolute bottom-0 left-0 right-0 p-4 
                           bg-gradient-to-t from-black/70 to-transparent">

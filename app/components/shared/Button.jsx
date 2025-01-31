@@ -11,13 +11,13 @@ const Button = ({ href, children }) => {
         font-poppins
         text-[16px]
         font-medium
-        px-6
+        px-4
         py-2
         rounded-[8px]
-        w-[147px]
-        flex 
+        inline-flex
         items-center 
         justify-center
+        whitespace-nowrap
       "
     >
       {children}
@@ -26,4 +26,3 @@ const Button = ({ href, children }) => {
 }
 
 export default Button
-

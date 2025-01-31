@@ -110,8 +110,8 @@ const Testimonials = () => {
                     className={`rounded-[20px] p-6 shadow-lg border transition-colors h-full
                       ${
                         isActive
-                          ? "border-mainYellow bg-white opacity-100"
-                          : "border-gray-200 bg-white opacity-70"
+                          ? "border-mainYellow bg-white opacity-100 CardDeop"
+                          : "border-gray-200 bg-white opacity-70 CardDeopInactive"
                       }`}
                   >
                     {/* Header: Avatar, Name, Country */}

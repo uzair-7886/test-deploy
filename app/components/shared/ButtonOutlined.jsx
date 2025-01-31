@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 
-const ButtonOutlined = ({ href, children }) => {
+const ButtonOutlined = ({ href, children, className="" }) => {
   return (
     <Link
       href={href}
-      className="
+      className={`
         border border-mainYellow
         w-[147px]
         h-[41px]
@@ -20,7 +20,8 @@ const ButtonOutlined = ({ href, children }) => {
         justify-center
         px-6
         py-2
-      "
+        
+      `}
     >
       {children}
     </Link>

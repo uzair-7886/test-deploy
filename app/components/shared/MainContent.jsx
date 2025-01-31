@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-const MainContent = ({ content }) => {
+const MainContent = ({ content, viewCourse=false }) => {
   return (
     <div className="w-full flex flex-col space-y-8">
       {content.map((item, index) => (
@@ -28,9 +29,34 @@ const MainContent = ({ content }) => {
             <h2 className="text-mainBlue text-2xl md:text-[42px] py-4 font-enriqueta font-bold mb-4">
               {item.heading}
             </h2>
-            <p className="text-textColor md:text-[18px] font-poppins leading-relaxed text-justify">
+            <p className="text-textColor md:text-[18px] pb-4 font-poppins leading-relaxed text-justify">
               {item.text}
             </p>
+            {
+              viewCourse && (
+                <Link
+      href={item.link}
+      className={`
+        border border-mainYellow
+        rounded-[8px]
+        text-textColor
+        font-poppins 
+        text-[16px] 
+        font-medium 
+        bg-transparent 
+        px-4
+        py-2
+        inline-flex
+        items-center 
+        justify-center
+        whitespace-nowrap
+        
+      `}
+    >
+      View Course
+    </Link>
+              )
+            }
           </div>
         </div>
       ))}

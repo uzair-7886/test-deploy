@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <header className="text-white bg-mainBlue font-roboto border-b-white border-b-2">
+    <header className="text-white  bg-mainBlue font-roboto border-b-white border-b-2">
       <div className="flex items-center justify-between px-4 lg:px-8 py-1 lg:justify-around">
         {/* Logo */}
         <div className="w-[60px] h-[60px] lg:w-[98px] lg:h-[98px] relative">
@@ -71,12 +71,12 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about/students" className="block px-4 py-2 hover:bg-gray-100">
+                  <Link href="/about/our-students" className="block px-4 py-2 hover:bg-gray-100">
                     Our Students
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about/programs" className="block px-4 py-2 hover:bg-gray-100">
+                  <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
                     Our Programs
                   </Link>
 
@@ -165,12 +165,12 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about/students" className="block hover:opacity-80">
+                  <Link href="/about/our-students" className="block hover:opacity-80">
                     Our Students
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about/programs" className="block hover:opacity-80">
+                  <Link href="/about/our-programs" className="block hover:opacity-80">
                     Our Programs
                   </Link>
                 </li>

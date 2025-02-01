@@ -8,9 +8,9 @@ const MainContent = ({ content, viewCourse=false }) => {
       {content.map((item, index) => (
         <div
           key={index}
-          className={`flex flex-col md:flex-row items-center md:justify-around ${
+          className={`flex flex-col md:flex-row items-center md:justify-between ${
             index % 2 === 0 ? "md:flex-row-reverse" : ""
-          } space-y-6 md:space-y-0 md:space-x-6`}
+          } space-y-6 md:space-y-0 md:space-x-0`}
         >
           {/* Image Section */}
           <div
@@ -25,7 +25,7 @@ const MainContent = ({ content, viewCourse=false }) => {
             />
           </div>
           {/* Text Section */}
-          <div className="max-w-lg">
+          <div className="max-w-lg md:max-w-[633px]">
             <h2 className="text-mainBlue text-2xl md:text-[42px] py-4 font-enriqueta font-bold mb-4">
               {item.heading}
             </h2>

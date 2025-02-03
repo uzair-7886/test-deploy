@@ -7,19 +7,17 @@ const ButtonOutlined = ({ href, children, className="" }) => {
       href={href}
       className={`
         border border-mainYellow
-        w-[147px]
-        h-[41px]
+        text-white
+        font-poppins
+        text-[16px]
+        font-medium
+        px-4
+        py-2
         rounded-[8px]
-        text-white 
-        font-poppins 
-        text-[16px] 
-        font-medium 
-        bg-transparent 
-        flex 
+        inline-flex
         items-center 
         justify-center
-        px-6
-        py-2
+        whitespace-nowrap
         
       `}
     >

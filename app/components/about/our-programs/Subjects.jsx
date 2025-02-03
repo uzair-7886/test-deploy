@@ -58,7 +58,7 @@ const Subjects = () => {
           ].map((item, index) => (
             <div key={index} className="border-b-[1px] border-mainYellow pb-4">
               <h3 className="text-mainBlue text-lg md:text-[28px] font-bold font-enriqueta">{item.title}</h3>
-              <p className="text-textColor text-sm leading-relaxed font-roboto py-2">{item.description}</p>
+              <p className="text-textColor text-justify leading-relaxed font-roboto py-2">{item.description}</p>
               <Button href={item.link}>View Course</Button>
             </div>
           ))}

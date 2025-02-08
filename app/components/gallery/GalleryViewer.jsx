@@ -222,7 +222,7 @@ export default function GalleryViewer() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {activeSection.images.map((item, index) => (
               <div
                 key={index}

@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
 // 1) A small hook to detect if we’re on a “mobile” viewport
 function useIsMobile(breakpoint = 640) {
@@ -11,7 +13,6 @@ function useIsMobile(breakpoint = 640) {
       setIsMobile(window.innerWidth < breakpoint);
     };
     checkSize();
-
     window.addEventListener("resize", checkSize);
     return () => window.removeEventListener("resize", checkSize);
   }, [breakpoint]);
@@ -28,35 +29,32 @@ function getWidths(activeIndex, dataLength, isMobile) {
   return widths;
 }
 
-// 3) Sample data
-const testimonialData = [
-  {
-    id: 1,
-    name: "Anna Oliynyk",
-    country: "Russia",
-    image: "/homepage/oxford-fg.jpg",
-    text: "In my opinion, the Oxford Summer Program offers students a unique experience with a balance between academic and social activities. I thoroughly enjoyed my stay at Oxford."
-  },
-  {
-    id: 2,
-    name: "Aniela Cheon",
-    country: "USA",
-    image: "/homepage/oxford-fg.jpg",
-    text: "My experience here at Oxford has been really amazing. I have met so many new people. It has been really great."
-  },
-  {
-    id: 3,
-    name: "Tim",
-    country: "Kenya",
-    image: "/homepage/oxford-fg.jpg",
-    text: "My time in Oxford was remarkable, particularly the engaging debates with my peers. I thoroughly enjoyed them."
-  }
-];
-
 const Testimonials = () => {
+  const [testimonialData, setTestimonialData] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  // 4) Determine if we’re on mobile
+
+  // 3) Determine if we’re on mobile
   const isMobile = useIsMobile();
+
+  // 4) Fetch from Sanity on mount
+  useEffect(() => {
+    client
+      .fetch(
+        `*[_type == "testimonial"] | order(_createdAt asc) {
+          _id,
+          name,
+          image,
+          country,
+          text
+        }`
+      )
+      .then((data) => {
+        setTestimonialData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching testimonials:", error);
+      });
+  }, []);
 
   // 5) Carousel control
   const handleNext = () => {
@@ -70,6 +68,19 @@ const Testimonials = () => {
   const widths = getWidths(activeIndex, testimonialData.length, isMobile);
   const offset = widths.slice(0, activeIndex).reduce((sum, w) => sum + w, 0);
   const totalWidth = widths.reduce((sum, w) => sum + w, 0);
+
+  if (testimonialData.length === 0) {
+    return (
+      <div className="w-full px-4 py-16 bg-white font-roboto">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold text-center text-mainYellow">
+            Testimonials
+          </h2>
+          <p className="text-center mt-4">No testimonials found.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full px-4 py-16 bg-white font-roboto">
@@ -102,7 +113,7 @@ const Testimonials = () => {
               const isActive = index === activeIndex;
               return (
                 <div
-                  key={testimonial.id}
+                  key={testimonial._id}
                   className="flex-shrink-0 h-auto py-4 transition-all duration-300 mr-4 last:mr-0"
                   style={{ width: `${widths[index]}px` }}
                 >
@@ -117,18 +128,22 @@ const Testimonials = () => {
                     {/* Header: Avatar, Name, Country */}
                     <div className="flex items-center gap-4 mb-4">
                       <div className="relative w-16 h-16 overflow-hidden rounded-full">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          fill
-                          style={{ objectFit: "cover" }}
-                        />
+                        {testimonial.image && (
+                          <Image
+                            src={urlFor(testimonial.image).url()}
+                            alt={testimonial.name}
+                            fill
+                            style={{ objectFit: "cover" }}
+                          />
+                        )}
                       </div>
                       <div>
                         <h3 className="text-xl font-medium text-mainBlue">
                           {testimonial.name}
                         </h3>
-                        <p className="text-gray-600 text-sm">{testimonial.country}</p>
+                        <p className="text-gray-600 text-sm">
+                          {testimonial.country}
+                        </p>
                       </div>
                     </div>
                     {/* Body: Text */}

@@ -60,7 +60,8 @@ const ApplicationForm = () => {
         const doc = {
           _type: 'application',
           account: data.account,
-          status: 'account_created', // update status accordingly
+          status: 'account_created',
+          submittedAt: new Date().toISOString(),
         };
         const created = await client.create(doc);
         setApplicationId(created._id);
@@ -74,7 +75,8 @@ const ApplicationForm = () => {
         await client.patch(applicationId)
           .set({ 
             step1: data.step1, 
-            status: 'program_selected' // update status to indicate registration complete
+            status: 'program_selected',
+            submittedAt: new Date().toISOString(), // update status to indicate registration complete
           })
           .commit();
         setStep(step + 1);
@@ -87,7 +89,8 @@ const ApplicationForm = () => {
         await client.patch(applicationId)
           .set({ 
             step2: data.step2, 
-            status: 'personal_info_submitted' // update status as needed
+            status: 'personal_info_submitted', 
+            submittedAt: new Date().toISOString(),
           })
           .commit();
         setStep(step + 1);
@@ -110,6 +113,8 @@ const ApplicationForm = () => {
         console.error("Error finalizing application (step 4):", error);
       }
     }
+    // console.log(data);
+    // setStep(step + 1);
   };
 
   // --- UI Components Below (unchanged except for onSubmit updates) ---
@@ -123,7 +128,7 @@ const ApplicationForm = () => {
       }
       if (barIndex === 1) {
         if (currentStep < 2) return "bg-[#12243E] bg-opacity-10 flex-grow";
-        if (currentStep === 2) return "bg-mainYellow w-1/2";
+        if (currentStep === 2) return "bg-mainYellow w-full";
         return "bg-mainYellow flex-grow";
       }
       if (barIndex === 2) {
@@ -131,11 +136,16 @@ const ApplicationForm = () => {
           ? "bg-mainYellow flex-grow"
           : "bg-[#12243E] bg-opacity-10 flex-grow";
       }
+      if (barIndex === 3) {
+        return currentStep >= 4
+          ? "bg-mainYellow flex-grow"
+          : "bg-[#12243E] bg-opacity-10 flex-grow";
+      }
     };
 
     return (
       <div className="w-auto mx-auto flex gap-5 justify-center mt-10">
-        {[0, 1, 2].map((barIndex) => (
+        {[0, 1, 2,3].map((barIndex) => (
           <div
             key={barIndex}
             className="h-[5px] flex bg-[#12243E] bg-opacity-10 overflow-hidden"
@@ -172,31 +182,31 @@ const ApplicationForm = () => {
           <div
             className={`w-10 h-10 rounded-[10px] border-2 ${
               step >= 1 ? "border-mainYellow" : "border-grey"
-            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
+            } flex items-center justify-center  text-white bg-mainBlue relative z-10`}
           >
             1
           </div>
-          <span className="ml-4 text-white">Registration Form</span>
-        </div>
-        <div className="flex items-center">
-          <div
-            className={`w-10 h-10 rounded-[10px] border-2 ${
-              step >= 2 ? "border-mainYellow" : "border-grey"
-            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
-          >
-            2
-          </div>
-          <span className="ml-4 text-white">Application Form</span>
+          <span className="ml-4 text-white font-enriqueta">Registration Form</span>
         </div>
         <div className="flex items-center">
           <div
             className={`w-10 h-10 rounded-[10px] border-2 ${
               step >= 3 ? "border-mainYellow" : "border-grey"
-            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
+            } flex items-center justify-center  text-white bg-mainBlue relative z-10`}
+          >
+            2
+          </div>
+          <span className="ml-4 text-white font-enriqueta">Active Programs</span>
+        </div>
+        <div className="flex items-center">
+          <div
+            className={`w-10 h-10 rounded-[10px] border-2 ${
+              step >= 4 ? "border-mainYellow" : "border-grey"
+            } flex items-center justify-center  text-white bg-mainBlue relative z-10`}
           >
             3
           </div>
-          <span className="ml-4 text-white">Review Application</span>
+          <span className="ml-4 text-white font-enriqueta">Application Form</span>
         </div>
       </div>
     </div>
@@ -280,6 +290,12 @@ const ApplicationForm = () => {
               <option value="Oxford Summer Program">
                 Oxford Summer Program - 20th Jul - 1st Aug 2025 - £5,999.00
               </option>
+              <option value="Oxford Summer Program">
+              Oxford Executive Leadership Program - 5th Jul - 5th Jul 2025 - £5,999.00
+              </option>
+              <option value="Oxford Summer Program">
+                Oxford Chine Program - July/August 2025, Exact Dates TBC - £5,999.00
+              </option>
             </select>
             <img
               src="/chev-down.svg"
@@ -298,6 +314,9 @@ const ApplicationForm = () => {
               style={{ lineHeight: "1.5rem", height: "3.5rem" }}
             >
               <option value="12-15">Juniors (12-15 years old)</option>
+              <option value="16-18">Seniors (16-19 years old)</option>
+              <option value="19-25">University Students (19-25 years old)</option>
+              <option value="26+">Executives (28+ years old)</option>
             </select>
             <img
               src="/chev-down.svg"
@@ -343,12 +362,15 @@ const ApplicationForm = () => {
             />
           </div>
         </div>
+        <div className="flex justify-center items-center">
         <button
           type="submit"
-          className="bg-mainBlue text-white px-6 py-3 rounded-full disabled:opacity-50"
+          className="bg-mainBlue text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
         >
           Next
         </button>
+        </div>
+        
         <ProgressBars currentStep={step} />
       </div>
     </form>
@@ -582,7 +604,7 @@ const ApplicationForm = () => {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-5">
+    <div className="min-h-screen max-w-7xl mx-auto flex items-center justify-center  p-5">
       <div className="flex rounded-[30px] w-4/5 DropImg">
         <StepIndicator />
         <div className="w-full">

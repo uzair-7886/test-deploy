@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { countries } from "countries-list";
+// Import your configured Sanity client (adjust the path as necessary)
+import { client } from "@/sanity/lib/client";
 
 const countryOptions = Object.entries(countries).map(([code, country]) => ({
   value: code,
@@ -9,51 +11,108 @@ const countryOptions = Object.entries(countries).map(([code, country]) => ({
 }));
 
 const ApplicationForm = () => {
-    const [step, setStep] = useState(1);
-    const methods = useForm({
-      defaultValues: {
-        account: {
-          firstName: "",
-          lastName: "",
-          email: "",
-          password: "",
-        },
-        step1: {
-          program: "",
-          ageGroup: "",
-          subject1: "",
-          subject2: "",
-        },
-        step2: {
-          firstName: "",
-          lastName: "",
-          dateOfBirth: "",
-          gender: "",
-          email: "",
-          phone: "",
-          address: "",
-          country: "",
-          passportCountry: "",
-        },
-        step3: {
-          institution: "",
-          candidateReason: "",
-          additionalInfo: "",
-          visaRequired: "",
-          hearAbout: "",
-        },
+  // Track the current step and the created application's document ID
+  const [step, setStep] = useState(1);
+  const [applicationId, setApplicationId] = useState(null);
+
+  const methods = useForm({
+    defaultValues: {
+      account: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
       },
-    });
+      step1: {
+        program: "",
+        ageGroup: "",
+        subject1: "",
+        subject2: "",
+      },
+      step2: {
+        firstName: "",
+        lastName: "",
+        dateOfBirth: "",
+        gender: "",
+        email: "",
+        phone: "",
+        address: "",
+        country: "",
+        passportCountry: "",
+      },
+      step3: {
+        institution: "",
+        candidateReason: "",
+        additionalInfo: "",
+        visaRequired: "",
+        hearAbout: "",
+      },
+    },
+  });
 
   const { handleSubmit, register } = methods;
 
-  const onSubmit = (data) => {
-    if (step < 4) {
-      setStep(step + 1);
-    } else {
-      console.log("Final form data:", data);
+  // This function creates a new application on step 1 and patches it in later steps.
+  const onSubmit = async (data) => {
+    if (step === 1) {
+      // Step 1: Create a new application with the account details.
+      try {
+        const doc = {
+          _type: 'application',
+          account: data.account,
+          status: 'account_created', // update status accordingly
+        };
+        const created = await client.create(doc);
+        setApplicationId(created._id);
+        setStep(step + 1);
+      } catch (error) {
+        console.error("Error creating application:", error);
+      }
+    } else if (step === 2) {
+      // Step 2: Patch the document with registration (step1) data.
+      try {
+        await client.patch(applicationId)
+          .set({ 
+            step1: data.step1, 
+            status: 'program_selected' // update status to indicate registration complete
+          })
+          .commit();
+        setStep(step + 1);
+      } catch (error) {
+        console.error("Error updating application (step 2):", error);
+      }
+    } else if (step === 3) {
+      // Step 3: Patch the document with application (step2) data.
+      try {
+        await client.patch(applicationId)
+          .set({ 
+            step2: data.step2, 
+            status: 'personal_info_submitted' // update status as needed
+          })
+          .commit();
+        setStep(step + 1);
+      } catch (error) {
+        console.error("Error updating application (step 3):", error);
+      }
+    } else if (step === 4) {
+      // Step 4: Patch the document with further info (step3) data and mark as completed.
+      try {
+        await client.patch(applicationId)
+          .set({ 
+            step3: data.step3,
+            status: 'completed',
+            submittedAt: new Date().toISOString(),
+          })
+          .commit();
+        console.log("Final application submitted successfully!");
+        // Optionally, reset the form or navigate to a confirmation page.
+      } catch (error) {
+        console.error("Error finalizing application (step 4):", error);
+      }
     }
   };
+
+  // --- UI Components Below (unchanged except for onSubmit updates) ---
 
   const ProgressBars = ({ currentStep }) => {
     const getBarStyle = (barIndex) => {
@@ -93,12 +152,11 @@ const ApplicationForm = () => {
 
   const StepIndicator = () => (
     <div className="w-2/5 bg-mainBlue p-8 flex flex-col rounded-[30px]">
-      {/* <div className="text-white text-2xl font-bold mb-12">OCL LOGO</div> */}
       <div className="flex justify-center items-center">
-      <img
-        src="/logo-header.png"
-        alt="OCL Logo"
-        className="w-24 h-24  "
+        <img
+          src="/logo-header.png"
+          alt="OCL Logo"
+          className="w-24 h-24"
         />
       </div>
       
@@ -112,7 +170,9 @@ const ApplicationForm = () => {
         ></div>
         <div className="flex items-center">
           <div
-            className={`w-10 h-10 rounded-[10px] border-2 ${step >= 1 ? "border-mainYellow" : "border-grey"} flex items-center justify-center text-white bg-mainBlue relative z-10`}
+            className={`w-10 h-10 rounded-[10px] border-2 ${
+              step >= 1 ? "border-mainYellow" : "border-grey"
+            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
           >
             1
           </div>
@@ -120,7 +180,9 @@ const ApplicationForm = () => {
         </div>
         <div className="flex items-center">
           <div
-            className={`w-10 h-10 rounded-[10px] border-2 ${step >= 2 ? "border-mainYellow" : "border-grey"} flex items-center justify-center text-white bg-mainBlue relative z-10`}
+            className={`w-10 h-10 rounded-[10px] border-2 ${
+              step >= 2 ? "border-mainYellow" : "border-grey"
+            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
           >
             2
           </div>
@@ -128,7 +190,9 @@ const ApplicationForm = () => {
         </div>
         <div className="flex items-center">
           <div
-            className={`w-10 h-10 rounded-[10px] border-2 ${step >= 3 ? "border-mainYellow" : "border-grey"} flex items-center justify-center text-white bg-mainBlue relative z-10`}
+            className={`w-10 h-10 rounded-[10px] border-2 ${
+              step >= 3 ? "border-mainYellow" : "border-grey"
+            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
           >
             3
           </div>
@@ -140,8 +204,12 @@ const ApplicationForm = () => {
 
   const AccountCreationStep = () => (
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
-      <h1 className="text-2xl font-bold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center">The Oxford Institute</h1>
-      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center">REGISTRATION FORM</h2>
+      <h1 className="text-2xl font-bold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center">
+        The Oxford Institute
+      </h1>
+      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center">
+        REGISTRATION FORM
+      </h2>
       <div className="space-y-6 max-w-xl w-full text-textColor font-poppins">
         <div>
           <label className="block mb-2">First Name:</label>
@@ -180,14 +248,13 @@ const ApplicationForm = () => {
           />
         </div>
         <div className="flex items-center justify-center">
-        <button
-          type="submit"
-          className="bg-mainBlue text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
-        >
-          Register Now
-        </button>
+          <button
+            type="submit"
+            className="bg-mainBlue text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
+          >
+            Register Now
+          </button>
         </div>
-        
         <ProgressBars currentStep={step} />
       </div>
     </form>
@@ -412,9 +479,6 @@ const ApplicationForm = () => {
     </form>
   );
   
-  
-  
-
   const FurtherInfoStep = () => (
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
       <h1 className="text-2xl font-bold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center">
@@ -507,16 +571,14 @@ const ApplicationForm = () => {
         </button>
       </div>
       <ProgressBars currentStep={step} />
-
     </form>
   );
   
-
   const steps = [
-    <AccountCreationStep />,
-    <RegistrationStep />,
-    <ApplicationStep />,
-    <FurtherInfoStep />,
+    <AccountCreationStep key="step1" />,
+    <RegistrationStep key="step2" />,
+    <ApplicationStep key="step3" />,
+    <FurtherInfoStep key="step4" />,
   ];
 
   return (

@@ -14,6 +14,7 @@ const ApplicationForm = () => {
   // Track the current step and the created application's document ID
   const [step, setStep] = useState(1);
   const [applicationId, setApplicationId] = useState(null);
+  const [saving,setSaving] = useState(false);
 
   const methods = useForm({
     defaultValues: {
@@ -54,6 +55,7 @@ const ApplicationForm = () => {
 
   // This function creates a new application on step 1 and patches it in later steps.
   const onSubmit = async (data) => {
+    setSaving(true);  
     if (step === 1) {
       // Step 1: Create a new application with the account details.
       try {
@@ -113,6 +115,7 @@ const ApplicationForm = () => {
         console.error("Error finalizing application (step 4):", error);
       }
     }
+    setSaving(false);
     // console.log(data);
     // setStep(step + 1);
   };
@@ -260,9 +263,12 @@ const ApplicationForm = () => {
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            className="bg-mainBlue text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
+            disabled={saving}
+            className="bg-mainBlue disabled:bg-slate-600 text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
           >
-            Register Now
+            {/* Register Now */}
+            {saving ? "Saving..." : "Register Now"}
+
           </button>
         </div>
         <ProgressBars currentStep={step} />
@@ -365,9 +371,11 @@ const ApplicationForm = () => {
         <div className="flex justify-center items-center">
         <button
           type="submit"
-          className="bg-mainBlue text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
+          disabled={saving}
+          className="bg-mainBlue disabled:bg-slate-600 text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
         >
-          Next
+          {/* Next */}
+          {saving ? "Saving..." : "Next"}
         </button>
         </div>
         
@@ -492,9 +500,11 @@ const ApplicationForm = () => {
       <div className="py-3 flex justify-center items-center">
         <button
           type="submit"
-          className="bg-mainBlue text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
+          disabled={saving}
+          className="bg-mainBlue disabled:bg-slate-600 text-white px-6 py-3 rounded-[8px] disabled:opacity-50"
         >
-          Next
+          {/* Next */}
+          {saving ? "Saving..." : "Next"}
         </button>
       </div>
       <ProgressBars currentStep={step} />
@@ -587,9 +597,11 @@ const ApplicationForm = () => {
       <div className="py-6 flex justify-center items-center">
         <button
           type="submit"
-          className="bg-mainBlue text-white px-6 py-3 rounded-lg shadow-md hover:bg-darkBlue disabled:opacity-50"
+          disabled={saving}
+          className="bg-mainBlue disabled:bg-slate-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-darkBlue disabled:opacity-50"
         >
-          Submit Application
+          {/* Submit Application */}
+          {saving ? "Saving..." : "Submit Application"}
         </button>
       </div>
       <ProgressBars currentStep={step} />

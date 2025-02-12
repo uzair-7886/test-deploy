@@ -78,7 +78,7 @@ const FeeKeyDates = () => {
       </div>
       <div className="bg-mainBlue text-white p-6 rounded-[15px] CardShadow2 my-12">
             <h1 className="text-3xl font-bold text-center font-enriqueta">
-            Application Deadline: 1st January 2025
+            Application Deadline: 31st March 2025
             </h1>
           </div>
           </div>

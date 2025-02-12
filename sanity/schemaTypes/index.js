@@ -4,7 +4,11 @@ import course from './course'
 import subjects from './subjects'
 import gallery from './gallery'
 import application from './application'
+import video from './video'
+import { faqSection } from './faqSection'
+import { post } from './post'
+import { blockContent } from './blockContent'
 
 export const schema = {
-  types: [ application,testimonial,course,subjects, gallery,],
+  types: [ application,testimonial,course,subjects, gallery,video, faqSection,blockContent , post, ],
 }

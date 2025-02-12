@@ -126,17 +126,17 @@ export default function GalleryViewer() {
 
   return (
     <div className="w-full">
-      <div className="bg-gray-100 border-b relative">
+      <div className="relative">
         <div className="container mx-auto relative flex justify-center items-center">
           <button 
             onClick={() => scrollNav('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-1 rounded-full shadow-md hover:bg-white transition-colors md:hidden"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10  p-1 rounded-full shadow-md hover:bg-white transition-colors md:hidden"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button 
             onClick={() => scrollNav('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-1 rounded-full shadow-md hover:bg-white transition-colors md:hidden"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 \ p-1 rounded-full shadow-md hover:bg-white transition-colors md:hidden"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

@@ -116,8 +116,6 @@ const ApplicationForm = () => {
       }
     }
     setSaving(false);
-    // console.log(data);
-    // setStep(step + 1);
   };
 
   // --- UI Components Below (unchanged except for onSubmit updates) ---
@@ -231,6 +229,7 @@ const ApplicationForm = () => {
             className="w-full p-3 bg-[#EEEEEE] rounded-lg"
             type="text"
             placeholder="Enter your first name..."
+            required
           />
         </div>
         <div>
@@ -240,6 +239,7 @@ const ApplicationForm = () => {
             className="w-full p-3 bg-[#EEEEEE] rounded-lg"
             type="text"
             placeholder="Enter your last name..."
+            required
           />
         </div>
         <div>
@@ -249,6 +249,7 @@ const ApplicationForm = () => {
             className="w-full p-3 bg-[#EEEEEE] rounded-lg"
             type="email"
             placeholder="Enter your email..."
+            required
           />
         </div>
         <div>
@@ -258,6 +259,7 @@ const ApplicationForm = () => {
             className="w-full p-3 bg-[#EEEEEE] rounded-lg"
             type="password"
             placeholder="Enter your password..."
+            required
           />
         </div>
         <div className="flex items-center justify-center">
@@ -292,6 +294,7 @@ const ApplicationForm = () => {
               {...register("step1.program")}
               className="w-full p-4 bg-[#EEEEEE] rounded-lg appearance-none text-sm"
               style={{ lineHeight: "1.5rem", height: "3.5rem" }}
+              required
             >
               <option value="Oxford Summer Program">
                 Oxford Summer Program - 20th Jul - 1st Aug 2025 - £5,999.00
@@ -318,6 +321,7 @@ const ApplicationForm = () => {
               {...register("step1.ageGroup")}
               className="w-full p-4 bg-[#EEEEEE] rounded-lg appearance-none text-sm"
               style={{ lineHeight: "1.5rem", height: "3.5rem" }}
+              required
             >
               <option value="12-15">Juniors (12-15 years old)</option>
               <option value="16-18">Seniors (16-19 years old)</option>
@@ -339,14 +343,20 @@ const ApplicationForm = () => {
               {...register("step1.subject1")}
               className="w-full p-4 bg-[#EEEEEE] rounded-lg appearance-none text-sm"
               style={{ lineHeight: "1.5rem", height: "3.5rem" }}
+              required
             >
-              <option value="World History">World History</option>
+              <option value="STEM">STEM</option>
+              <option value="Humanities and Social Sciences">Humanities and Social Sciences</option>
+              <option value="Arts and Creativity">Arts and Creativity</option>
+              <option value="Leadership and Business">Leadership and Business</option>
             </select>
+
             <img
               src="/chev-down.svg"
               alt="Dropdown arrow"
               className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
               style={{ width: "12px", height: "12px" }}
+  
             />
           </div>
         </div>
@@ -357,8 +367,12 @@ const ApplicationForm = () => {
               {...register("step1.subject2")}
               className="w-full p-4 bg-[#EEEEEE] rounded-lg appearance-none text-sm"
               style={{ lineHeight: "1.5rem", height: "3.5rem" }}
+              required
             >
-              <option value="World History">World History</option>
+                            <option value="STEM">STEM</option>
+              <option value="Humanities and Social Sciences">Humanities and Social Sciences</option>
+              <option value="Arts and Creativity">Arts and Creativity</option>
+              <option value="Leadership and Business">Leadership and Business</option>
             </select>
             <img
               src="/chev-down.svg"
@@ -400,6 +414,7 @@ const ApplicationForm = () => {
             placeholder="Enter first name..."
             className="w-full p-4 bg-[#EEEEEE] rounded-lg"
             type="text"
+            required
           />
         </div>
         <div>
@@ -409,6 +424,7 @@ const ApplicationForm = () => {
             placeholder="Enter last name..."
             className="w-full p-4 bg-[#EEEEEE] rounded-lg"
             type="text"
+            required
           />
         </div>
         <div>
@@ -418,6 +434,7 @@ const ApplicationForm = () => {
             placeholder="Select your date of birth..."
             className="w-full p-4 bg-[#EEEEEE] rounded-lg"
             type="date"
+            required
           />
         </div>
         <div className="relative">
@@ -426,6 +443,7 @@ const ApplicationForm = () => {
             {...register("step2.gender")}
             className="w-full p-4 bg-[#EEEEEE] rounded-lg appearance-none"
             style={{ lineHeight: "1.75rem", height: "3.5rem" }}
+            required
           >
             <option value="">Select your gender...</option>
             <option value="Male">Male</option>
@@ -446,6 +464,7 @@ const ApplicationForm = () => {
             placeholder="info@xyz.com"
             className="w-full p-4 bg-[#EEEEEE] rounded-lg"
             type="email"
+            required
           />
         </div>
         <div>
@@ -455,6 +474,7 @@ const ApplicationForm = () => {
             placeholder="+91 - 98596 58000"
             className="w-full p-4 bg-[#EEEEEE] rounded-lg"
             type="tel"
+            required
           />
         </div>
         <div>
@@ -464,6 +484,7 @@ const ApplicationForm = () => {
             placeholder="Enter your address..."
             className="w-full p-4 bg-[#EEEEEE] rounded-lg"
             type="text"
+            required
           />
         </div>
         <div className="relative">
@@ -472,6 +493,7 @@ const ApplicationForm = () => {
             {...register("step2.country")}
             className="w-full p-4 bg-[#EEEEEE] rounded-lg appearance-none"
             style={{ lineHeight: "1.75rem", height: "3.5rem" }}
+            required
           >
             <option value="">Select your country...</option>
             {countryOptions.map((country) => (
@@ -527,6 +549,7 @@ const ApplicationForm = () => {
             placeholder="Enter your Institution name..."
             className="w-full p-4 bg-[#EEEEEE] rounded-lg"
             type="text"
+            required
           />
         </div>
         <div>
@@ -538,6 +561,7 @@ const ApplicationForm = () => {
             placeholder="..."
             maxLength={500}
             className="w-full p-4 bg-[#EEEEEE] rounded-lg h-[120px]"
+            required
           />
         </div>
         <div>
@@ -558,6 +582,7 @@ const ApplicationForm = () => {
                 type="radio"
                 value="Yes"
                 className="h-5 w-5 border border-[#CCCCCC] rounded-md focus:ring-mainBlue"
+                required
               />
               <span>Yes</span>
             </label>
@@ -578,6 +603,7 @@ const ApplicationForm = () => {
             <select
               {...register("step3.hearAbout")}
               className="w-full p-4 bg-[#EEEEEE] rounded-lg appearance-none"
+              required
             >
               <option value="">Select an option...</option>
               <option value="Word of Mouth">Word of Mouth</option>

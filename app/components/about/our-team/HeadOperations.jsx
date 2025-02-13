@@ -10,7 +10,7 @@ const HeadOperations = () => {
           <div className="w-full md:w-1/2 lg:w-2/5">
             <div className="relative w-full aspect-[4/3] rounded-[30px] overflow-hidden">
               <Image
-                src="/Our Team/Lucy.jpg"
+                src= "/Tutors/nazish.png"
                 alt="Nazish Gulzar"
                 fill
                 className="object-cover"

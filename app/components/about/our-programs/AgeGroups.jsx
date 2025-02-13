@@ -4,28 +4,28 @@ import MainContent from "../../shared/MainContent";
 const AgeGroups = () => {
   const contentData = [
     {
-      image: "/Our Organization Page/People.jpg", 
+      image: "/Age Group/Juniors.jpg", 
       heading: "Juniors (12-15 Years old)",
       text: "Our Juniors Camp is designed for students who are 12 to 15 years old and are currently enrolled in their Middle School, High School or being homeschooled. Students enrolled in our Juniors batch come from diverse educational backgrounds. including MYP (Middle Years Programme), students preparing for their IGCSE, GCSE, O levels or national examination systems in their respective countries. ",
-      link:"/"
+      link:"/subject"
     },
     {
-      image: "/Our Organization Page/Tutoiral.JPG",
+      image: "/Age Group/Seniors.jpg",
       heading: "Seniors ( 16 - 19 Years old)",
       text: "Our Seniors camp is designed for students enrolled in IB (Diploma Programme), CP (Career-related Programme), O or A levels, IGCSE, GCSE or other local examination programs and are between the age range of 16-19 years old. The Oxford Institute offers students the flexibility to choose their subjects of interest from a range of options. All students choose a Major and a Minor subject from the list of Subjects ",
-      link:"/"
+      link:"/subjects"
     },
     {
-      image: "/Our Organization Page/Collegiate systems.jpeg",
+      image: "/Age Group/University Students.jpeg",
       heading: "University Students 19+",
       text: "The Oxford Summer Program welcomes students currently enrolled in undergraduate and postgraduate degrees in different universities around the world. The course provides university students with networking opportunities and a chance to interact with professionals in their areas of interest. Emphasis is also given to developing and fine tuning communication skills through a range of public speaking and debating workshops as well as interpersonal, leadership and team working skills.",
-      link:"/"
+      link:"/subjects"
     },
     {
-        image: "/Our Organization Page/Collegiate systems.jpeg",
+        image: "/Age Group/Executive.jpg",
         heading: "Executive Program 28+",
         text: "The Executive Summer Program offers you the opportunity to identify, explore, and overcome management challenges in an incessantly changing business environment. Our two-week executive programme focuses on the challenges facing the next generation of business leaders, and explores the most appropriate and practical solutions. It is an ideal opportunity to take a step back, consider the bigger picture, and begin to develop solutions that will be necessary for the decade to come.",
-        link:"/"
+        link:"/subjects"
       },
     
   ];

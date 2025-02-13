@@ -74,7 +74,26 @@ const SubjectSwitcher = () => {
       course.description?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  if (loading) return <div>Loading subjects...</div>;
+  if (loading) {
+    return (
+      <div className="p-4 space-y-4 animate-pulse">
+        {/* Subject title skeleton */}
+        <div className="h-8 bg-gray-200 rounded w-1/3"></div>
+        
+        {/* Subject description skeleton */}
+        <div className="h-4 bg-gray-200 rounded w-full"></div>
+        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+  
+        {/* Courses grid skeleton */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
+          <div className="h-32 bg-gray-200 rounded"></div>
+          <div className="h-32 bg-gray-200 rounded"></div>
+          <div className="h-32 bg-gray-200 rounded"></div>
+          <div className="h-32 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+    );
+  }
   if (error) return <div>Error loading subjects: {error.message}</div>;
   if (!activeSubject) return <div>No subjects available</div>;
 

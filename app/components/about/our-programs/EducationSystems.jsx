@@ -4,28 +4,28 @@ import MainContent from "../../shared/MainContent";
 const EducationSystems = () => {
   const contentData = [
     {
-      image: "/Our Organization Page/People.jpg", 
+      image: "/Age Group/IB Students.jpg",
       heading: "IB Students",
       text: "The Oxford Summer Program supports MYP, DP, and CP students (12–19 years) with focused IB preparation. Oxbridge tutors deliver small, interactive classes tailored to individual needs, enhancing critical thinking and academic success. Students choose major and minor modules, bridging IB studies with university-level concepts. The program builds essential skills for excelling in IB exams and higher education.",
-      link:"/"
+      link:"/subjects"
     },
     {
-      image: "/Our Organization Page/Tutoiral.JPG",
+      image: "/Age Group/OA levels.jpg",
       heading: "O/A Levels",
       text: "Our two-week camps offer O/A Level students courses in 32 subjects to meet modern educational demands. Rigorous preparation fosters academic excellence, personal growth, and adaptability. Tutors encourage critical thinking and global engagement, helping students achieve top exam results and prepare for university.",
-      link:"/"
+      link:"/subjects"
     },
     {
-      image: "/Our Organization Page/Collegiate systems.jpeg",
+      image: "/Age Group/GCSE.jpg",
       heading: "GSCE/IGSCE",
       text: "This program helps GCSE/IGCSE students excel in exams through small-group tutorials targeting specific subjects and skills. Tutors provide exam strategies and personalized roadmaps for academic and career goals. Participants gain confidence, critical skills, and preparation for future challenges.",
-      link:"/"
+      link:"/subjects"
     },
     {
-        image: "/Our Organization Page/Collegiate systems.jpeg",
+      image: "/Age Group/Local Examination.jpg",
         heading: "Local Examination System",
         text: "We welcome students from diverse local systems, offering flexible tutorials to meet individual needs. The program bridges current studies with advanced concepts, preparing students for global academic standards. Participants gain expert guidance for transitioning to top universities worldwide.",
-        link:"/"
+        link:"/subjects"
       },
     
   ];

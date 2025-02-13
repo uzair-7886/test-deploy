@@ -7,7 +7,7 @@ const programData = [
     title: "OXFORD SUMMER PROGRAM",
     description:
       "In 2025, we are proud to present our flagship Oxford Summer Program (with limited seats) at the historic St Anne’s College, University of Oxford, running from 20th July to 1st August, exclusively for participants aged 14–19+.",
-    image: '/Our Programs/Banner.jpg',
+    image: '/summer.png',
     downloadLink: "#",
   },
   {
@@ -15,7 +15,7 @@ const programData = [
     title: "EXECUTIVE LEADERSHIP PROGRAM",
     description:
       "For professionals and global leaders, we are delighted to host the Executive Leadership Program at Oxford from 5th to 12th July 2025, offering an intensive experience designed to advance leadership skills and strategic thinking.",
-    image: '/Our Programs/Banner.jpg',
+    image: '/exec.png',
     downloadLink: "#",
   },
   {
@@ -23,7 +23,7 @@ const programData = [
     title: "OXFORD-CHINA SUMMER",
     description:
       "Our Oxford-China Summer in Chengdu will take place from 2nd to 15th August 2025, bringing the essence of the Oxford Experience to a dynamic and culturally rich setting.",
-    image: '/Our Programs/Banner.jpg',
+    image: '/china.png',
     downloadLink: "#",
   },
   {
@@ -31,7 +31,7 @@ const programData = [
     title: 'CUSTOMISED CAMP',
     description:
       "Reach out if you'd like us to organise a customised or bespoke camp year-round for 25+ participants at the University of Oxford.",
-    image: '/Our Programs/Banner.jpg',
+    image: '/custom.png',
     downloadLink: "#",
   },
 ];

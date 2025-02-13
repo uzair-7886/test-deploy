@@ -32,26 +32,83 @@ function getWidths(activeIndex, dataLength, isMobile) {
 const testimonialData = [
   {
     id: 1,
-    name: "Anna Oliynyk",
-    country: "Russia",
-    image: "/homepage/oxford-fg.jpg",
-    text: "In my opinion, the Oxford Summer Program offers students a unique experience with a balance between academic and social activities. I thoroughly enjoyed my stay at Oxford."
+    name: "Natalie Stetser",
+    country: "USA",
+    image: "/Coordinators/Natalie.png",
+    text: "Natalie is a graduate of Rutgers University. She spent three summers leading educational and volunteer trips with high school students abroad to Ecuador, Peru, and Costa Rica. She has taught Spanish and English for over 10 years, ranging from the elementary to university level."
   },
   {
     id: 2,
-    name: "Aniela Cheon",
-    country: "USA",
-    image: "/homepage/oxford-fg.jpg",
-    text: "My experience here at Oxford has been really amazing. I have met so many new people. It has been really great."
+    name: "Yujiao Zhang",
+    country: "China",
+    image: "/Coordinators/Yujiao.png",
+    text: "Yujiao holds a Masters degree in Management and Information Systems from the University of Manchester and now works as a management consultant for Global Fortune 500 clients. He brings over 15 years of experience in teaching, training, and talent performance both within China and internationally in India, Germany, and England. Yujiao has been working with the Oxford Institute for over 7 years now."
   },
   {
     id: 3,
-    name: "Tim",
+    name: "Marina Zhang",
+    country: "China",
+    image: "/Coordinators/Marina Zhang.jpeg",
+    text: "Marina completed her Masters in Information Systems and Management from the University of Warwick and has over 15 years of experience in the education sector in China and South Africa. Marina has been working with the Oxford Institute for over 7 years now."
+  },
+  {
+    id: 4,
+    name: "Zahida Afzal",
+    country: "Middle East",
+    image: "/Coordinators/Zahida.png",
+    text: "Zahida Afzal is the Director of Britannia Academia and has extensive corporate experience working in the Middle East. Her passion for education led her to initiate her organization – Britannia Academia – which is committed to educational excellence and empowerment in the Middle East Region. Zahida is a true believer that education should encompass more than just vocational training; it should also instill values, critical thinking skills, empathy, and a sense of purpose. We share the same goal of empowering young people not only to excel in their careers but also to lead fulfilling and meaningful lives, contributing positively to society and finding personal fulfillment beyond financial success."
+  },
+  {
+    id: 5,
+    name: "Masoud Shaghaghi",
+    country: "Iran",
+    image: "/Coordinators/Masoud.png",
+    text: "Masoud is the operational manager of Goldis Language Institute, the biggest language learning center in northwest Iran. He completed his PhD in applied linguistics at Erfurt University in Germany and has previously taught at summer schools in Oxford."
+  },
+  {
+    id: 6,
+    name: "Esther Wanjau",
     country: "Kenya",
-    image: "/homepage/oxford-fg.jpg",
-    text: "My time in Oxford was remarkable, particularly the engaging debates with my peers. I thoroughly enjoyed them."
+    image: "/Coordinators/Esther Wanjau.jpeg",
+    text: "Esther has maintained sustained engagement with the education sector at the Government of Kenya. She holds a Masters Degree in Management Information Systems from the University of Manchester."
+  },
+  {
+    id: 7,
+    name: "Aygul Abiz",
+    country: "Turkey",
+    image: "", 
+    text: "Aygül is a native British TESOL teacher currently living in Izmir, Turkey. She is the proud owner of Little Britain School of English and has over 8 years of experience teaching English as a second language, as well as educational consulting and career coaching."
+  },
+  {
+    id: 8,
+    name: "Mona Masoud",
+    country: "Bangladesh",
+    image: "/Coordinators/Mona.png",
+    text: "Ms. Masud is a Canadian Bangladeshi residing in Bangladesh. She completed her International Baccalaureate at Kungsholmens’ Gymnasium in Stockholm, then earned her Bachelor of Commerce degree in Marketing and Management at Concordia University, Montreal. Ms. Mona also completed certifications from Harvard Business School online in leadership and obtained certifications from ICS India in academic counseling. She has vast professional experience guiding student youth through her governance and leadership roles in the education industry."
+  },
+  {
+    id: 9,
+    name: "Fareeha Ashraf",
+    country: "UAE",
+    image: "/Coordinators/Fareeha.png",
+    text: "Fareeha holds a degree in Business Administration. She has extensive work experience managing Human Resources and conducting corporate training in the Middle East. She is the Regional Coordinator of the Oxford Summer Camp."
+  },
+  {
+    id: 10,
+    name: "Ahmet Ataner",
+    country: "Cyprus",
+    image: "/Coordinators/Ahmet Ataner.jpeg",
+    text: "Following his Masters in Business Administration, Ahmet has worked as a Lecturer and General Secretary of the European University of Lefke in Cyprus. He has also served as Chief Executive Officer of the Cyprus Development Bank, as well as the SOS Children’s Village Kinderdorf International. He is currently running a consultancy firm specializing in international education, careers, and investment and has represented the Oxford Institute in his region for 5 years now."
+  },
+  {
+    id: 11,
+    name: "Siraj Al Marafa",
+    country: "Iraq",
+    image: "/Coordinators/Siraj.jpg",
+    text: "Siraj Al Marafa, an esteemed Iraqi entity, empowers businesses and individuals through comprehensive training in accounting, finance, IT, Business Administration, and English, as well as expert consulting in financial management and feasibility studies. Our initiatives include the Masaha and Siraj Business Incubator, dedicated to fostering entrepreneurial success, the Enjaz program, which enhances personal and professional development, and the Mustadam Center, which is committed to sustainable environmental management. At Siraj Al Marafa, we are passionate about driving growth and sustainability in Iraq’s business landscape, supporting our clients every step of the way to achieve their goals."
   }
 ];
+
 
 const CountryCoordinator = () => {
   const [activeIndex, setActiveIndex] = useState(0);

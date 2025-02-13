@@ -6,28 +6,28 @@ const coordinatorData = {
     name: "Julia Strawinska",
     role: "Tutor",
     description: "Julia Strawinska - Julia holds a degree in English Language and Literature from the University of Oxford, and an undergraduate certificate in Photography from Manchester Metropolitan University. In addition to her role as academic coordinator, Julia has taught fine art, photography and English at the Oxford Institute for three years.",
-    image: "/Our Team/Lucy.jpg"
+    image: "/Tutors/julia.png"
   },
   others: [
     {
       name: "Maria Rioumine",
       description: "Maria read Philosophy, Politics and Economics at Christ Church College, Oxford University. She was elected President of the Oxford Union, the world renowned debating society and oversaw the organisation of all university-wide debates, socials and speaker events",
-      image: "/Our Team/Lucy.jpg"
+      image: "/Tutors/maria.png"
     },
     {
       name: "Dr. Anna Svenson",
       description: "Anna holds a PhD in History of Science, Technology and Environment. With a background in English Literature (BA, University of Oxford, 2008), her current research areas engage with the challenges and possibilities of interdisciplinary research, the history of botany, and early modern collecting cultures.",
-      image: "/Our Team/Lucy.jpg"
+      image: "/Tutors/anna.png"
     },
     {
       name: "Harry Lee",
       description: "Harry has graduated from Oriel College, University of Oxford in Molecular and Cellular Biology, he was also visiting scholar at Princeton University (USA) for one year. Harry came to Oxford from Korea and has been helping overseas applicants with their Oxbridge applications since his first year at Oxford.",
-      image: "/Our Team/Lucy.jpg"
+      image: "/Tutors/harry.png"
     },
     {
       name: "Dr. Megan Robb",
       description: "Megan holds a PhD in Oriental Studies from the University of Oxford. She has completed an MPhil degree in Modern South Asian Studies and a Bachelor’s degree from University of Indiana, USA. Megan remained the General Secretary of the Oxford University Model United Nations and has excellent public speaking skills.",
-      image: "/Our Team/Lucy.jpg"
+      image: "/Tutors/megan.png"
     }
   ]
 };

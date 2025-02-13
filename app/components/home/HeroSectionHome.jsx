@@ -93,7 +93,7 @@ const HeroSectionHome = () => {
           </div>
 
           <div className="flex justify-center lg:justify-start">
-            <ButtonOutlined href="/apply">Apply Now</ButtonOutlined>
+            <ButtonOutlined href="/application">Apply Now</ButtonOutlined>
           </div>
         </div>
         

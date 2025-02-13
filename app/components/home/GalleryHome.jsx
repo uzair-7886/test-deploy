@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const galleryData = [
   {
@@ -93,11 +94,13 @@ const GalleryHome = () => {
                   justify-center
                 "
               >
+                <Link href={'/gallery'}>
                 <img
                   src="/homepage/toprightchev.svg"
                   alt="arrow"
                   className="w-8 h-8"
                 />
+                </Link>
               </div>
             </div>
           ))}

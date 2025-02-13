@@ -46,7 +46,7 @@ const ProgramCard = ({ program }) => {
         </p>
 
         {/* Button */}
-        <Button href="#">
+        <Button href="/about/our-programs">
           Learn More
         </Button>
       </div>

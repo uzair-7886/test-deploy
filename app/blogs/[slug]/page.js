@@ -5,11 +5,23 @@ import Image from "next/image"
 import { PortableText } from "next-sanity"
 import RichText from "./RichText"
 
+// 1. ADD THIS FUNCTION
+export async function generateStaticParams() {
+  // Fetch all the slugs from Sanity
+  const query = groq`*[_type == "post" && defined(slug.current)][].slug.current`
+  const slugs = await client.fetch(query)
 
+  // Return them in the format: [{ slug: "..." }, { slug: "..." }]
+  return slugs.map((slug) => ({
+    slug,
+  }))
+}
 
+// (Optional) Add a revalidate time if you want ISR
+export const revalidate = 60; // Re-generate after 60 seconds
 
 export default async function Post({ params: { slug } }) {
-  // GROQ query matching your new schema fields
+  // GROQ query
   const query = groq`
     *[_type == "post" && slug.current == $slug][0]{
       _id,
@@ -24,11 +36,8 @@ export default async function Post({ params: { slug } }) {
       body
     }
   `
-
-  // Fetch the post
   const post = await client.fetch(query, { slug })
 
-  // If no post found, handle error or display a message
   if (!post) {
     return <div className="p-5">Post not found.</div>
   }
@@ -48,7 +57,7 @@ export default async function Post({ params: { slug } }) {
             />
           </div>
         )}
-        {/* Title & Publish Date below the image */}
+        {/* Title & Publish Date */}
         <div className="mt-5">
           <h1 className="text-4xl font-extrabold text-mainBlue font-enriqueta">
             {post.title}

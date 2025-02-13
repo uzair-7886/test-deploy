@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Single card for a subject
 const SubjectCard = ({ title, description, image }) => {
@@ -52,6 +53,7 @@ const SubjectCard = ({ title, description, image }) => {
       </div>
 
       {/* Arrow SVG pinned bottom-right, larger size */}
+      <Link href={'/subjects'}>
       <img
         src="/homepage/chev.svg"
         alt="Arrow"
@@ -64,6 +66,7 @@ const SubjectCard = ({ title, description, image }) => {
           cursor-pointer
         "
       />
+      </Link>
     </div>
   )
 }

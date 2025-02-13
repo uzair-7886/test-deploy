@@ -170,7 +170,7 @@ const OxfordLeadership = () => {
             young adults.
           </p>
           <Link
-            href="/"
+            href="/oxford-leadership"
             className="
               border border-mainYellow
               w-[147px]

@@ -14,7 +14,7 @@ const Page = () => {
   ];
 
   // Set the first section as active by default.
-  const [activeSection, setActiveSection] = useState(sections[2]);
+  const [activeSection, setActiveSection] = useState(sections[0]);
 
   return (
     <>

@@ -143,14 +143,13 @@ const ApplicationForm = () => {
           : "bg-[#12243E] bg-opacity-10 flex-grow";
       }
     };
-
+  
     return (
-      <div className="w-auto mx-auto flex gap-5 justify-center mt-10">
-        {[0, 1, 2,3].map((barIndex) => (
+      <div className="w-auto mx-auto flex gap-2 md:gap-5 justify-center mt-10">
+        {[0, 1, 2, 3].map((barIndex) => (
           <div
             key={barIndex}
-            className="h-[5px] flex bg-[#12243E] bg-opacity-10 overflow-hidden"
-            style={{ minWidth: "90px" }}
+            className="h-[5px] flex bg-[#12243E] bg-opacity-10 overflow-hidden min-w-[60px] md:min-w-[90px]"
           >
             <div
               className={`h-full transition-all duration-300 ${getBarStyle(barIndex)}`}
@@ -160,58 +159,105 @@ const ApplicationForm = () => {
       </div>
     );
   };
-
+  
   const StepIndicator = () => (
-    <div className="w-2/5 bg-mainBlue p-8 flex flex-col rounded-[30px]">
-      <div className="flex justify-center items-center">
-        <img
-          src="/logo-header.png"
-          alt="OCL Logo"
-          className="w-24 h-24"
-        />
-      </div>
-      
-      <div className="flex flex-col space-y-8 font-semibold relative">
-        <div className="absolute left-5 top-10 w-0.5 h-[calc(100%-40px)] bg-grey"></div>
-        <div
-          className="absolute left-5 top-10 w-0.5 bg-mainYellow transition-all duration-300"
-          style={{
-            height: `${Math.max(0, Math.min(step - 1, 2)) * 25}%`,
-          }}
-        ></div>
-        <div className="flex items-center">
+    <>
+      {/* Mobile Horizontal Indicator */}
+      <div className="w-full bg-mainBlue p-4 flex flex-row items-center justify-around rounded-[15px] md: md:hidden">
+        <div className="flex flex-col items-center">
           <div
             className={`w-10 h-10 rounded-[10px] border-2 ${
               step >= 1 ? "border-mainYellow" : "border-grey"
-            } flex items-center justify-center  text-white bg-mainBlue relative z-10`}
+            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
           >
             1
           </div>
-          <span className="ml-4 text-white font-enriqueta">Registration Form</span>
+          <span className="text-white font-enriqueta text-xs mt-1 text-center">
+            Registration
+          </span>
         </div>
-        <div className="flex items-center">
+        <div className="h-0.5 w-1/5 bg-grey" />
+        <div className="flex flex-col items-center">
           <div
             className={`w-10 h-10 rounded-[10px] border-2 ${
               step >= 3 ? "border-mainYellow" : "border-grey"
-            } flex items-center justify-center  text-white bg-mainBlue relative z-10`}
+            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
           >
             2
           </div>
-          <span className="ml-4 text-white font-enriqueta">Active Programs</span>
+          <span className="text-white font-enriqueta text-xs mt-1 text-center">
+            Programs
+          </span>
         </div>
-        <div className="flex items-center">
+        <div className="h-0.5 w-1/5 bg-grey" />
+        <div className="flex flex-col items-center">
           <div
             className={`w-10 h-10 rounded-[10px] border-2 ${
               step >= 4 ? "border-mainYellow" : "border-grey"
-            } flex items-center justify-center  text-white bg-mainBlue relative z-10`}
+            } flex items-center justify-center text-white bg-mainBlue relative z-10`}
           >
             3
           </div>
-          <span className="ml-4 text-white font-enriqueta">Application Form</span>
+          <span className="text-white font-enriqueta text-xs mt-1 text-center">
+            Application
+          </span>
         </div>
       </div>
-    </div>
+  
+      {/* Desktop Vertical Indicator */}
+      <div className="w-2/5 bg-mainBlue p-8 hidden md:flex flex-col rounded-[30px]">
+        <div className="flex justify-center items-center">
+          <img src="/logo-header.png" alt="OCL Logo" className="w-24 h-24" />
+        </div>
+        <div className="flex flex-col space-y-8 font-semibold relative">
+          <div className="absolute left-5 top-10 w-0.5 h-[calc(100%-40px)] bg-grey"></div>
+          <div
+            className="absolute left-5 top-10 w-0.5 bg-mainYellow transition-all duration-300"
+            style={{
+              height: `${Math.max(0, Math.min(step - 1, 2)) * 25}%`,
+            }}
+          ></div>
+          <div className="flex items-center">
+            <div
+              className={`w-10 h-10 rounded-[10px] border-2 ${
+                step >= 1 ? "border-mainYellow" : "border-grey"
+              } flex items-center justify-center text-white bg-mainBlue relative z-10`}
+            >
+              1
+            </div>
+            <span className="ml-4 text-white font-enriqueta">
+              Registration Form
+            </span>
+          </div>
+          <div className="flex items-center">
+            <div
+              className={`w-10 h-10 rounded-[10px] border-2 ${
+                step >= 3 ? "border-mainYellow" : "border-grey"
+              } flex items-center justify-center text-white bg-mainBlue relative z-10`}
+            >
+              2
+            </div>
+            <span className="ml-4 text-white font-enriqueta">
+              Active Programs
+            </span>
+          </div>
+          <div className="flex items-center">
+            <div
+              className={`w-10 h-10 rounded-[10px] border-2 ${
+                step >= 4 ? "border-mainYellow" : "border-grey"
+              } flex items-center justify-center text-white bg-mainBlue relative z-10`}
+            >
+              3
+            </div>
+            <span className="ml-4 text-white font-enriqueta">
+              Application Form
+            </span>
+          </div>
+        </div>
+      </div>
+    </>
   );
+  
 
   const AccountCreationStep = () => (
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
@@ -642,15 +688,33 @@ const ApplicationForm = () => {
   ];
 
   return (
-    <div className="min-h-screen max-w-7xl mx-auto flex items-center justify-center  p-5">
-      <div className="flex rounded-[30px] w-4/5 DropImg">
-        <StepIndicator />
-        <div className="w-full">
-          <FormProvider {...methods}>{steps[step - 1]}</FormProvider>
+    <>
+      {/* Small Screen Layout */}
+      <div className="block md:hidden min-h-screen w-full flex items-center justify-center p-5">
+  <div className="flex flex-col rounded-[15px] w-full DropImg">
+    <div className="w-full">
+      <StepIndicator />
+    </div>
+    <div className="w-full">
+      <FormProvider {...methods}>{steps[step - 1]}</FormProvider>
+    </div>
+  </div>
+</div>
+
+  
+      {/* md and Up Layout */}
+      <div className="hidden md:flex min-h-screen max-w-7xl mx-auto flex items-center justify-center p-5">
+        <div className="flex rounded-[30px] w-4/5 DropImg">
+          <StepIndicator />
+          <div className="w-full">
+            <FormProvider {...methods}>{steps[step - 1]}</FormProvider>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
+  
+
 };
 
 export default ApplicationForm;

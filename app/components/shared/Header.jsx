@@ -111,7 +111,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="border border-mainYellow rounded-[8px] px-6 py-2 hover:bg-mainYellow/10 transition-colors"
               >
                 Contact Us
@@ -203,7 +203,7 @@ const Header = () => {
             </li>
             <li className="pt-4">
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="block border border-mainYellow rounded-[8px] px-6 py-2 text-center hover:bg-mainYellow/10 transition-colors"
               >
                 Contact Us

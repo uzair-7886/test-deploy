@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const SafetyContent = () => {
   const contentData = [
@@ -69,7 +70,9 @@ const SafetyContent = () => {
               </div>
             )}
             {item.showApplyButton && (
+              <Link href={'/application'}>
               <button
+
                 className={`
                   border border-mainYellow
                   rounded-[8px]
@@ -88,6 +91,7 @@ const SafetyContent = () => {
               >
                 Apply Now
               </button>
+              </Link>
             )}
           </div>
         </div>

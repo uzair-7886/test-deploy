@@ -8,7 +8,8 @@ import video from './video'
 import { faqSection } from './faqSection'
 import { post } from './post'
 import { blockContent } from './blockContent'
+import contactUs from './contactUs'
 
 export const schema = {
-  types: [ application,testimonial,course,subjects, gallery,video, faqSection,blockContent , post, ],
+  types: [ application,testimonial,course,subjects, gallery,video, faqSection,blockContent , post, contactUs],
 }

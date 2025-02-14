@@ -98,10 +98,10 @@ const ContactForm = () => {
         className="w-full border border-mainBlue text-textColor font-roboto rounded-lg p-2"
         required
       >
-        <option value="general">General Inquiry</option>
-        <option value="admissions">Admissions</option>
-        <option value="courses">Courses</option>
-        <option value="support">Support</option>
+        <option value="new-enrollment">New enrollment in the Oxford Summer Program</option>
+        <option value="existing-enrollment">Existing enrollment in the Oxford Summer Program</option>
+        <option value="working-with-oxford">Working with the Oxford Institute</option>
+        <option value="something-else">Something else</option>
 
         {/* Add more options as needed */}
       </select>
@@ -117,8 +117,8 @@ const ContactForm = () => {
       >
         <option value="student">Student</option>
         <option value="parent">Parent</option>
-        <option value="teacher">Teacher</option>
-        <option value="alumni">Alumni</option>
+        <option value="executive">Executive</option>
+        <option value="school-counsellor">School Counsellor</option>
         <option value="other">Other</option>
         {/* Add more options as needed */}
       </select>

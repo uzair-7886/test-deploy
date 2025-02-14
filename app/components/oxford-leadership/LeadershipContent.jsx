@@ -71,7 +71,7 @@ const LeadershipContent = () => {
           description:
             'The art of debate is central to the Oxford experience, and students are guided by champion debaters from the world-renowned Oxford Union. They learn to construct persuasive arguments, articulate ideas clearly, and respond to challenges with confidence. The program culminates in a final debate competition held in the historic Debating Chamber, a venue that has hosted some of history’s greatest thinkers and leaders. This immersive experience enhances students’ critical thinking, public speaking, and ability to lead in any setting.  ',
           image: '/Oxford Leadership/Debating at Oxford Union.jpg',
-          link: "#",
+          link: "/subjects",
         },
         {
           id: 2,
@@ -79,7 +79,7 @@ const LeadershipContent = () => {
           description:
             "Recognizing the importance of career development, the program offers students exposure to diverse career paths, including academia, business, law, arts, and government. Through one-on-one discussions with tutors and deans, participants refine their aspirations, explore opportunities, and gain insights into the global job market. Our guidance helps students build a clear vision for their future, equipping them with the knowledge and confidence to pursue their ambitions.",
           image: '/Oxford Leadership/career guidance.jpg',
-          link: "#",
+          link: "/subjects",
         },
         {
           id: 3,
@@ -87,7 +87,7 @@ const LeadershipContent = () => {
           description:
             "Navigating university applications can be daunting, and our expert admissions counselors are here to support students every step of the way. From crafting compelling personal statements to preparing for interviews at Oxbridge and Ivy League universities, we provide tailored advice to help students stand out. Whether applying to institutions in the UK, USA, or beyond, we ensure participants are well-prepared to achieve their academic goals.",
           image: '/Oxford Leadership/Admission counselling.jpg',
-          link: "#",
+          link: "/subjects",
         },
       ];
 

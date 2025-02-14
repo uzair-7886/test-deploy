@@ -24,7 +24,7 @@ const FeeKeyDates = () => {
               <li>Study material</li>
               <li>Accomodation</li>
             </ul>
-            <Button href="#">Apply Now</Button>
+            <Button href="/application">Apply Now</Button>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ const FeeKeyDates = () => {
               <li>Study material</li>
               <li>Accomodation</li>
             </ul>
-            <ButtonOutlined href="#">Apply Now</ButtonOutlined>
+            <ButtonOutlined href="/application">Apply Now</ButtonOutlined>
           </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ const FeeKeyDates = () => {
               <li>Study material</li>
               <li>Accomodation</li>
             </ul>
-            <Button href="#">Apply Now</Button>
+            <Button href="/application">Apply Now</Button>
           </div>
         </div>
       </div>

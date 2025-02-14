@@ -34,25 +34,25 @@ const Subjects = () => {
               title: 'STEM',
               description:
                 'Oxford’s Summer Program provides students with the unique opportunity to immerse themselves in the fields of science and technology, following in the footsteps of innovators like Stephen Hawking and Dorothy Hodgkin. With access to world-class resources and mentorship, participants engage in hands-on learning that fosters creativity and exploration. Our STEM-focused courses equip students to contribute to future advancements, whether in mathematics, physics, medicine, engineering, or artificial intelligence, building on Oxford’s legacy of scientific excellence.',
-                link:"/"
+                link:"/subjects"
             },
             {
               title: 'Humanities and Social Sciences',
               description:
                 'Oxford has a long-standing tradition of leadership in the humanities and social sciences. Through the work of thinkers such as Adam Smith, Thomas Hobbes, and John Locke, the university has shaped critical ideas that influence global society today. In our Summer Program, students dive into subjects like economics, law, politics, and psychology, guided by Oxford’s academic rigour. They’ll explore foundational theories and contemporary challenges, gaining the tools to engage with the complexities of the world and contribute to meaningful change.',
-                link:"/"
+                link:"/subjects"
             },
             {
               title: 'Arts and Creativity',
               description:
                 'Oxford’s Summer Program offers students the chance to explore their creative passions, inspired by the university’s rich cultural history. Students will engage with the legacies of literary icons like T.S. Eliot and J.R.R. Tolkien, exploring literature, creative writing, music, and the fine arts. The program nurtures creativity and encourages students to contribute to the global arts landscape, providing an environment where they can express themselves and deepen their understanding of cultural and artistic traditions.',
-                link:"/"
+                link:"/subjects"
             },
             {
               title: 'Leadership and Business ',
               description:
                 'Oxford has a rich tradition of developing visionary leaders and entrepreneurs. From global political figures like Winston Churchill and Margaret Thatcher to business innovators, Oxford nurtures talents who go on to shape the world. At the heart of this is the Oxford Union, where students engage in world-class public speaking and debates, refining skills in persuasion, critical thinking, and leadership. In our Leadership and Business courses, students will explore the principles of effective leadership, entrepreneurship, and strategy, guided by Oxford’s legacy of excellence and the expertise of the Oxford Union debaters.',
-                link:"/"
+                link:"/subjects"
             },
             
           ].map((item, index) => (

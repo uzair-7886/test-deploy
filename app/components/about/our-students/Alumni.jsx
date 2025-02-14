@@ -33,7 +33,7 @@ const alumniData = [
     country: "Romania",
     batch: "2016",
     university: "University of Oxford",
-    image: "/homepage/oxford-fg.jpg",
+    image: "/alumni/loana.png",
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const alumniData = [
     country: "USA",
     batch: "2018",
     university: "University of Oxford",
-    image: "/homepage/oxford-fg.jpg",
+    image: "/alumni/tina.png",
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const alumniData = [
     country: "Stockholm, Sweden",
     batch: "2014",
     university: "Lund University",
-    image: "/homepage/oxford-fg.jpg",
+    image: "/alumni/alvin.png",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const alumniData = [
     country: "UAE",
     batch: "2014",
     university: "Aston University",
-    image: "/homepage/oxford-fg.jpg",
+    image: "/alumni/hassan.png",
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const alumniData = [
     country: "UK",
     batch: "2014",
     university: "The University of Bristol",
-    image: "/homepage/oxford-fg.jpg",
+    image: "/alumni/anusha.png",
   },
 ];
 
@@ -141,7 +141,7 @@ const Alumni = () => {
                     className="w-[250px] relative bg-mainBlue text-white shadow-lg overflow-hidden rounded-[12px] mt-4 mb-8"
                   >
                     <div className="w-full h-64 relative">
-                      <div className="w-[193px] h-[193px] absolute left-1/2 transform -translate-x-1/2 top-2">
+                      <div className="w-[170px] h-[170px] absolute left-1/2 transform -translate-x-1/2 top-2">
                         <Image
                           src={alumnus.image}
                           alt={alumnus.name}
@@ -151,7 +151,7 @@ const Alumni = () => {
                       </div>
                     </div>
                     {/* White background text div */}
-                    <div className="absolute -bottom-4 rounded-tr-[12px] border-mainYellow border-[1px] bg-white p-4 w-[85%] left-1/2 transform -translate-x-1/2">
+                    <div className="absolute -bottom-4 rounded-tr-[15px] border-mainYellow border-[1px] bg-white p-4 w-[85%] ">
                       <h3 className="text-lg font-bold text-mainBlue">
                         {alumnus.name}
                       </h3>

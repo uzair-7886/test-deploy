@@ -7,25 +7,25 @@ const ExtraCurricular = () => {
       image: "/Oxford Lifestyle/Excursion trips.jpg", 
       heading: "Excursion Trips ",
       text: "Students embark on enriching trips to iconic locations, including a flagship day in London to explore landmarks like Buckingham Palace, the Houses of Parliament, and Westminster Abbey. Oxford-based outings include visits to historic colleges, the Bodleian Library, and world-class museums such as the Ashmolean and Pitt Rivers. These excursions combine education, culture, and fun, immersing students in the history and vibrancy of the UK’s most celebrated sites.",
-      link:"#"
+      link:"/application"
     },
     {
       image: "/Oxford Lifestyle/Punting.jpg",
       heading: "Punting",
       text: "A quintessential Oxford experience, punting on the River Cherwell offers students the chance to relax and bond with peers while gliding through serene landscapes. With its peaceful waters and picturesque views, this activity provides a perfect balance of leisure and connection to the natural beauty surrounding the university.",
-      link:"#"
+      link:"/application"
     },
     {
       image: "/Oxford Lifestyle/Entertainment.jpeg",
       heading: "Entertainment",
       text: "From movie nights and musical performances to karaoke and student showcases, the program’s entertainment evenings foster a lively and inclusive community. The highlight is the certificate distribution ceremony, followed by a celebration featuring music and fun, creating lasting memories and friendships among participants.",
-      link:"#"
+      link:"/application"
     },
     {
       image: "/Oxford Lifestyle/Indoor games.jpeg",
       heading: "Sports & Indoor Games",
       text: "Promoting a healthy and active lifestyle, the program includes a sports day featuring team games such as football, cricket, and frisbee in Oxford’s scenic University Parks. For those who prefer strategy, indoor games and board games are available in the common room, led by program deans. These activities encourage teamwork, camaraderie, and a well-rounded experience.",
-      link:"#"
+      link:"/application"
     },
   ];
 

@@ -16,22 +16,22 @@ const deansData = [
       role: "Head of International Collaborations",
       description:
         " Ahmad, an Oxford graduate in Philosophy and Theology, holds a British Empire Medal and an Honorary Doctorate. He fosters global partnerships and oversees international collaborations for the Oxford Institute.  ",
-      image: "/Our Team/Tom Hendricks.jpeg",
+      image: "/Tutors/ahmed.png",
     },
     {
       name: "Nauman Saeed Anwar",
       role: "Head of Executive Leadership Program ",
       description:
         "Nauman leads the Executive Leadership Program, empowering global executives with strategic insights. His expertise spans three continents, combining technical, business, and policy knowledge from Harvard.",
-      image: "/Our Team/Tabitha-Spence.jpg",
-    },
+        image: "/Tutors/saeed.png",
+      },
     {
       name: "Dr. Andrew Turesky",
       role: "Head of Student Affairs and Welfare",
       description:
         "A graduate of Columbia and Oxford, Andrew brings 25 years of experience in student counseling and career guidance, leading student welfare at The Oxford Institute.",
-      image: "/Our Team/Jonathan+Kifle.jpeg",
-    },
+        image: "/Tutors/andrew.png",
+      },
 
   ];
 

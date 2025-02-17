@@ -427,27 +427,27 @@ const Header = () => {
         {admissionsDropdownOpen && (
           <ul className="mt-2 ml-4 space-y-2">
             <li>
-              <Link href="/admissions/application-form" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/application" className="block hover:opacity-80" onClick={toggleMenu}>
                 Application Form
               </Link>
             </li>
             <li>
-              <Link href="/admissions/eligibility-criteria" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/admissions" className="block hover:opacity-80" onClick={toggleMenu}>
                 Eligibility Criteria
               </Link>
             </li>
             <li>
-              <Link href="/admissions/fees-dates" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/fee-key-dates" className="block hover:opacity-80" onClick={toggleMenu}>
                 Fee & Key Dates
               </Link>
             </li>
             <li>
-              <Link href="/admissions/visa-documentation" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/admissions" className="block hover:opacity-80" onClick={toggleMenu}>
                 Visa & Documentation
               </Link>
             </li>
             <li>
-              <Link href="/admissions/travel-info" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/admissions" className="block hover:opacity-80" onClick={toggleMenu}>
                 Travel Info & Immigration
               </Link>
             </li>
@@ -515,17 +515,17 @@ const Header = () => {
         {galleryDropdownOpen && (
           <ul className="mt-2 ml-4 space-y-2">
             <li>
-              <Link href="/gallery/photos" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/gallery" className="block hover:opacity-80" onClick={toggleMenu}>
                 Photo
               </Link>
             </li>
             <li>
-              <Link href="/gallery/videos" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/gallery" className="block hover:opacity-80" onClick={toggleMenu}>
                 Videos
               </Link>
             </li>
             <li>
-              <Link href="/gallery/blogs" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/gallery" className="block hover:opacity-80" onClick={toggleMenu}>
                 Blogs
               </Link>
             </li>

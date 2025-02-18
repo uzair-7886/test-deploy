@@ -11,26 +11,49 @@ const ContactForm = () => {
     e.preventDefault();
     setSubmitting(true);
     const form = e.target;
-    const data = {
-      _type: 'contactForm',
+  
+    // Create a data object for both email and CMS
+    const emailData = {
       firstName: form.firstName.value,
       lastName: form.lastName.value,
       email: form.email.value,
       inquiryTopic: form.inquiryTopic.value,
       userType: form.userType.value,
       message: form.message.value,
-      acceptsCommunications: form.acceptsCommunications.checked,
+      // For radio buttons, check if the selected value is "yes"
+      acceptsCommunications: form.acceptsCommunications.value === 'yes',
       submittedAt: new Date().toISOString(),
     };
   
+    // Extend the data for CMS with the _type property
+    const cmsData = {
+      _type: 'contactForm',
+      ...emailData,
+    };
+  
     try {
-      await client.create(data);
-      // Handle success (e.g., show a confirmation message or reset the form)
+      // 1. Send form data to the Next.js API route to send an email
+      const emailResponse = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(emailData),
+      });
+  
+      // 2. Save the form data in your CMS (using your Sanity client)
+      await client.create(cmsData);
+  
+      if (emailResponse.ok) {
+        console.log('Form submitted successfully, email sent and saved in CMS!');
+        // Optionally: show a confirmation message or reset the form here
+      } else {
+        console.error('Failed to send email.');
+      }
     } catch (error) {
       console.error("Error submitting contact form:", error);
     }
     setSubmitting(false);
   };
+  
   
   
   return (

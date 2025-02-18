@@ -26,10 +26,10 @@ export async function POST(req) {
     },
   });
 
-  // Email options
+  // Email options for admin notification
   const mailOptions = {
     from: `"OSI Contact Form" <${process.env.MAIL_USERNAME}>`,
-    to: process.env.NOTIFY_EMAIL, // Email address to be notified
+    to: process.env.NOTIFY_EMAIL, // Admin or notification email
     subject: 'New Contact Form Submission',
     text: `You have received a new contact form submission:
     
@@ -40,7 +40,7 @@ User Type: ${userType}
 Message: ${message}
 Accepts Communications: ${acceptsCommunications ? 'Yes' : 'No'}
 Submitted At: ${submittedAt}`,
-html: `<p>You have received a new contact form submission:</p>
+    html: `<p>You have received a new contact form submission:</p>
 <ul>
   <li><strong>Name:</strong> ${firstName} ${lastName}</li>
   <li><strong>Email:</strong> ${email}</li>
@@ -52,12 +52,32 @@ html: `<p>You have received a new contact form submission:</p>
   </li>
   <li><strong>Accepts Communications:</strong> ${acceptsCommunications ? 'Yes' : 'No'}</li>
   <li><strong>Submitted At:</strong> ${submittedAt}</li>
-</ul>`
+</ul>`,
+  };
 
+  // Email options for the auto-reply to the user
+  const autoReplyMailOptions = {
+    from: `"OSI Support" <${process.env.MAIL_USERNAME}>`,
+    to: email, // The email address the user entered
+    subject: 'Thank you for contacting OSI!',
+    text: `Dear ${firstName},
+
+Thank you for reaching out to us. Our representative will get back to you soon at this email.
+
+Best regards,
+OSI Team`,
+    html: `<p>Dear ${firstName},</p>
+           <p>Thank you for reaching out to us. Our representative will get back to you soon at this email.</p>
+           <p>Best regards,<br>OSI Team</p>`,
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    // Send both emails concurrently
+    await Promise.all([
+      transporter.sendMail(mailOptions),
+      transporter.sendMail(autoReplyMailOptions)
+    ]);
+
     return NextResponse.json(
       { message: 'Contact form submitted successfully.' },
       { status: 200 }

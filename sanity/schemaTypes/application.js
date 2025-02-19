@@ -181,6 +181,41 @@ export default {
         type: 'datetime',
         description: 'The date and time when the application was submitted',
       },
+      {
+        name: 'followUpEmailSent',
+        title: 'Follow-Up Email Sent',
+        type: 'boolean',
+        description: 'Indicates whether the 3-day follow-up email has been sent.',
+        initialValue: false,
+      },
+      {
+        name: 'payment',
+        title: 'Payment Information',
+        type: 'object',
+        fields: [
+          {
+            name: 'paid',
+            title: 'Paid',
+            type: 'boolean',
+            description: 'Indicates whether the payment has been made.',
+            initialValue: false,
+          },
+          {
+            name: 'paymentAmount',
+            title: 'Payment Amount',
+            type: 'number',
+            description: 'The amount paid.',
+            initialValue: 0,
+          },
+          {
+            name: 'dueAmount',
+            title: 'Due Amount',
+            type: 'number',
+            description: 'The due amount remaining.',
+            initialValue: 0,
+          },
+        ],
+      },
     ],
   };
   

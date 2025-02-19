@@ -55,9 +55,10 @@ const ApplicationForm = () => {
 
   // This function creates a new application on step 1 and patches it in later steps.
   const onSubmit = async (data) => {
-    setSaving(true);  
+    setSaving(true);
+  
     if (step === 1) {
-      // Step 1: Create a new application with the account details.
+      // Step 1: Create a new application
       try {
         const doc = {
           _type: 'application',
@@ -72,13 +73,14 @@ const ApplicationForm = () => {
         console.error("Error creating application:", error);
       }
     } else if (step === 2) {
-      // Step 2: Patch the document with registration (step1) data.
+      // Step 2: Patch the document with step1 data
       try {
-        await client.patch(applicationId)
-          .set({ 
-            step1: data.step1, 
+        await client
+          .patch(applicationId)
+          .set({
+            step1: data.step1,
             status: 'program_selected',
-            submittedAt: new Date().toISOString(), // update status to indicate registration complete
+            submittedAt: new Date().toISOString(),
           })
           .commit();
         setStep(step + 1);
@@ -86,12 +88,13 @@ const ApplicationForm = () => {
         console.error("Error updating application (step 2):", error);
       }
     } else if (step === 3) {
-      // Step 3: Patch the document with application (step2) data.
+      // Step 3: Patch the document with step2 data
       try {
-        await client.patch(applicationId)
-          .set({ 
-            step2: data.step2, 
-            status: 'personal_info_submitted', 
+        await client
+          .patch(applicationId)
+          .set({
+            step2: data.step2,
+            status: 'personal_info_submitted',
             submittedAt: new Date().toISOString(),
           })
           .commit();
@@ -100,21 +103,37 @@ const ApplicationForm = () => {
         console.error("Error updating application (step 3):", error);
       }
     } else if (step === 4) {
-      // Step 4: Patch the document with further info (step3) data and mark as completed.
+      // Step 4: Patch the document with step3 data & mark completed
       try {
-        await client.patch(applicationId)
-          .set({ 
+        await client
+          .patch(applicationId)
+          .set({
             step3: data.step3,
             status: 'completed',
             submittedAt: new Date().toISOString(),
           })
           .commit();
-        console.log("Final application submitted successfully!");
-        // Optionally, reset the form or navigate to a confirmation page.
+  
+        // Now send the confirmation email to the applicant
+        const applicantEmail = data.step2.email || data.account.email;
+        if (applicantEmail) {
+          await fetch('/api/application-confirmation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ applicantEmail }),
+          });
+        }
+  
+        console.log("Final application submitted successfully, email sent!");
+        // Optionally reset or navigate to a success page:
+        setStep(1);
+        methods.reset();
+  
       } catch (error) {
         console.error("Error finalizing application (step 4):", error);
       }
     }
+  
     setSaving(false);
   };
 

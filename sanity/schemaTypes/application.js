@@ -183,9 +183,16 @@ export default {
       },
       {
         name: 'followUpEmailSent',
-        title: 'Follow-Up Email Sent',
+        title: 'Offer Letter Email Sent',
         type: 'boolean',
-        description: 'Indicates whether the 3-day follow-up email has been sent.',
+        description: 'Indicates whether the 3-day follow-up Offer Letter email has been sent.',
+        initialValue: false,
+      },
+      {
+        name: 'sevenDayCallbackEmailSent',
+        title: '7-Day Callback Email Sent',
+        type: 'boolean',
+        description: 'Indicates whether the 7-day callback email has been sent.',
         initialValue: false,
       },
       {
@@ -218,4 +225,3 @@ export default {
       },
     ],
   };
-  

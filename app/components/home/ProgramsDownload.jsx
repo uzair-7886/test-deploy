@@ -15,11 +15,12 @@ const ProgramsDownload = () => {
               OXFORD SUMMMMER PROGRAM
             </h3>
             <a 
-              href="#" 
-              className="text-mainYellow underline font-roboto"
-            >
-              Download Information Pack
-            </a>
+  href="/docs/Oxford Summer Program Information Pack.pdf" 
+  download="Information_Pack.pdf"
+  className="text-mainYellow underline font-roboto"
+>
+  Download Information Pack
+</a>
           </div>
 
           {/* Divider for desktop */}
@@ -31,11 +32,12 @@ const ProgramsDownload = () => {
               EXECUTIVE LEADERSHIP PROGRAM
             </h3>
             <a 
-              href="#" 
-              className="text-mainYellow underline font-roboto"
-            >
-              Download Information Pack
-            </a>
+  href="/docs/Oxford-Executive Information Pack.pdf" 
+  download="Information_Pack.pdf"
+  className="text-mainYellow underline font-roboto"
+>
+  Download Information Pack
+</a>
           </div>
 
           {/* Divider for desktop */}
@@ -47,11 +49,12 @@ const ProgramsDownload = () => {
               OXFORD CHINA SUMMMMER PROGRAM
             </h3>
             <a 
-              href="#" 
-              className="text-mainYellow underline font-roboto"
-            >
-              Download Information Pack
-            </a>
+  href="/docs/Information Pack Oxford China.pdf" 
+  download="Information_Pack.pdf"
+  className="text-mainYellow underline font-roboto"
+>
+  Download Information Pack
+</a>
           </div>
         </div>
       </div>

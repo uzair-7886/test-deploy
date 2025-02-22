@@ -159,11 +159,12 @@ const SubjectSwitcher = () => {
             {expandedCourse && (
               <div className="relative bg-white rounded-lg p-4 sm:p-6 mb-8">
                 <div className="animate-fadeIn">
-                  <img
-                    src={urlFor(expandedCourse.image)}
-                    alt=""
-                    className="w-full rounded-[15px] h-[308px] sm:h-[240px] object-cover shadow-lg mb-4"
-                  />
+                <img
+  src={urlFor(expandedCourse.image)}
+  alt=""
+  className="w-full rounded-[15px] md:h-[500px] h-[240px] object-cover object-top shadow-lg mb-4"
+/>
+
                   <h3 className="text-lg sm:text-xl font-medium text-mainBlue font-enriqueta">
                     {expandedCourse.name}
                   </h3>

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const programData = [
   {
@@ -8,7 +9,8 @@ const programData = [
     description:
       "In 2025, we are proud to present our flagship Oxford Summer Program (with limited seats) at the historic St Anne’s College, University of Oxford, running from 20th July to 1st August, exclusively for participants aged 14–19+.",
     image: '/summer.png',
-    downloadLink: "#",
+    downloadLink: "/docs/Oxford Summer Program Information Pack.pdf",
+    pageLink:"/oxford-summer-program"
   },
   {
     id: 2,
@@ -16,7 +18,8 @@ const programData = [
     description:
       "For professionals and global leaders, we are delighted to host the Executive Leadership Program at Oxford from 5th to 12th July 2025, offering an intensive experience designed to advance leadership skills and strategic thinking.",
     image: '/exec.png',
-    downloadLink: "#",
+    downloadLink: "/docs/Oxford-Executive Information Pack.pdf",
+    pageLink:"/executive-leadership-program"
   },
   {
     id: 3,
@@ -24,7 +27,8 @@ const programData = [
     description:
       "Our Oxford-China Summer in Chengdu will take place from 2nd to 15th August 2025, bringing the essence of the Oxford Experience to a dynamic and culturally rich setting.",
     image: '/china.png',
-    downloadLink: "#",
+    downloadLink: "/docs/Information Pack Oxford China.pdf",
+    pageLink:"/oxford-china-summer-program"
   },
   {
     id: 4,
@@ -32,12 +36,14 @@ const programData = [
     description:
       "Reach out if you'd like us to organise a customised or bespoke camp year-round for 25+ participants at the University of Oxford.",
     image: '/custom.png',
-    downloadLink: "#",
+    downloadLink: "/docs/Oxford Summer Program Information Pack.pdf",
+    pageLink:"/customised-camp"
   },
 ];
 
 const DownloadPrograms = () => {
   return (
+
     <div className="max-w-7xl mx-auto px-4 py-16 grid gap-8 grid-cols-1 md:grid-cols-2">
       {programData.map((program) => (
         <div
@@ -51,23 +57,30 @@ const DownloadPrograms = () => {
               alt={program.title}
               layout="fill"
               className="object-cover"
-            //   style={{ width: "595px", height: "251px" }}
             />
           </div>
 
           {/* Content Section */}
           <div className="p-6">
-            <h3 className="text-lg font-bold text-mainBlue font-roboto mb-2">
-              {program.title}
-            </h3>
-            <p className="text-sm text-textColor font-roboto text-justify mb-4">{program.description}</p>
+            {/* Wrap only the title in a Link */}
+            <Link href={program.pageLink}>
+              <h3 className="text-lg font-bold text-mainBlue font-roboto mb-2 cursor-pointer">
+                {program.title}
+              </h3>
+            </Link>
+
+            <p className="text-sm text-textColor font-roboto text-justify mb-4">
+              {program.description}
+            </p>
+
+            {/* Download Information Pack - Now works correctly */}
             <a
               href={program.downloadLink}
-              className="flex items-center text-mainBlue font-roboto underline font-bold text-sm"
               download
+              className="flex items-center text-mainBlue font-roboto underline font-bold text-sm"
             >
               <Image
-                src='/Our Programs/download.svg'
+                src="/Our Programs/download.svg"
                 alt="Download"
                 width={16}
                 height={16}
@@ -75,6 +88,12 @@ const DownloadPrograms = () => {
               />
               Download Information Pack
             </a>
+
+            <Link href={program.pageLink}>
+              <button className="mt-4 px-4 py-2 bg-mainBlue text-white font-bold rounded">
+                Read More
+              </button>
+            </Link>
           </div>
         </div>
       ))}

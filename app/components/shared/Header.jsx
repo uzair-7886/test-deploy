@@ -96,22 +96,22 @@ const Header = () => {
                  opacity-0 invisible group-hover:opacity-100 group-hover:visible 
                  transition-all duration-200 shadow-lg">
     <li>
-      <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
+      <Link href="/oxford-summer-program" className="block px-4 py-2 hover:bg-gray-100">
         Oxford Summer Program
       </Link>
     </li>
     <li>
-      <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
+      <Link href="/executive-leadership-program" className="block px-4 py-2 hover:bg-gray-100">
         Executive Leadership Program
       </Link>
     </li>
     <li>
-      <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
+      <Link href="/oxford-china-summer-program" className="block px-4 py-2 hover:bg-gray-100">
         Oxford China Summer Program
       </Link>
     </li>
     <li>
-      <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
+      <Link href="/customised-camp" className="block px-4 py-2 hover:bg-gray-100">
         Customised Camp
       </Link>
     </li>
@@ -336,22 +336,22 @@ const Header = () => {
         {programsDropdownOpen && (
           <ul className="mt-2 ml-4 space-y-2">
             <li>
-              <Link href="/about/our-programs" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/oxford-summer-program" className="block hover:opacity-80" onClick={toggleMenu}>
                 Oxford Summer Program
               </Link>
             </li>
             <li>
-              <Link href="/about/our-programs" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/executive-leadership-program" className="block hover:opacity-80" onClick={toggleMenu}>
                 Executive Leadership Program
               </Link>
             </li>
             <li>
-              <Link href="/about/our-programs" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/oxford-china-summer-program" className="block hover:opacity-80" onClick={toggleMenu}>
                 Oxford China Summer Program
               </Link>
             </li>
             <li>
-              <Link href="/about/our-programs" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/customised-camp" className="block hover:opacity-80" onClick={toggleMenu}>
                 Customised Camp
               </Link>
             </li>

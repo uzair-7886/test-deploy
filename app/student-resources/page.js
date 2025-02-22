@@ -7,9 +7,15 @@ const page = () => {
   return (
     <>
       <HeroSectionSR />
-      <SafetyContent />
-      <RulesRegulations />
+      <div id="health-safety">
+        <SafetyContent />
+      </div>
+      <div id="rules-regulations">
+        <RulesRegulations />
+      </div>
+      <div id="faqs">
         <FAQ />
+      </div>
     </>
   )
 }

@@ -7,14 +7,19 @@ import EducationSystems from "@/app/components/about/our-programs/EducationSyste
 
 const page = () => {
   return (
-    <>
-    <HeroSectionPrograms/>
-    <AboutPrograms/>
-    <DownloadPrograms/>
-    <Subjects/>
+<>
+  <HeroSectionPrograms/>
+  <AboutPrograms/>
+  <DownloadPrograms/>
+  <Subjects/>
+  <div id="age-groups">
     <AgeGroups/>
+  </div>
+  <div id="education-systems">
     <EducationSystems/>
-    </>
+  </div>
+</>
+
   )
 }
 

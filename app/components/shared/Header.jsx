@@ -26,10 +26,10 @@ const Header = () => {
     <header className="text-white bg-mainBlue font-roboto border-b-white border-b-2">
       <div className="flex items-center justify-between px-4 lg:px-8 py-1 lg:justify-around">
         {/* Logo */}
-        <div className="w-[60px] h-[60px] lg:w-[98px] lg:h-[98px] relative">
+        <div className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] relative">
           <Link href="/">
             <Image
-              src="/logo-header.png"
+              src="/osi-logo.jpeg"
               alt="The Oxford Institute logo"
               fill
               className="object-contain"
@@ -87,51 +87,52 @@ const Header = () => {
 
             {/* PROGRAMS (Dropdown) */}
             <li className="relative group z-50">
-              <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
-                <span>Programs</span>
-                <img src="/Vector.png" alt="dropdown" />
-              </div>
-              {/* Dropdown */}
-              <ul className="absolute left-0 mt-2 w-56 bg-white text-mainBlue text-sm 
-                             opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                             transition-all duration-200 shadow-lg">
-                <li>
-                  <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
-                    Oxford Summer Program
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
-                  Executive Leadership Program
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
-                  Oxford China Summer Program
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
-                  Customised Camp                  </Link>
-                </li>
-                <li>
-                  <Link href="/subjects" className="block px-4 py-2 hover:bg-gray-100">
-                    Subjects
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
-                    Age Groups
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
-                    Education Systems
-                  </Link>
-                </li>
-                
-              </ul>
-            </li>
+  <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
+    <span>Programs</span>
+    <img src="/Vector.png" alt="dropdown" />
+  </div>
+  {/* Dropdown */}
+  <ul className="absolute left-0 mt-2 w-56 bg-white text-mainBlue text-sm 
+                 opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+                 transition-all duration-200 shadow-lg">
+    <li>
+      <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
+        Oxford Summer Program
+      </Link>
+    </li>
+    <li>
+      <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
+        Executive Leadership Program
+      </Link>
+    </li>
+    <li>
+      <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
+        Oxford China Summer Program
+      </Link>
+    </li>
+    <li>
+      <Link href="/about/our-programs" className="block px-4 py-2 hover:bg-gray-100">
+        Customised Camp
+      </Link>
+    </li>
+    <li>
+      <Link href="/subjects" className="block px-4 py-2 hover:bg-gray-100">
+        Subjects
+      </Link>
+    </li>
+    <li>
+      <Link href="/about/our-programs#age-groups" className="block px-4 py-2 hover:bg-gray-100">
+        Age Groups
+      </Link>
+    </li>
+    <li>
+      <Link href="/about/our-programs#education-systems" className="block px-4 py-2 hover:bg-gray-100">
+        Education Systems
+      </Link>
+    </li>
+  </ul>
+</li>
+
 
 
             {/* OXFORD EXPERIENCE (Dropdown) */}
@@ -208,18 +209,14 @@ const Header = () => {
               <ul className="absolute left-0 mt-2 w-56 bg-white text-mainBlue text-sm 
                              opacity-0 invisible group-hover:opacity-100 group-hover:visible 
                              transition-all duration-200 shadow-lg">
+              
                 <li>
-                  <Link href="/student-resources" className="block px-4 py-2 hover:bg-gray-100">
-                    Travel & Logistics
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/student-resources" className="block px-4 py-2 hover:bg-gray-100">
+                  <Link href="/student-resources#health-safety" className="block px-4 py-2 hover:bg-gray-100">
                     Health & Safety
                   </Link>
                 </li>
                 <li>
-                  <Link href="/student-resources" className="block px-4 py-2 hover:bg-gray-100">
+                  <Link href="/student-resources#rules-regulations" className="block px-4 py-2 hover:bg-gray-100">
                     Rules & Regulations
                   </Link>
                 </li>
@@ -229,7 +226,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/student-resources" className="block px-4 py-2 hover:bg-gray-100">
+                  <Link href="/student-resources#faqs" className="block px-4 py-2 hover:bg-gray-100">
                     FAQs
                   </Link>
                 </li>
@@ -364,12 +361,12 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/about/our-programs" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/about/our-programs#age-groups" className="block hover:opacity-80" onClick={toggleMenu}>
                 Age Groups
               </Link>
             </li>
             <li>
-              <Link href="/about/our-programs" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/about/our-programs#education-systems" className="block hover:opacity-80" onClick={toggleMenu}>
                 Education Systems
               </Link>
             </li>
@@ -470,28 +467,24 @@ const Header = () => {
         </button>
         {resourcesDropdownOpen && (
           <ul className="mt-2 ml-4 space-y-2">
+           
             <li>
-              <Link href="/student-resources/travel-logistics" className="block hover:opacity-80" onClick={toggleMenu}>
-                Travel & Logistics
-              </Link>
-            </li>
-            <li>
-              <Link href="/student-resources/health-safety" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/student-resources/#health-safety" className="block hover:opacity-80" onClick={toggleMenu}>
                 Health & Safety
               </Link>
             </li>
             <li>
-              <Link href="/student-resources/rules-regulations" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/student-resources#rules-regulations" className="block hover:opacity-80" onClick={toggleMenu}>
                 Rules & Regulations
               </Link>
             </li>
             <li>
-              <Link href="/student-resources/key-documents" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/student-resources/" className="block hover:opacity-80" onClick={toggleMenu}>
                 Key Documents
               </Link>
             </li>
             <li>
-              <Link href="/student-resources/faqs" className="block hover:opacity-80" onClick={toggleMenu}>
+              <Link href="/student-resources#faqs" className="block hover:opacity-80" onClick={toggleMenu}>
                 FAQs
               </Link>
             </li>

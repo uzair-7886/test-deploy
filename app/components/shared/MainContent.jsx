@@ -4,13 +4,13 @@ import Link from "next/link";
 
 const MainContent = ({ content, viewCourse=false }) => {
   return (
-    <div className="w-full flex flex-col space-y-8">
+    <div className="w-full flex flex-col space-y-8 max-w-7xl mx-auto">
       {content.map((item, index) => (
         <div
           key={index}
           className={`flex flex-col md:flex-row items-center md:justify-between ${
             index % 2 === 0 ? "md:flex-row-reverse" : ""
-          } space-y-6 md:space-y-0 md:space-x-0`}
+          } gap-6`}
         >
           {/* Image Section */}
           <div

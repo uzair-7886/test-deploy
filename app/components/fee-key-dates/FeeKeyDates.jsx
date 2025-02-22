@@ -35,7 +35,7 @@ const FeeKeyDates = () => {
           </div>
           <div className="bg-mainBlue w-full h-full">
           <div className="p-12  text-white">
-            <p className="font-enriqueta text-3xl md:text-[42px] text-white py-4">£ 5,999</p>
+            <p className="font-enriqueta text-3xl md:text-[42px] text-white py-4">£ 7,999</p>
             <h3 className="font-enriqueta text-xl md:text-[28px] text-white py-4">
               Oxford Executive Leadership Program
             </h3>
@@ -59,7 +59,7 @@ const FeeKeyDates = () => {
             2 Weeks
           </div>
           <div className="p-12">
-            <p className="font-enriqueta text-3xl md:text-[42px] text-mainBlue py-4">£ 5,999</p>
+            <p className="font-enriqueta text-3xl md:text-[42px] text-mainBlue py-4">£ 2,999</p>
             <h3 className="font-enriqueta text-xl md:text-[28px] text-mainBlue py-4">
               Oxford China Summer Program
             </h3>

@@ -29,7 +29,7 @@ const tutorsData = [
   {
     id: 2,
     name: "Stephanie Habis",
-    role: "Country of Origin: Lebanese",
+    role: "Country of Origin: Lebanon",
     description: "As a proud Lebanese, I am thrilled to bring the rich culture and spirit of Lebanon to the global stage as a Brand Ambassador. My experience at The Oxford Institute Summer Program has been a unique opportunity to connect with students from around the world, allowing me to share Lebanon's vibrant traditions, breathtaking landscapes, and warm hospitality. I want others to feel the creativity, resilience, and beauty that define my country. Being here has deepened my passion for cross-cultural exchange, and I look forward to building connections that celebrate Lebanon's unique story and legacy.",
     image: "/Our Students/Stephaine Habis.png"
   },

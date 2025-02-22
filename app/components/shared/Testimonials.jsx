@@ -148,7 +148,7 @@ const Testimonials = () => {
                     </div>
                     {/* Body: Text */}
                     <p className="text-mainBlue leading-relaxed">
-                      &quot;{testimonial.text}&quot;
+                      {testimonial.text};
                     </p>
                   </div>
                 </div>

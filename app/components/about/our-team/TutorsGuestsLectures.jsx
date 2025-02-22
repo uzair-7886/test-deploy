@@ -59,7 +59,7 @@ const tutorsData = [
     name: "Mr. Gavin Fleming",
     role: "Degree of Arts in Philosophy and Theology",
     description: "Gavin studied at Keble College and holds a degree of Arts in Philosophy and Theology. Gavin was awarded a Grace Scholarship, as well as was elected by the Governing Body and Faculty to the Wills Philpott Shawcross Divinity Scholarship. He was president of the Theology Society at Oxford.",
-    image: null
+    image: "/Tutors/Gavin.jpg"
   },
   {
     id: 7,

@@ -10,7 +10,7 @@ const OurValues = () => {
           <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4">
             Our Values
           </h2>
-          <p className="text-textColor text-base md:text-[18px]  leading-relaxed mb-6 font-roboto">
+          <p className="text-textColor text-base md:text-[18px]  leading-relaxed mb-6 font-roboto text-justify">
             "The function of education is to teach one to think intensively and to think
             critically. Intelligence plus character—that is the goal of true education." —
             Through an authentic Oxford experience, we foster a diverse community, lifelong

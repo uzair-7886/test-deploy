@@ -30,7 +30,7 @@ const ProgramsHome = () => {
     },
     {
       id: 4,
-      imageSrc: '/HomePage/tf.jpg',
+      imageSrc: '/HomePage/ex.jpg',
       title: 'Executive Program',
       ageGroup: 'AGES 28+',
       description:
@@ -42,7 +42,7 @@ const ProgramsHome = () => {
     <section className="py-12 bg-offWhite">
       <div className="container mx-auto px-4">
         {/* Section Title */}
-        <h2 className="text-center text-mainYellow text-[42px] mb-8 font-enriqueta">
+        <h2 className="text-center text-mainYellow text-[42px] font-enriqueta">
           Our Programs
         </h2>
 
@@ -52,7 +52,7 @@ const ProgramsHome = () => {
             flex-nowrap on small screens => horizontal scrolling
             md:flex-wrap on medium+ => wraps into multiple rows
           */}
-          <div className="overflow-x-auto scrollbar-hide py-10">
+          <div className="overflow-x-auto scrollbar-hide py-6">
   <div className="flex flex-nowrap gap-4">
     {programsData.map((item) => (
       <ProgramCard key={item.id} program={item} />

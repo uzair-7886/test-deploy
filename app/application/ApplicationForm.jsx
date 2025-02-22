@@ -365,10 +365,10 @@ const ApplicationForm = () => {
                 Oxford Summer Program - 20th Jul - 1st Aug 2025 - £5,999.00
               </option>
               <option value="Oxford Summer Program">
-              Oxford Executive Leadership Program - 5th Jul - 5th Jul 2025 - £5,999.00
+              Oxford Executive Leadership Program - 5th Jul - 5th Jul 2025 - £7,999.00
               </option>
               <option value="Oxford Summer Program">
-                Oxford Chine Program - July/August 2025, Exact Dates TBC - £5,999.00
+                Oxford Chine Program - July/August 2025, Exact Dates TBC - £2,999.00
               </option>
             </select>
             <img

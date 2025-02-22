@@ -98,14 +98,26 @@ const HeroSectionHome = () => {
         </div>
         
         {/* Right Image */}
-        <div className="relative w-full h-[300px] md:h-[400px] lg:h-[519px] lg:w-[703px] rounded-[30px] overflow-hidden">
+        {/* <div className="relative w-full h-[300px] md:h-[400px] lg:h-[519px] lg:w-[703px] rounded-[30px] overflow-hidden">
           <Image
             src="/HomePage/hero.jpg"
             alt="Oxford Foreground"
             fill
             className="object-cover"
           />
-        </div>
+        </div> */}
+        <div className="relative w-full h-[300px] md:h-[400px] lg:h-[519px] lg:w-[703px] rounded-[30px] overflow-hidden">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="object-cover w-full h-full"
+  >
+    <source src="/HomePage/hero.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
       </div>
     </div>
   );

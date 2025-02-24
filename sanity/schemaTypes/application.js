@@ -221,6 +221,18 @@ export default {
             description: 'The due amount remaining.',
             initialValue: 0,
           },
+          {
+            name: 'paymentMethod',
+            title: 'Payment Method',
+            type: 'string',
+            options: {
+              list: [
+                { title: 'Stripe Payment', value: 'stripe' },
+                { title: 'Bank Transfer', value: 'bank_transfer' },
+              ],
+              layout: 'radio',
+            },
+          },
         ],
       },
     ],

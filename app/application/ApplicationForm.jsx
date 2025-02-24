@@ -741,9 +741,11 @@ const ApplicationForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const [paymentMessage, setPaymentMessage] = useState("");
+    const [feesubmitting,setFeesubmitting]=useState(false)
 
     const handlePayment = async (e) => {
       e.preventDefault();
+      setFeesubmitting(true);
     
       if (!stripe || !elements) {
         console.log("Stripe or elements not loaded:", { stripe, elements });
@@ -772,9 +774,27 @@ const ApplicationForm = () => {
           setPaymentMessage(result.error.message || "Payment error. Please try again.");
         } else if (result.paymentIntent?.status === "succeeded") {
           console.log("Payment succeeded:", result.paymentIntent);
+          try {
+            await client
+              .patch(applicationId) 
+              .set({
+                status:"fee_submitted",
+                payment: {
+                  paid: true,
+                  paymentAmount: amount/100,
+                  dueAmount: 0,
+                  paymentMethod: "stripe",
+                },
+              })
+              .commit();
+            console.log("CMS updated with payment details");
+          } catch (cmsError) {
+            console.error("Error updating CMS:", cmsError);
+          }
           setPaymentMessage("Payment successful! Thank you.");
           window.alert("Payment successful! Thank you.");
           setStep(1);
+          methods.reset()
         } else {
           console.log("Payment status:", result.paymentIntent?.status, result.paymentIntent);
           setPaymentMessage(`Payment status: ${result.paymentIntent?.status}`);
@@ -783,6 +803,7 @@ const ApplicationForm = () => {
         console.error("Exception caught in handlePayment:", err);
         setPaymentMessage("An unexpected error occurred. Please try again.");
       }
+      setFeesubmitting(false)
     };
     
 
@@ -815,8 +836,8 @@ const ApplicationForm = () => {
             <PaymentElement />
             <button
               type="submit"
-              className="mt-4 bg-mainBlue hover:bg-darkBlue transition-colors text-white px-6 py-3 rounded w-full"
-              disabled={!stripe || !elements}
+              className="mt-4 bg-mainBlue hover:bg-darkBlue transition-colors text-white px-6 py-3 rounded w-full disabled:bg-slate-600"
+              disabled={!stripe || !elements||feesubmitting}
             >
               Pay Now
             </button>

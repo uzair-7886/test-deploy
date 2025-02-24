@@ -4,6 +4,11 @@ import { useForm, FormProvider } from "react-hook-form";
 import { countries } from "countries-list";
 // Import your configured Sanity client (adjust the path as necessary)
 import { client } from "@/sanity/lib/client";
+import { Elements, PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 const countryOptions = Object.entries(countries).map(([code, country]) => ({
   value: code,
@@ -15,6 +20,8 @@ const ApplicationForm = () => {
   const [step, setStep] = useState(1);
   const [applicationId, setApplicationId] = useState(null);
   const [saving,setSaving] = useState(false);
+  const [clientSecret, setClientSecret] = useState(null);
+  const [amount, setAmount] = useState(null);
 
   const methods = useForm({
     defaultValues: {
@@ -51,7 +58,7 @@ const ApplicationForm = () => {
     },
   });
 
-  const { handleSubmit, register } = methods;
+  const { handleSubmit, register, getValues } = methods;
 
   // This function creates a new application on step 1 and patches it in later steps.
   const onSubmit = async (data) => {
@@ -124,15 +131,34 @@ const ApplicationForm = () => {
           });
         }
   
-        console.log("Final application submitted successfully, email sent!");
+        // console.log("Final application submitted successfully, email sent!");
         // Optionally reset or navigate to a success page:
-        setStep(1);
-        methods.reset();
+        // Now we fetch/create the Stripe Payment Intent for the new Payment Step:
+      const chosenProgram = data.step1.program; 
+      let amountInGBP = 5999; // default if you want
+      if (chosenProgram.includes("£7,999")) amountInGBP = 7999;
+      else if (chosenProgram.includes("£2,999")) amountInGBP = 2999;
+      // Convert to pence for Stripe if using GBP
+      const amountInPence = amountInGBP * 100;
+      setAmount(amountInPence);
+
+      const paymentResponse = await fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: amountInPence, currency: "GBP" }),
+      });
+      console.log(paymentResponse)
+      const { clientSecret } = await paymentResponse.json();
+      setClientSecret(clientSecret);
+        setStep(step+1);
+        // methods.reset();
   
       } catch (error) {
         console.error("Error finalizing application (step 4):", error);
       }
     }
+
+
   
     setSaving(false);
   };
@@ -361,14 +387,14 @@ const ApplicationForm = () => {
               style={{ lineHeight: "1.5rem", height: "3.5rem" }}
               required
             >
-              <option value="Oxford Summer Program">
+              <option value="Oxford Summer Program - £5,999">
                 Oxford Summer Program - 20th Jul - 1st Aug 2025 - £5,999.00
               </option>
-              <option value="Oxford Summer Program">
+              <option value="Oxford Executive Leadership Program - £7,999">
               Oxford Executive Leadership Program - 5th Jul - 5th Jul 2025 - £7,999.00
               </option>
-              <option value="Oxford Summer Program">
-                Oxford Chine Program - July/August 2025, Exact Dates TBC - £2,999.00
+              <option value="Oxford China Summer Program - £2,999">
+                Oxford China Summer Program - July/August 2025, Exact Dates TBC - £2,999.00
               </option>
             </select>
             <img
@@ -698,12 +724,124 @@ const ApplicationForm = () => {
       <ProgressBars currentStep={step} />
     </form>
   );
+
+  const PaymentStep = ({ clientSecret, selectedProgram, applicantEmail, amount }) => {
+    if (!clientSecret) {
+      return <p>Loading payment details. Please wait...</p>;
+    }
+
+    return (
+      <Elements stripe={stripePromise} options={{ clientSecret }}>
+        <InnerPaymentStep selectedProgram={selectedProgram} applicantEmail={applicantEmail} amount={amount} />
+      </Elements>
+    );
+  };
+
+  function InnerPaymentStep({ selectedProgram, applicantEmail, amount }) {
+    const stripe = useStripe();
+    const elements = useElements();
+    const [paymentMessage, setPaymentMessage] = useState("");
+
+    const handlePayment = async (e) => {
+      e.preventDefault();
+    
+      if (!stripe || !elements) {
+        console.log("Stripe or elements not loaded:", { stripe, elements });
+        setPaymentMessage("Stripe has not loaded yet. Please wait...");
+        return;
+      }
+    
+      try {
+        console.log("Attempting to confirm payment", {
+          applicantEmail,
+          elements: elements,
+        });
+    
+        const result = await stripe.confirmPayment({
+          elements,
+          confirmParams: {
+            receipt_email: applicantEmail,
+          },
+          redirect: "if_required",
+        });
+    
+        console.log("stripe.confirmPayment result:", result);
+    
+        if (result.error) {
+          console.error("Error during confirmPayment:", result.error);
+          setPaymentMessage(result.error.message || "Payment error. Please try again.");
+        } else if (result.paymentIntent?.status === "succeeded") {
+          console.log("Payment succeeded:", result.paymentIntent);
+          setPaymentMessage("Payment successful! Thank you.");
+          window.alert("Payment successful! Thank you.");
+          setStep(1);
+        } else {
+          console.log("Payment status:", result.paymentIntent?.status, result.paymentIntent);
+          setPaymentMessage(`Payment status: ${result.paymentIntent?.status}`);
+        }
+      } catch (err) {
+        console.error("Exception caught in handlePayment:", err);
+        setPaymentMessage("An unexpected error occurred. Please try again.");
+      }
+    };
+    
+
+    return (
+      <div className="py-4 flex flex-col items-center bg-gray-50 min-h-screen">
+        <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl">
+          <h1 className="text-2xl font-bold text-mainBlue mb-4">
+            Your Application is Complete!
+          </h1>
+          <div className="mb-6">
+            <p className="text-lg text-gray-700">
+              Thank you for applying to:
+            </p>
+            <h2 className="text-xl font-semibold text-mainBlue text-center font-enriqueta mt-2">
+              {selectedProgram}
+            </h2>
+          </div>
+          <div className="mb-6 flex items-center justify-between bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <span className="text-lg font-medium text-gray-800">
+              Amount to be charged:
+            </span>
+            <span className="text-xl font-bold text-mainBlue">
+              £{(amount / 100).toFixed(2)}
+            </span>
+          </div>
+          <p className="text-lg text-gray-700 mb-6">
+            Kindly proceed with payment to secure your spot.
+          </p>
+          <form onSubmit={handlePayment} className="bg-gray-100 p-4 rounded">
+            <PaymentElement />
+            <button
+              type="submit"
+              className="mt-4 bg-mainBlue hover:bg-darkBlue transition-colors text-white px-6 py-3 rounded w-full"
+              disabled={!stripe || !elements}
+            >
+              Pay Now
+            </button>
+            {paymentMessage && (
+              <p className="mt-2 text-red-500 text-center">{paymentMessage}</p>
+            )}
+          </form>
+        </div>
+      </div>
+    );
+    
+  }
   
   const steps = [
     <AccountCreationStep key="step1" />,
     <RegistrationStep key="step2" />,
     <ApplicationStep key="step3" />,
     <FurtherInfoStep key="step4" />,
+    <PaymentStep 
+    key="step5" 
+    clientSecret={clientSecret} 
+    selectedProgram={getValues("step1.program")} 
+    applicantEmail={getValues("step2.email")}
+    amount={amount}
+  />,
   ];
 
   return (

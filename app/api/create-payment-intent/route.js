@@ -13,7 +13,6 @@ export async function POST(request) {
       payment_method_types: ["card"],
     // automatic_payment_methods: { enabled: true },
     });
-    console.log(paymentIntent.client_secret)
     return NextResponse.json({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
     console.error("Error creating payment intent:", error);

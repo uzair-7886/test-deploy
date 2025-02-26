@@ -1,14 +1,12 @@
-// /app/api/application-confirmation/route.js (Next.js 13+)
-// or /pages/api/application-confirmation.js (Next.js 12-)
 
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(req) {
   try {
-    // 1. Parse request data (only email needed, or add more fields if desired)
+    
     const body = await req.json();
-    const { applicantEmail } = body;
+    const { applicantEmail, applicantName } = body;
 
     // 2. Create Nodemailer transporter
     const transporter = nodemailer.createTransport({
@@ -24,7 +22,7 @@ export async function POST(req) {
     // 3. Compose the HTML for your confirmation email
     const emailHtml = `
       <div style="font-family: Arial, sans-serif;">
-        <p>Dear Applicant,</p>
+        <p>Dear ${applicantName || 'Applicant'},</p>
         <p>
           Thank you for submitting your application. I am pleased to confirm that 
           our admissions team has successfully received it.

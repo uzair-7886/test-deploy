@@ -58,7 +58,7 @@ const ApplicationForm = () => {
     },
   });
 
-  const { handleSubmit, register, getValues } = methods;
+  const { handleSubmit, register, getValues, watch } = methods;
 
   // This function creates a new application on step 1 and patches it in later steps.
   const onSubmit = async (data) => {
@@ -123,11 +123,13 @@ const ApplicationForm = () => {
   
         // Now send the confirmation email to the applicant
         const applicantEmail = data.step2.email || data.account.email;
+        const applicantName = `${data.step2.firstName} ${data.step2.lastName}` || data.account.firstName;
         if (applicantEmail) {
           await fetch('/api/application-confirmation', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ applicantEmail }),
+            body: JSON.stringify({ applicantEmail, applicantName }),
+
           });
         }
   
@@ -252,7 +254,7 @@ const ApplicationForm = () => {
       {/* Desktop Vertical Indicator */}
       <div className="w-2/5 bg-mainBlue p-8 hidden md:flex flex-col rounded-[30px]">
         <div className="flex justify-center items-center">
-          <img src="/logo-header.png" alt="OCL Logo" className="w-24 h-24" />
+          <img src="/osi-logo.jpeg" alt="OCL Logo" className="w-24 h-24" />
         </div>
         <div className="flex flex-col space-y-8 font-semibold relative">
           <div className="absolute left-5 top-10 w-0.5 h-[calc(100%-40px)] bg-grey"></div>
@@ -369,7 +371,11 @@ const ApplicationForm = () => {
     </form>
   );
 
-  const RegistrationStep = () => (
+  const RegistrationStep = () => {
+
+    const selectedProgram = watch("step1.program");
+    return(
+    
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
       <h1 className="text-2xl font-bold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center">
         The Oxford Institute
@@ -427,7 +433,11 @@ const ApplicationForm = () => {
             />
           </div>
         </div>
-        <div className="relative">
+
+        {
+          selectedProgram === "Oxford Summer Program - £5,999" && (
+            <>
+            <div className="relative">
           <label className="block mb-2">Subject 1:</label>
           <div className="relative">
             <select
@@ -473,6 +483,12 @@ const ApplicationForm = () => {
             />
           </div>
         </div>
+            </>
+          )
+        }
+        
+
+
         <div className="flex justify-center items-center">
         <button
           type="submit"
@@ -487,7 +503,7 @@ const ApplicationForm = () => {
         <ProgressBars currentStep={step} />
       </div>
     </form>
-  );
+  );}
   
   const ApplicationStep = () => (
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
@@ -526,6 +542,7 @@ const ApplicationForm = () => {
             className="w-full p-4 bg-[#EEEEEE] rounded-lg"
             type="date"
             required
+            max={new Date().toISOString().split("T")[0]}
           />
         </div>
         <div className="relative">

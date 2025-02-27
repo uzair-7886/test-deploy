@@ -6,8 +6,8 @@ import fetch from 'node-fetch';
 cron.schedule('* * * * *', async () => {
   console.log('Running local cron job to call the route...');
   try {
-    // const res = await fetch('http://localhost:3000/api/cron/followUp');
-    const res = await fetch('http://localhost:3000/api/cron/callBackEmail');
+    const res = await fetch('http://localhost:3000/api/cron/followUp');
+    // const res = await fetch('http://localhost:3000/api/cron/callBackEmail');
     const data = await res.json();
     console.log('Cron response:', data);
   } catch (err) {

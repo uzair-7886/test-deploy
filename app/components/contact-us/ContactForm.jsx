@@ -233,28 +233,28 @@ const ContactForm = () => {
     Connect with us
   </p>
   <div className="flex items-center gap-4">
-    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.instagram.com/oxford_summer_program/" target="_blank" rel="noopener noreferrer">
       <img
         src="/Contact Us/Instagram.svg"
         alt="Instagram"
         className="w-8 h-8 hover:scale-110 transition-transform duration-200"
       />
     </a>
-    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.facebook.com/oxfordinstitute1/" target="_blank" rel="noopener noreferrer">
       <img
         src="/Contact Us/Facebook.svg"
         alt="Facebook"
         className="w-8 h-8 hover:scale-110 transition-transform duration-200"
       />
     </a>
-    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+    {/* <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
       <img
         src="/Contact Us/Linked.svg"
         alt="YouTube"
         className="w-8 h-8 hover:scale-110 transition-transform duration-200"
       />
-    </a>
-    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+    </a> */}
+    <a href="https://www.youtube.com/@theoxfordinstitute5332" target="_blank" rel="noopener noreferrer">
       <img
         src="/Contact Us/Youtube.svg"
         alt="YouTube"

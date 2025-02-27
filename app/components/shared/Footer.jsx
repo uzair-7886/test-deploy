@@ -12,13 +12,13 @@ const Footer = () => {
               className="mb-6"
             />
             <div className="flex gap-6">
-              <a href="#" aria-label="Facebook">
+              <a href="https://www.facebook.com/oxfordinstitute1/" aria-label="Facebook">
                 <img src="/facebook.png" alt="Facebook icon" />
               </a>
               <a href="#" aria-label="Twitter">
                 <img src="/twitter.png" alt="Twitter icon" />
               </a>
-              <a href="#" aria-label="Instagram">
+              <a href="https://www.instagram.com/oxford_summer_program/" aria-label="Instagram">
                 <img src="/instagram.png" alt="Instagram icon" />
               </a>
             </div>

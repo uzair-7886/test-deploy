@@ -23,6 +23,8 @@ const ApplicationForm = () => {
   const [clientSecret, setClientSecret] = useState(null);
   const [amount, setAmount] = useState(null);
 
+  const [error, setError] = useState("");
+
   const methods = useForm({
     defaultValues: {
       account: {
@@ -63,21 +65,48 @@ const ApplicationForm = () => {
   // This function creates a new application on step 1 and patches it in later steps.
   const onSubmit = async (data) => {
     setSaving(true);
+    setError("");
   
     if (step === 1) {
-      // Step 1: Create a new application
       try {
-        const doc = {
-          _type: 'application',
-          account: data.account,
-          status: 'account_created',
-          submittedAt: new Date().toISOString(),
-        };
-        const created = await client.create(doc);
-        setApplicationId(created._id);
-        setStep(step + 1);
-      } catch (error) {
-        console.error("Error creating application:", error);
+        // 1) Check if this email already exists in the `application` documents
+        const existingApplication = await client.fetch(
+          `*[_type == "application" && account.email == $email][0]`,
+          { email: data.account.email }
+        );
+
+        if (existingApplication) {
+          // Email already exists:
+          // 2) Check if the password matches
+          if (existingApplication.account.password === data.account.password) {
+            // Password is correct, move on and set the applicationId
+            setApplicationId(existingApplication._id);
+
+            // (Optional) If you want to set default values from existing doc:
+            methods.setValue("account.firstName", existingApplication.account.firstName);
+            methods.setValue("account.lastName", existingApplication.account.lastName);
+            // ... etc. for any other fields you wish to carry forward
+
+            setStep(step + 1);
+          } else {
+            // Password is incorrect
+            setError("Account already exists. Invalid credentials.");
+          }
+        } else {
+          // 3) No existing application => create a new one
+          const doc = {
+            _type: "application",
+            account: data.account,
+            status: "account_created",
+            submittedAt: new Date().toISOString(),
+          };
+          const created = await client.create(doc);
+          setApplicationId(created._id);
+          setStep(step + 1);
+        }
+      } catch (err) {
+        console.error("Error creating/fetching application:", err);
+        setError("An error occurred. Please try again.");
       }
     } else if (step === 2) {
       // Step 2: Patch the document with step1 data
@@ -355,6 +384,8 @@ const ApplicationForm = () => {
             required
           />
         </div>
+        {/* Show error if password is invalid or any other issue */}
+      {error && <p style={{ color: "red" }}>{error}</p>}
         <div className="flex items-center justify-center">
           <button
             type="submit"

@@ -9,7 +9,8 @@ import { faqSection } from './faqSection'
 import { post } from './post'
 import { blockContent } from './blockContent'
 import contactUs from './contactUs'
+import auth from './auth'
 
 export const schema = {
-  types: [ application,testimonial,course,subjects, gallery,video, faqSection,blockContent , post, contactUs],
+  types: [ application,testimonial,course,subjects, gallery,video, faqSection,blockContent , post, contactUs, auth],
 }

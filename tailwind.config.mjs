@@ -13,7 +13,6 @@ export default {
         textColor: '#4B5D68',
         offWhite:'#F3F1EC',
         darkblue:"#003180",
-        orange:"#FB6302",
         lightpurple:"#8794BA",
         grey:"#808080"
       },

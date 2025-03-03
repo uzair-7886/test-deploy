@@ -22,7 +22,7 @@ export default function EmailConfig() {
   // Entire config fetched from the API
   const [configData, setConfigData] = useState(null);
   // Which email template is currently selected
-  const [selectedTemplate, setSelectedTemplate] = useState('followUpEmail');
+  const [selectedTemplate, setSelectedTemplate] = useState('confirmationEmail');
   // Values for the currently selected template
   const [scheduleDays, setScheduleDays] = useState(defaultScheduleDays);
   const [emailHtml, setEmailHtml] = useState(defaultEmailHtml);

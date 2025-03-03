@@ -6,6 +6,8 @@ import * as XLSX from 'xlsx';
 import { useRouter } from 'next/navigation';
 import { Search, Filter, Download, ChevronDown, X, Loader } from 'lucide-react';
 
+const INCOMPLETE_STATUSES = ["account_created", "program_selected", "personal_info_submitted"];
+
 const ApplicationTable = () => {
   const router = useRouter();
   const [data, setData] = useState([]);
@@ -48,7 +50,15 @@ const ApplicationTable = () => {
       status.toLowerCase().includes(filterText.toLowerCase()) ||
       paymentStatus.toLowerCase().includes(filterText.toLowerCase());
 
-    const statusMatch = statusFilter ? status === statusFilter : true;
+    // Updated status filtering:
+    const statusMatch = (() => {
+      if (!statusFilter) return true;
+      if (statusFilter === "Incomplete") {
+        return INCOMPLETE_STATUSES.includes(status);
+      }
+      return status === statusFilter;
+    })();
+
     const programMatch = programFilter ? program === programFilter : true;
     const paymentMatch = paymentFilter ? paymentStatus === paymentFilter : true;
 
@@ -56,7 +66,6 @@ const ApplicationTable = () => {
   });
 
   // Generate export data based on filters:
-  // If any filter is applied then export only the filtered data; otherwise, export all data.
   const getExportData = () => {
     const exportSource = (filterText || statusFilter || programFilter || paymentFilter) ? filteredData : data;
     const headers = ["Name", "Email", "Program", "Status", "Payment Status", "Submitted At"];
@@ -138,6 +147,7 @@ const ApplicationTable = () => {
       selector: row => row.status,
       sortable: true,
       cell: row => {
+        // Define colors for each status
         const getStatusColor = (status) => {
           switch (status) {
             case 'completed':
@@ -154,20 +164,23 @@ const ApplicationTable = () => {
               return 'bg-gray-100 text-gray-800';
           }
         };
-        
+    
+        // Format status string for display (e.g. "account_created" becomes "Account Created")
         const formatStatus = (status) => {
-          return status.split('_').map(word => 
-            word.charAt(0).toUpperCase() + word.slice(1)
-          ).join(' ');
+          return status
+            .split('_')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
         };
-        
+    
         return (
           <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(row.status)}`}>
             {formatStatus(row.status)}
           </span>
         );
       }
-    },
+    }
+    ,
     {
       name: 'Payment',
       selector: row => row.payment?.paid ? "Paid" : "Pending",
@@ -368,11 +381,9 @@ const ApplicationTable = () => {
                   className="w-full border-gray-300 rounded-md shadow-sm text-sm focus:ring-blue-500 focus:border-blue-500 py-2"
                 >
                   <option value="">All Statuses</option>
-                  <option value="account_created">Account Created</option>
-                  <option value="program_selected">Program Selected</option>
-                  <option value="personal_info_submitted">Personal Info Submitted</option>
                   <option value="completed">Completed</option>
                   <option value="fee_submitted">Fee Submitted</option>
+                  <option value="Incomplete">Incomplete</option>
                 </select>
               </div>
               

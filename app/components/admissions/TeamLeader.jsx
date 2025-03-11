@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const TeamLeader = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6">
+    <div className="max-w-7xl mx-auto px-4">
       <div className="py-8">
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="w-full md:w-1/3">

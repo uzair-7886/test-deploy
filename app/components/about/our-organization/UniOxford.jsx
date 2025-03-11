@@ -56,7 +56,7 @@ const UniOxford = () => {
           </p>
         </div>
       </div>
-      <hr className="border-t-2 border-mainYellow my-4" />
+      <hr className="border-t-1 border-mainYellow my-10 max-w-7xl mx-auto" />
   
       <MainContent content={contentData} />
     </div>

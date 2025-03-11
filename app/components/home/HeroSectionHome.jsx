@@ -4,7 +4,8 @@ import ButtonOutlined from '../shared/ButtonOutlined';
 
 const HeroSectionHome = () => {
   return (
-    <div className="relative w-full min-h-screen bg-mainBlue">
+    // Using fixed heights for different breakpoints instead of min-h-screen
+    <div className="relative w-full h-[1000px] md:h-[700px] lg:h-[700px] bg-mainBlue border-b-2 border-mainYellow">
       {/* Background Image */}
       <Image
         src="/HomePage/hero.jpg"
@@ -15,18 +16,13 @@ const HeroSectionHome = () => {
       />
       
       {/* Content Container */}
-      <div className="relative container mx-auto px-4 py-8 md:py-16 flex flex-col lg:flex-row items-center lg:justify-between">
+      <div className="relative max-w-7xl container mx-auto px-4 py-8 md:py-16 flex flex-col lg:flex-row items-center lg:justify-between">
         {/* Left Content */}
         <div className="max-w-xl w-full lg:w-auto mb-8 lg:mb-0">
           <h1 className="text-white text-[50px] md:text-[50px] font-enriqueta mb-4 md:mb-6 text-center lg:text-left">
             OXFORD <span className="text-mainYellow">SUMMER</span><br />
             PROGRAM
           </h1>
-          {/* <h1 className="text-white text-[50px] font-enriqueta mb-6">
-            OXFORD <span className="text-mainYellow">SUMMER</span><br />
-            PROGRAM
-          </h1> */}
-          
           <p className="text-white text-sm md:text-[16px] font-roboto mb-6 md:mb-8 text-center lg:text-left">
             Join the Oxford Institute's Exclusive On-campus Summer Programs.<br className="hidden md:block" />
             Oxford Summer Program (Limited Seats Available)
@@ -34,7 +30,6 @@ const HeroSectionHome = () => {
           
           {/* Program Details */}
           <div className="space-y-4 md:space-y-5 mb-6 md:mb-8 font-roboto text-white">
-            {/* Main Program */}
             <div className="flex items-start">
               <Image
                 src="/homepage/calendar.svg"
@@ -52,8 +47,6 @@ const HeroSectionHome = () => {
                 </p>
               </div>
             </div>
-
-            {/* Executive Program */}
             <div className="flex items-start">
               <Image
                 src="/homepage/calendar.svg"
@@ -71,8 +64,6 @@ const HeroSectionHome = () => {
                 </p>
               </div>
             </div>
-
-            {/* China Program */}
             <div className="flex items-start">
               <Image
                 src="/homepage/calendar.svg"
@@ -97,27 +88,19 @@ const HeroSectionHome = () => {
           </div>
         </div>
         
-        {/* Right Image */}
-        {/* <div className="relative w-full h-[300px] md:h-[400px] lg:h-[519px] lg:w-[703px] rounded-[30px] overflow-hidden">
-          <Image
-            src="/HomePage/hero.jpg"
-            alt="Oxford Foreground"
-            fill
-            className="object-cover"
-          />
-        </div> */}
+        {/* Right Video */}
         <div className="relative w-full h-[300px] md:h-[400px] lg:h-[519px] lg:w-[703px] rounded-[30px] overflow-hidden">
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="object-cover w-full h-full"
-  >
-    <source src="/HomePage/hero.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-</div>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="object-cover w-full h-full"
+          >
+            <source src="/HomePage/hero.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </div>
   );

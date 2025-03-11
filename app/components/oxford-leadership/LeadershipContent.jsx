@@ -5,10 +5,10 @@ import Image from 'next/image';
 
 const Content = ({ content, viewCourse=false }) => {
     return (
-      <div className="w-full flex flex-col space-y-8 px-4 py-8">
+      <div className="w-full max-w-7xl mx-auto flex flex-col space-y-8  py-8">
         {content.map((item, index) => (
           <div
-            key={index}
+            key={index} 
             className={`flex flex-col md:flex-row items-center 
             // Removed md:justify-around and added gap control
             ${index % 2 === 0 ? "md:flex-row-reverse" : ""} 

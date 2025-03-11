@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const OxfordLifestyle = () => {
   return (
-    <div className="space-y-8 px-4 sm:px-6 lg:px-8 ">
+    <div className="space-y-8 px-4 sm:px-6 lg:px-8 font-poppins">
       <div className="text-center space-y-4">
         {/* Responsive heading sizes */}
         <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta">

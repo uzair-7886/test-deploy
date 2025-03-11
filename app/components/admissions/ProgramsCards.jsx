@@ -3,7 +3,7 @@ import React from 'react';
 const ProgramsCards = () => {
   return (
     <div className="bg-offWhite py-12">
-      <div className="container mx-auto max-w-5xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="container mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Card 1 */}
         <div className="bg-white CardDeop rounded-[20px] p-6">
           <h3 className="text-2xl font-bold text-mainBlue font-enriqueta md:text-[42px] py-8">Executive Leadership Program</h3>

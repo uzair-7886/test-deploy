@@ -60,7 +60,7 @@ const OxfordLearning = () => {
 
               {/* First Card */}
               <div className="bg-[#F3F1EC] p-6 rounded-[20px] shadow-lg max-w-[400px] relative z-10">
-                <h3 className="text-lg md:text-[28px] font-enriqueta font-bold text-mainBlue">
+                <h3 className="text-lg md:text-[28px] font-enriqueta font-bold text-mainBlue py-4">
                   Essay Counselling & Presentation Skills
                 </h3>
                 <p className="text-sm font-roboto text-justify text-textColor mt-2">
@@ -70,7 +70,7 @@ const OxfordLearning = () => {
 
               {/* Second Card */}
               <div className="bg-[#F3F1EC] p-6 rounded-[20px] shadow-lg max-w-[400px] relative z-10">
-                <h3 className="text-lg md:text-[28px] font-enriqueta font-bold text-mainBlue">
+                <h3 className="text-lg md:text-[28px] font-enriqueta font-bold text-mainBlue py-4">
                   Network, Culture & Diversity
                 </h3>
                 <p className="text-sm font-roboto text-justify text-textColor mt-2">
@@ -106,7 +106,7 @@ const OxfordLearning = () => {
 
               {/* First Card */}
               <div className="bg-white p-6 rounded-[20px] shadow-lg max-w-[400px] relative z-10">
-                <h3 className="text-lg md:text-[28px] font-enriqueta font-bold text-mainBlue">
+                <h3 className="text-lg md:text-[28px] font-enriqueta font-bold text-mainBlue py-4">
                   Tutorial-Style Learning
                 </h3>
                 <p className="text-sm font-roboto text-justify text-textColor mt-2">
@@ -116,7 +116,7 @@ const OxfordLearning = () => {
 
               {/* Second Card */}
               <div className="bg-white p-6 rounded-[20px] shadow-lg max-w-[400px] relative z-10">
-                <h3 className="text-lg md:text-[28px] font-enriqueta font-bold text-mainBlue">
+                <h3 className="text-lg md:text-[28px] font-enriqueta font-bold text-mainBlue py-4">
                   Keynote Lectures
                 </h3>
                 <p className="text-sm font-roboto text-justify text-textColor mt-2">

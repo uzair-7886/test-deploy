@@ -9,8 +9,8 @@ import 'react-quill-new/dist/quill.snow.css';
 
 // Available email template types as keys in your JSON config
 const EMAIL_TEMPLATES = {
-    confirmationEmail: 'Confirmation Email',
   followUpEmail: 'Offer Letter Email',
+  confirmationEmail: 'Application Confirmation Email',
   sevenDayCallbackEmail: 'Callback Email'
 };
 
@@ -22,7 +22,7 @@ export default function EmailConfig() {
   // Entire config fetched from the API
   const [configData, setConfigData] = useState(null);
   // Which email template is currently selected
-  const [selectedTemplate, setSelectedTemplate] = useState('confirmationEmail');
+  const [selectedTemplate, setSelectedTemplate] = useState('followUpEmail');
   // Values for the currently selected template
   const [scheduleDays, setScheduleDays] = useState(defaultScheduleDays);
   const [emailHtml, setEmailHtml] = useState(defaultEmailHtml);
@@ -117,7 +117,7 @@ export default function EmailConfig() {
         configData[selectedTemplate] &&
         Object.prototype.hasOwnProperty.call(configData[selectedTemplate], 'scheduleDays') && (
           <div className="mb-4">
-            <label className="block mb-1">Schedule Days</label>
+            <label className="block mb-1">Schedule Days </label>
             <input
               type="number"
               value={scheduleDays}

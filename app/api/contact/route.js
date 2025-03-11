@@ -19,11 +19,22 @@ export async function POST(req) {
   const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: Number(process.env.MAIL_PORT),
-    secure: true, // true for port 465 (SSL)
+    secure: false, // false for port 587 (STARTTLS)
     auth: {
       user: process.env.MAIL_USERNAME,
       pass: process.env.MAIL_PASSWORD,
     },
+    logger: true, // enable logging to console
+    debug: true,  // include SMTP traffic details
+  });
+
+  // Verify connection configuration
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error("Error verifying transporter:", error);
+    } else {
+      console.log("Server is ready to take our messages");
+    }
   });
 
   // Email options for admin notification
@@ -73,10 +84,12 @@ OSI Team`,
 
   try {
     // Send both emails concurrently
-    await Promise.all([
+    const [adminInfo, autoReplyInfo] = await Promise.all([
       transporter.sendMail(mailOptions),
       transporter.sendMail(autoReplyMailOptions)
     ]);
+    console.log("Admin email info:", adminInfo);
+    console.log("Auto reply email info:", autoReplyInfo);
 
     return NextResponse.json(
       { message: 'Contact form submitted successfully.' },

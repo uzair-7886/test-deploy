@@ -2,9 +2,12 @@ import React from 'react'
 
 const ProgramsDownload = () => {
   return (
-    <div className="bg-offWhite py-16 px-4">
+    <div className='bg-offWhite'>
+
+    
+    <div className=" py-16 px-4 max-w-7xl mx-auto">
         <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold mb-8 text-center">
-        Our Programs
+        OUR PROGRAMS
       </h2>
       
       <div className="container mx-auto">
@@ -58,6 +61,7 @@ const ProgramsDownload = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

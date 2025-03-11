@@ -22,7 +22,7 @@ const HeroSectionSR = () => {
       <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">
         <div className="w-full text-center">
           <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta mt-20 text-white leading-tight">
-          STUDENT<span className="text-mainYellow">RESOURCES </span>
+          STUDENT<span className="text-mainYellow"> RESOURCES </span>
           </h1>
         </div>
       </div>

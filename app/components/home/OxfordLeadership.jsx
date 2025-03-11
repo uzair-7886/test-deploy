@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const OxfordLeadership = () => {
   return (
-    <div className="bg-white py-32">
+    <div className="bg-white pb-10 pt-20 max-w-7xl mx-auto">
       {/* 1) Center the entire section in a responsive container */}
       <div
         className="
@@ -37,7 +37,7 @@ const OxfordLeadership = () => {
           <img
             src="/homepage/circle.svg"
             alt="Decorative circular text"
-            className="absolute z-50"
+            className="absolute z-20"
             style={{
               top: '-14.8%',    // -80 / 540 ≈ -14.8%
               left: '33.1%',    // 205 / 620 ≈ 33.1%

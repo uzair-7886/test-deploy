@@ -4,9 +4,12 @@ import ButtonOutlined from '../shared/ButtonOutlined';
 
 const FeeKeyDates = () => {
   return (
-    <div className="bg-offWhite py-8 ">
-        <div className="container mx-auto max-w-7xl px-4">
-      <div className=" px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className='bg-offWhite'>
+
+    
+    <div className=" py-8 mx-auto max-w-7xl px-4">
+        <div className="container ">
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Card 1 */}
         <div className="bg-white rounded-[40px] CardShadow2 overflow-hidden">
           <div className="bg-mainBlue text-white CardShadow2 md:text-[42px] py-10 text-center font-enriqueta text-xl">
@@ -83,7 +86,7 @@ const FeeKeyDates = () => {
           </div>
           </div>
 
-          <div className="container py-12 mx-auto max-w-5xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="container py-12 mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Card 1: Fee Includes */}
         <div className="bg-white rounded-[20px] CardShadow2 CardDeop p-8">
           <h3 className="text-mainBlue font-enriqueta text-xl  font-bold mb-6">
@@ -163,6 +166,7 @@ const FeeKeyDates = () => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

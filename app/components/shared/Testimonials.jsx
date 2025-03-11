@@ -71,8 +71,8 @@ const Testimonials = () => {
 
   if (testimonialData.length === 0) {
     return (
-      <div className="w-full px-4 py-16 bg-white font-roboto">
-        <div className="max-w-6xl mx-auto">
+      <div className="w-full py-16 bg-white font-roboto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold text-center text-mainYellow">
             Testimonials
           </h2>
@@ -83,8 +83,8 @@ const Testimonials = () => {
   }
 
   return (
-    <div className="w-full px-4 py-16 bg-white font-roboto">
-      <div className="relative max-w-6xl mx-auto">
+    <div className="w-full py-16 bg-white font-roboto">
+      <div className="relative max-w-7xl px-4 mx-auto">
         {/* Title + Comma centered and responsive */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
           <Image
@@ -95,7 +95,7 @@ const Testimonials = () => {
             className="block"
           />
           <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold text-center">
-            Testimonials
+            TESTIMONIALS
           </h2>
         </div>
 

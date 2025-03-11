@@ -29,7 +29,7 @@ const SafetyContent = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col space-y-8 px-4 py-8">
+    <div className="w-full max-w-7xl mx-auto flex flex-col space-y-8 px-4 py-8">
       {contentData.map((item, index) => (
         <div
           key={index}

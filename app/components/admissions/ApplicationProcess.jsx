@@ -5,7 +5,7 @@ import Button from '../shared/Button';
 const ApplicationProcess = () => {
   return (
     <div className="bg-offWhite py-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row px-6 md:px-12 gap-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row px-4 md:px-12 gap-8">
         {/* Left Content */}
         <div className="w-full md:w-1/3">
           <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4">
@@ -53,7 +53,7 @@ const ApplicationProcess = () => {
             
           ].map((item, index) => (
             <div key={index} className="border-b-[1px] border-mainYellow pb-4">
-              <h3 className="text-mainBlue text-lg md:text-[28px] font-bold font-enriqueta">{item.title}</h3>
+              <h3 className="text-mainBlue text-lg md:text-[28px]  font-enriqueta">{item.title}</h3>
               <p className="text-textColor text-sm leading-relaxed font-roboto py-2">{item.description}</p>
             </div>
           ))}

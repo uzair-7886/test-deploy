@@ -128,7 +128,7 @@ const SubjectsHome = () => {
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading centered, using font-enriqueta */}
         <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold mb-8 text-center">
-          Subjects
+          SUBJECTS
         </h2>
 
         {/* Grid of subject cards: single column on mobile, four columns on medium+ */}

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const EAContent = ({ content, viewCourse = false }) => {
   return (
-    <div className="w-full flex flex-col space-y-12">
+    <div className="w-full max-w-7xl mx-auto px-4 flex flex-col space-y-12">
       <div className="flex flex-col md:flex-row md:gap-10">
         {/* Left Content Section */}
         <div className="w-full md:w-3/5 flex flex-col justify-start space-y-12">

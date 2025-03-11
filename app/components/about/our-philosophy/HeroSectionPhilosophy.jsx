@@ -9,7 +9,7 @@ const HeroSectionPhilosophy = () => {
         style={{
           backgroundImage: `
             linear-gradient(0deg, rgba(7, 41, 78, 0.1), rgba(7, 41, 78, 0.8)),
-            linear-gradient(360deg, rgba(0, 0, 0, 0) 63.35%, rgba(0, 0, 0, 0.6) 82.74%, rgba(0, 0, 0, 0.6) 100%),
+            linear-gradient(360deg, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.6) 90%, rgba(0, 0, 0, 0.6) 100%),
             url('/Our Philosphy/Banner.jpg')
           `,
           backgroundSize: 'cover',

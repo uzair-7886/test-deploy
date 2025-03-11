@@ -29,7 +29,7 @@ const GalleryHome = () => {
           mb-8 
           text-center
         ">
-          Gallery
+          GALLERY
         </h2>
 
         {/* Cards (3 columns on md+, 1 column on mobile) */}

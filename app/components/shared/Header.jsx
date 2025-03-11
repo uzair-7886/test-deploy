@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import ProgramMenu from "./ProgramMenu";
+import OxfordExperienceMenu from "./OxfordExperienceMenu";
+import AboutMenu from "./AboutMenu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,15 +21,18 @@ const Header = () => {
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
   const [galleryDropdownOpen, setGalleryDropdownOpen] = useState(false);
 
+  const [showProgramMenu, setShowProgramMenu] = useState(false);
+  const [showAboutMenu, setShowAboutMenu] = useState(false);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  return (
-    <header className="text-white bg-mainBlue font-roboto border-b-white border-b-2">
-      <div className="flex items-center justify-between px-4 lg:px-8 py-1 lg:justify-around">
+  return (<header className="text-white bg-mainBlue font-roboto border-b-white border-b-2">
+  <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-5 lg:justify-between lg:h-[120px]">
+  
         {/* Logo */}
-        <div className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] relative">
+        <div className="w-[60px] h-[60px] lg:w-[150px] lg:h-[150px] relative  lg:z-50 lg:top-10">
           <Link href="/">
             <Image
               src="/osi-logo.jpeg"
@@ -53,37 +59,22 @@ const Header = () => {
 
 
             {/* ABOUT US (Dropdown) */}
-            <li className="relative group z-50">
-              <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
-                <span>About Us</span>
-                <img src="/Vector.png" alt="dropdown" />
-              </div>
-              {/* Dropdown */}
-              <ul className="absolute left-0 mt-2 w-56 bg-white text-mainBlue text-sm 
-                             opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                             transition-all duration-200 shadow-lg">
-                <li>
-                  <Link href="/about/our-organization" className="block px-4 py-2 hover:bg-gray-100">
-                    Our Organization
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about/our-philosophy" className="block px-4 py-2 hover:bg-gray-100">
-                    Our Philosophy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about/our-team" className="block px-4 py-2 hover:bg-gray-100">
-                    Our Team
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about/our-students" className="block px-4 py-2 hover:bg-gray-100">
-                    Our Students
-                  </Link>
-                </li>
-              </ul>
-            </li>
+
+            <li
+  className="relative group z-50"
+  onMouseEnter={() => setShowAboutMenu(true)}
+  onMouseLeave={() => setShowAboutMenu(false)}
+>
+  <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
+    <span>ABOUT US</span>
+    <img src="/Vector.png" alt="dropdown" />
+  </div>
+  {showAboutMenu && (
+    <div className="absolute left-0 top-full pt-2 w-[700px] z-50">
+      <AboutMenu />
+    </div>
+  )}
+</li>
 
             {/* PROGRAMS (Dropdown) */}
             <li className="relative group z-50">
@@ -131,12 +122,28 @@ const Header = () => {
       </Link>
     </li>
   </ul>
-</li>
+            </li>
+
+            {/* <li
+              className="relative group z-50"
+              onMouseEnter={() => setShowProgramMenu(true)}
+              onMouseLeave={() => setShowProgramMenu(false)}
+            >
+              <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
+                <span>Programs</span>
+                <img src="/Vector.png" alt="dropdown" />
+              </div>
+              {showProgramMenu && (
+                <div className="absolute left-0 top-full pt-2 w-[700px] z-50">
+                  <ProgramMenu />
+                </div>
+              )}
+            </li> */}
 
 
 
             {/* OXFORD EXPERIENCE (Dropdown) */}
-            <li className="relative group z-50">
+            {/* <li className="relative group z-50">
               <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
                 <span>Oxford Experience</span>
                 <img src="/Vector.png" alt="dropdown" />
@@ -160,7 +167,23 @@ const Header = () => {
                   </Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
+
+<li
+  className="relative group z-50"
+  onMouseEnter={() => setOxfordExperienceDropdownOpen(true)}
+  onMouseLeave={() => setOxfordExperienceDropdownOpen(false)}
+>
+  <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
+    <span>Oxford Experience</span>
+    <img src="/Vector.png" alt="dropdown" />
+  </div>
+  {oxfordExperienceDropdownOpen && (
+    <div className="absolute left-0 top-full pt-2 w-[700px] z-50">
+      <OxfordExperienceMenu />
+    </div>
+  )}
+</li>
 
 
             {/* ADMISSIONS (Dropdown) */}

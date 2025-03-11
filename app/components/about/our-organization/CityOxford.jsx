@@ -51,7 +51,7 @@ const CityOxford = () => {
           Whether you’re visiting the city's many historic buildings, colleges, and museums, enjoying a drink or meal, catching a show, or indulging in some retail therapy, Oxford truly has something for everyone. Here are some glimpses of life in Oxford:          </p>
         </div>
       </div>
-      <hr className="border-t-2 border-mainYellow my-4" />
+      <hr className="border-t-1 border-mainYellow my-10 max-w-7xl mx-auto" />
   
       <MainContent content={contentData} />
     </div>

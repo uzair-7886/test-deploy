@@ -26,7 +26,7 @@ const MainContent = ({ content, viewCourse=false }) => {
           </div>
           {/* Text Section */}
           <div className="max-w-lg md:max-w-[633px]">
-            <h2 className="text-mainBlue text-2xl md:text-[42px] py-4 font-enriqueta font-bold mb-4">
+            <h2 className="text-mainBlue text-2xl md:text-[42px] py-4 font-enriqueta  mb-4">
               {item.heading}
             </h2>
             <p className="text-textColor md:text-[18px] pb-4 font-poppins leading-relaxed text-justify">

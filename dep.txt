@@ -1,0 +1,58 @@
+https://medium.com/@zay_kyoy/deploy-nextjs-app-on-vps-20aedfbed3d1
+
+sudo apt install nginx
+sudo nano /etc/nginx/sites-enabled/nextjs.conf
+pasted this:
+server {
+    listen 80;
+    server_name IP_here or domain;
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo service nginx restart
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/.bashrc
+nvm install 20
+nvm use 20
+nvm alias default 20
+
+
+npm install -g pm2
+❯ sudo pm2 start npm --name "myapp" -- start
+
+pm2 startup
+pm2 logs myapp
+
+
+Restart or Reload the PM2 Process
+
+    Restart is the simplest approach:
+
+pm2 restart myapp
+
+Replace myapp with the name or ID of your PM2 process.
+If your application supports zero-downtime reload (common for Node.js HTTP servers), you can use:
+
+    pm2 reload myapp
+
+    This attempts a more graceful restart.
+
+Verify
+
+    Run pm2 list or pm2 status myapp to ensure the process is online.
+    Check logs with:
+
+        pm2 logs myapp
+
+        to make sure there are no errors.
+
+That’s it! After making your code changes, just rebuild (if necessary) and pm2 restart myapp (or pm2 reload myapp). PM2 will pick up the new changes and start serving your updated application.

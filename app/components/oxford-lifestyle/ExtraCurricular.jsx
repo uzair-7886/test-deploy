@@ -31,7 +31,7 @@ const ExtraCurricular = () => {
 
   return (
     <div className="bg-white py-12 px-6 md:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
+      <div className="max-w-7xl px-4 mx-auto flex flex-col md:flex-row gap-8">
         {/* Heading Column */}
         <div className="md:w-1/3 w-full">
           <h1 className="text-mainYellow text-4xl md:text-[42px] font-enriqueta font-bold">
@@ -45,7 +45,7 @@ const ExtraCurricular = () => {
           </p>
         </div>
       </div>
-      <hr className="border-t-2 border-mainYellow my-4" />
+      <hr className="border-t-1 max-w-7xl mx-auto px-4 border-mainYellow my-4" />
   
       <EAContent content={contentData} viewCourse={true}/>
     </div>

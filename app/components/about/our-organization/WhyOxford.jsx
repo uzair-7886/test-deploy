@@ -5,7 +5,7 @@ const WhyOxford = () => {
     <div className="bg-offWhite py-12">
       <div className="container mx-auto max-w-7xl px-4">
         {/* Heading */}
-        <h2 className="text-center text-3xl md:text-4xl font-enriqueta text-mainYellow mb-6">
+        <h2 className="text-center text-3xl md:text-4xl font-bold font-enriqueta text-mainYellow mb-6">
           Why Oxford
         </h2>
 

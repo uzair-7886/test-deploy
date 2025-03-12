@@ -77,54 +77,10 @@ const Header = () => {
 </li>
 
             {/* PROGRAMS (Dropdown) */}
-            <li className="relative group z-50">
-  <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
-    <span>Programs</span>
-    <img src="/Vector.png" alt="dropdown" />
-  </div>
-  {/* Dropdown */}
-  <ul className="absolute left-0 mt-2 w-56 bg-white text-mainBlue text-sm 
-                 opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                 transition-all duration-200 shadow-lg">
-    <li>
-      <Link href="/oxford-summer-program" className="block px-4 py-2 hover:bg-gray-100">
-        Oxford Summer Program
-      </Link>
-    </li>
-    <li>
-      <Link href="/executive-leadership-program" className="block px-4 py-2 hover:bg-gray-100">
-        Executive Leadership Program
-      </Link>
-    </li>
-    <li>
-      <Link href="/oxford-china-summer-program" className="block px-4 py-2 hover:bg-gray-100">
-        Oxford China Summer Program
-      </Link>
-    </li>
-    <li>
-      <Link href="/customised-camp" className="block px-4 py-2 hover:bg-gray-100">
-        Customised Camp
-      </Link>
-    </li>
-    <li>
-      <Link href="/subjects" className="block px-4 py-2 hover:bg-gray-100">
-        Subjects
-      </Link>
-    </li>
-    <li>
-      <Link href="/about/our-programs#age-groups" className="block px-4 py-2 hover:bg-gray-100">
-        Age Groups
-      </Link>
-    </li>
-    <li>
-      <Link href="/about/our-programs#education-systems" className="block px-4 py-2 hover:bg-gray-100">
-        Education Systems
-      </Link>
-    </li>
-  </ul>
-            </li>
+            
+            
 
-            {/* <li
+            <li
               className="relative group z-50"
               onMouseEnter={() => setShowProgramMenu(true)}
               onMouseLeave={() => setShowProgramMenu(false)}
@@ -138,7 +94,7 @@ const Header = () => {
                   <ProgramMenu />
                 </div>
               )}
-            </li> */}
+            </li>
 
 
 

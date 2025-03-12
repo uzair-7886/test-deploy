@@ -1,105 +1,189 @@
 'use client';
+import React, { useState } from "react";
+import Link from "next/link";
 
-import React, { useState, useEffect } from "react";
+// A recursive component to render lists with support for nested dropdowns
+const NestedList = ({ items }) => {
+  const [openStates, setOpenStates] = useState({});
 
-
-
-const ProgramMenu = ({ isMobile = false }) => {
-  const [selectedSection, setSelectedSection] = useState(null);
-  const [programFields, setProgramFields] = useState([]);
-  const [facilityFields, setFacilityFields] = useState([]);
-  const [activityFields, setActivityFields] = useState([]);
-  const [selectedAge, setSelectedAge] = useState(null);
-
-  const sections = {
-    Programme: {
-      title: "Subjects",
-      description: "Explore our programs",
-      fields: ["13-15", "16-18", "18+"], // Dynamically populated from Sanity
-    },
-    Facilities: {
-      title: "Facilities",
-      description: "Discover our facilities",
-      fields: ["13-15", "16-18", "18+"],
-    },
-    Activities: {
-      title: "Activities",
-      description: "Check out our activities",
-      fields: ["13-15", "16-18", "18+"], // Dynamically populated from Sanity
-    },
-    Ages: {
-      title: "Ages",
-      description: "Programs by age groups",
-      fields: ["13-15", "16-18", "18+"],
-    },
-  };
-
-  const baseClasses = isMobile
-    ? "w-full bg-white"
-    : "bg-white rounded-lg p-6 cursor-pointer";
-
-
-
-  const handleAgeClick = (age) => {
-    setSelectedAge(age);
-    // Redirect to /programs with age as a query parameter
-    window.location.href = `/programs?age=${encodeURIComponent(age)}`;
+  const toggle = (index) => {
+    setOpenStates((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
   return (
-    <div className={baseClasses}>
-      <div className={`flex ${isMobile ? "flex-col" : ""} gap-8`}>
-        {/* Left Menu */}
-        <div className={`${isMobile ? "w-full" : "w-1/2"} space-y-4`}>
-          {Object.entries(sections).map(([key, section]) => (
-            <div
-              key={key}
-              className={`p-4 shadow-sm rounded-tr-[20px] transition-colors duration-200 ${selectedSection === key
-                  ? "bg-[#003180] bg-opacity-10"
-                  : "hover:bg-[#003180] hover:bg-opacity-10"
-                }`}
-              onClick={() => setSelectedSection(key)}
+    <ul className="pl-4 list-none">
+      {items.map((item, index) => {
+        // If it's a simple string, wrap with a placeholder Link.
+        if (typeof item === "string") {
+          return (
+            <li
+              key={index}
+              className="text-base text-textColor py-1 cursor-pointer hover:text-mainYellow transition-colors"
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-lg font-medium">{section.title}</div>
-                  <div className="text-orange">{section.description}</div>
-                </div>
-                <div className="grid place-items-center w-8 h-8 text-orange">
-                  <img
-                    src="/svgs/widgets.svg"
-                    alt="Widget Icon"
-                    className="w-6 h-6"
-                  />
-                </div>
-              </div>
+              <Link href="/placeholder">{item}</Link>
+            </li>
+          );
+        }
+        // If it's an object with a link and no children, render it as a link.
+        if (item.link && !item.children) {
+          return (
+            <li
+              key={index}
+              className="text-lg  py-1 cursor-pointer text-mainYellow transition-colors"
+            >
+              <Link href={item.link}>{item.label}</Link>
+            </li>
+          );
+        }
+        // If item has children, render nested items recursively.
+        const isOpen = openStates[index] || false;
+        return (
+          <li key={index} className="text-base text-textColor py-1">
+            <div
+              className="flex items-center justify-between cursor-pointer hover:text-mainYellow transition-colors"
+              onClick={() => toggle(index)}
+            >
+              <span>{item.label}</span>
+              <img
+                src="/svgs/chev-down.svg"
+                alt="Arrow Down"
+                className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+              />
             </div>
-          ))}
-        </div>
+            {isOpen && <NestedList items={item.children} />}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
-        {/* Right Menu */}
-        <div className={`${isMobile ? "w-full" : "w-1/2"}`}>
-          {selectedSection ? (
-            <div className="space-y-4">
-              {sections[selectedSection].fields.map((field, index) => (
-                <button
-                  key={index}
-                  onClick={() =>
-                    selectedSection === "Ages"
-                      ? handleAgeClick(field) // Handle age selection
-                      : (window.location.href =
-                        selectedSection === "Activities"
-                          ? `/activities#${encodeURIComponent(field)}`
-                          : selectedSection === "Facilities"
-                            ? `/facilities#${encodeURIComponent(field)}`
-                            : `/programs?subject=${encodeURIComponent(field)}`)
-                  }
-                  className="block cursor-pointer border-b border-orange pb-4 hover:text-orange transition-colors text-left w-full"
+const ProgramsMenu = ({ isMobile = false }) => {
+  // State to highlight the left item (for styling purposes)
+  const [selectedProgram, setSelectedProgram] = useState(null);
+  const [openDetailGroups, setOpenDetailGroups] = useState({});
+
+  // Left side programs as objects with label and a link
+  const programs = [
+    { label: "Oxford Summer Program", link: "/oxford-summer-program" },
+    { label: "Executive Leadership Program", link: "/executive-leadership-program" },
+    { label: "Oxford China Summer Program", link: "/oxford-china-summer-program" },
+    { label: "Customised Camp", link: "/customised-camp" },
+  ];
+
+  // Right side detail groups with nested items (each nested subitem now has its own link)
+  const detailGroups = [
+    {
+      label: "Subjects",
+      children: [
+        { label: "STEM", link: "/subjects/#stem" },
+        { label: "Humanities and Social Sciences", link: "/subjects#humanities-social-sciences" },
+        { label: "Arts and Creativity", link: "/subjects#arts-creativity" },
+        { label: "Leadership and Business", link: "/subjects#leadership-business" },
+      ],
+    },
+    {
+      label: "Age Groups",
+      children: [
+        { label: "Juniors 12-15 Years Old", link: "/about/our-programs#age-groups" },
+        { label: "Seniors 16-19 Years Old", link: "/about/our-programs#age-groups" },
+        { label: "University Students 19+", link: "/about/our-programs#age-groups" },
+        { label: "Executive Program 28+", link: "/about/our-programs#age-groups" },
+      ],
+    },
+    {
+      label: "Education Systems",
+      children: [
+        { label: "IB", link: "/about/our-programs#education-systems" },
+        { label: "O/A Levels", link: "/about/our-programs#education-systems" },
+        { label: "GCSE/IGSCE", link: "/about/our-programs#education-systems" },
+        { label: "Local Examination System", link: "/about/our-programs#education-systems" },
+      ],
+    },
+  ];
+
+  const baseClasses = isMobile
+    ? "w-full bg-white"
+    : "bg-white rounded-[15px] p-6 cursor-pointer CardShadow";
+
+  return (
+    <div className="relative z-auto">
+      {/* Top Triangle Indicator */}
+      <div
+        className="absolute -top-2 left-10 w-0 h-0 
+          border-l-8 border-r-8 border-b-8 
+          border-l-transparent border-r-transparent border-b-white"
+      />
+      <div className={baseClasses}>
+        <div className={`flex ${isMobile ? "flex-col" : "flex-row"} gap-8`}>
+          {/* Left Side: Program Options */}
+          <div className={`${isMobile ? "w-full" : "w-1/2"} space-y-4`}>
+            {programs.map((program, index) => (
+              <Link key={index} href={program.link}>
+                <div
+                  className={`relative p-4 shadow-sm rounded-[10px] transition-colors duration-200 ${
+                    selectedProgram === program.label
+                      ? "bg-[#003180] bg-opacity-10"
+                      : "hover:bg-[#003180] hover:bg-opacity-10"
+                  }`}
+                  onClick={() => setSelectedProgram(program.label)}
                 >
-                  <div className="text-base">{field}</div>
-                </button>
+                  {selectedProgram === program.label && (
+                    <div
+                      className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-2 h-2 
+                        border-t-4 border-b-4 border-l-4 
+                        border-t-transparent border-b-transparent border-l-[#003180] border-opacity-10"
+                    />
+                  )}
+                  <div className="text-lg font-medium text-textColor">
+                    {program.label}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Vertical Separator (for desktop only) */}
+          {!isMobile && (
+            <div className="w-px bg-mainYellow" style={{ height: "auto" }}></div>
+          )}
+
+          {/* Right Side: Dropdown Details – always visible */}
+          <div className={`${isMobile ? "w-full" : "w-1/2"}`}>
+            <div className="space-y-4">
+              {detailGroups.map((group, index) => (
+                <div key={index} className="relative border-b border-mainYellow pb-4">
+                  <button
+                    className="block w-full text-left cursor-pointer hover:text-mainYellow transition-colors"
+                    onClick={() =>
+                      setOpenDetailGroups((prev) => ({
+                        ...prev,
+                        [index]: !prev[index],
+                      }))
+                    }
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-xl text-textColor">
+                        {group.label}
+                      </span>
+                      <img
+                        src="/svgs/chev-down.svg"
+                        alt="Arrow Down"
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          openDetailGroups[index] ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
+                  </button>
+                  {openDetailGroups[index] && (
+                    <div className="mt-2">
+                      <NestedList items={group.children} />
+                    </div>
+                  )}
+                </div>
               ))}
-              <div className="flex items-center gap-2 text-orange pt-4">
+              {/* Optional Learn More Link */}
+              <div className="flex items-center gap-2 text-mainYellow pt-4">
                 <div className="grid place-items-center w-8 h-8 rounded">
                   <img
                     src="/svgs/widgets.svg"
@@ -107,29 +191,16 @@ const ProgramMenu = ({ isMobile = false }) => {
                     className="w-6 h-6"
                   />
                 </div>
-                <a
-                  href={
-                    selectedSection === "Activities"
-                      ? "/activities"
-                      : selectedSection === "Facilities"
-                        ? "/facilities"
-                        : "/programs"
-                  }
-                  className="font-medium"
-                >
+                <Link href="/learn-more" className="font-medium">
                   Learn more
-                </a>
+                </Link>
               </div>
             </div>
-          ) : (
-            <div className="text-gray-500 text-base">
-              Select a menu item to see details
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ProgramMenu;
+export default ProgramsMenu;

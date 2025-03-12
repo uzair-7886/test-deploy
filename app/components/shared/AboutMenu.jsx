@@ -11,7 +11,7 @@ const AboutMenu = ({ isMobile = false }) => {
       fields: [
         { label: "Why Oxford?", href: "/about/our-organization#why-oxford" },
         { label: "The University of Oxford", href: "/about/our-organization#uni-oxford" },
-        { label: "The City of Oxford ", href: "/about/our-organization#city-oxford" },
+        { label: "The City of Oxford", href: "/about/our-organization#city-oxford" },
       ],
     },
     "Our Philosophy": {
@@ -46,7 +46,7 @@ const AboutMenu = ({ isMobile = false }) => {
 
   const baseClasses = isMobile
     ? "w-full bg-white"
-    : "bg-white rounded-[15px] p-6 cursor-pointer CardShadow";
+    : "bg-white rounded-[30px] p-6 cursor-pointer CardShadow";
 
   return (
     <div className="relative">
@@ -68,7 +68,10 @@ const AboutMenu = ({ isMobile = false }) => {
                     ? "bg-[#003180] bg-opacity-10"
                     : "hover:bg-[#003180] hover:bg-opacity-10"
                 }`}
-                onClick={() => setSelectedSection(key)}
+                // On desktop, update selected section on hover;
+                // on mobile, use click.
+                onMouseEnter={!isMobile ? () => setSelectedSection(key) : undefined}
+                onClick={isMobile ? () => setSelectedSection(key) : undefined}
               >
                 {selectedSection === key && (
                   <div
@@ -105,7 +108,7 @@ const AboutMenu = ({ isMobile = false }) => {
                     href={field.href}
                     className="block cursor-pointer border-b border-mainYellow pb-4 hover:text-mainYellow transition-colors text-left w-full"
                   >
-                    <div className="text-base text-textColor">{field.label}</div>
+                    <div className="text-base text-textColor hover:text-mainYellow">{field.label}</div>
                   </Link>
                 ))}
                 <div className="flex items-center gap-2 text-mainYellow pt-4">
@@ -123,7 +126,7 @@ const AboutMenu = ({ isMobile = false }) => {
               </div>
             ) : (
               <div className="text-gray-500 text-base">
-                Select a menu item to see details
+                {/* Select a menu item to see details */}
               </div>
             )}
           </div>

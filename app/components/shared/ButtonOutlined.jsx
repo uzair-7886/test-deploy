@@ -10,8 +10,8 @@ const ButtonOutlined = ({ href, children, className="" }) => {
         text-white
         font-poppins
         text-[16px]
-        font-medium
-        px-4
+        font-bold
+        px-6
         py-2
         rounded-[8px]
         inline-flex

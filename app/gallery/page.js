@@ -1,25 +1,43 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from 'next/navigation';
 import HeroSectionGallery from "../components/gallery/HeroSectionGallery";
 import GalleryViewer from "../components/gallery/GalleryViewer";
 import VideoGallery from "../components/gallery/VideoGallery";
 import Blogs from "../components/gallery/Blogs";
 
-const Page = () => {
-  // Define the sections with a name and the component to display.
+function GalleryContent() {
+  // Read the query parameter from the URL.
+  const searchParams = useSearchParams();
+  const sectionQuery = searchParams.get('section');
+
+  // Define sections with a key for matching the query parameter.
   const sections = [
-    { name: "Photo Gallery", component: <GalleryViewer /> },
-    { name: "Video Gallery", component: <VideoGallery /> },
-    { name: "Blogs", component: <Blogs /> },
+    { name: "Photo Gallery", key: "photo", component: <GalleryViewer /> },
+    { name: "Video Gallery", key: "videos", component: <VideoGallery /> },
+    { name: "Blogs", key: "blogs", component: <Blogs /> }
   ];
 
-  // Set the first section as active by default.
-  const [activeSection, setActiveSection] = useState(sections[0]);
+  // Set default active section.
+  const defaultSection = sections[0];
+  const [activeSection, setActiveSection] = useState(defaultSection);
+
+  // Update active section based on the query parameter.
+  useEffect(() => {
+    if (sectionQuery) {
+      const matchedSection = sections.find(
+        (section) => section.key === sectionQuery.toLowerCase()
+      );
+      if (matchedSection) {
+        setActiveSection(matchedSection);
+      }
+    }
+  }, [sectionQuery]);
 
   return (
     <>
       <HeroSectionGallery />
-      {/* Navigation Bar with provided styling */}
+      {/* Navigation Bar */}
       <nav className="sections-nav border-b border-white justify-center flex overflow-x-auto scrollbar-hide relative bg-mainBlue">
         {sections.map((section) => (
           <button
@@ -37,6 +55,12 @@ const Page = () => {
       {activeSection.component}
     </>
   );
-};
+}
 
-export default Page;
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading Gallery...</div>}>
+      <GalleryContent />
+    </Suspense>
+  );
+}

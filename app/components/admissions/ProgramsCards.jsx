@@ -6,7 +6,7 @@ const ProgramsCards = () => {
       <div className="container mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Card 1 */}
         <div className="bg-white CardDeop rounded-[20px] p-6">
-          <h3 className="text-2xl font-bold text-mainBlue font-enriqueta md:text-[42px] py-8">Executive Leadership Program</h3>
+          <h3 className="text-3xl font-bold text-mainBlue font-enriqueta  py-8">Executive Leadership Program</h3>
           <p className="text-textColor leading-relaxed py-6 font-roboto text-justify">
           The Executive Leadership Program is designed for CEOs, directors, top executives, entrepreneurs, business unit heads, senior managers, and policymakers who seek to expand their knowledge and leadership capabilities. It is ideal for professionals from public, private, or non-governmental sectors aiming to enhance their skills and broaden their horizons.          </p>
           <h4 className="text-lg font-bold text-mainBlue font-enriqueta mb-2">How to Apply:</h4>
@@ -29,7 +29,7 @@ const ProgramsCards = () => {
 
         {/* Card 2 */}
         <div className="bg-white CardDeop rounded-[20px] p-6">
-          <h3 className="text-2xl font-bold text-mainBlue font-enriqueta md:text-[42px]  py-8">Oxford-China Summer Program</h3>
+          <h3 className="text-3xl font-bold text-mainBlue font-enriqueta  py-8">Oxford-China Summer Program</h3>
           <p className="text-textColor leading-relaxed py-6 font-roboto text-justify">
           If you are an international student interested in our Oxford-China Summer Program, please send an email to info@theoxfordinstitute.co.uk. Our Head of International Collaborations, Mr. Ahmad Nawaz, or Head of Operations in China, Mr. Yujiao Zhang (contact details available upon request), will assist you with your application.
           </p>

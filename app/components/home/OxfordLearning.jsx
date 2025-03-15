@@ -14,8 +14,8 @@ const OxfordLearning = () => {
                        bg-mainBlue text-white p-8 flex flex-col justify-center"
           >
             <div>
-              <h3 className="text-xl md:text-[46px] leading-tight font-bold mb-2">
-                Oxford Learning
+              <h3 className="text-xl md:text-[46px] mb-2">
+                OXFORD LEARNING
               </h3>
               <p className="text-base md:text-lg text-justify">
                 We are the only summer program that places Oxford University's unique "tutorial teaching system" at the heart of our teaching approach with the student-to-teacher ratio of 1:3

@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from "react";
+import Link from "next/link";
 
 const OxfordExperienceMenu = ({ isMobile = false }) => {
   const [selectedSection, setSelectedSection] = useState(null);
@@ -8,6 +9,7 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
   const sections = {
     "Oxford Learning": {
       title: "Oxford Learning",
+      href:'/oxford-learning',
       description:
         "Tutorial-Style Learning, Keynote Lectures, Essay Counselling & Presentation Skills",
       fields: [
@@ -19,6 +21,7 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
     },
     "Oxford Lifestyle": {
       title: "Oxford Lifestyle",
+      href:'/oxford-lifestyle',
       description:
         "Discover Magical Oxford, College Accommodation, Dining Experience, Teaching Facilities & more",
       fields: [
@@ -39,6 +42,7 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
     },
     "Oxford Leadership": {
       title: "Oxford Leadership",
+      href:'/oxford-leadership',
       description:
         "Debating at Oxford Union, Career Guidance, Admissions Counselling",
       fields: [
@@ -46,6 +50,32 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
         "Career Guidance",
         "Admissions Counselling",
       ],
+    },
+  };
+
+  // Hardcoded link mapping for each section and field
+  const linksMapping = {
+    "Oxford Learning": {
+      "Tutorial-Style Learning": "/oxford-learning",
+      "Keynote Lectures": "/oxford-learning",
+      "Essay Counselling & Presentation Skills": "/oxford-learning",
+      "Network, Culture & Diversity": "/oxford-learning",
+    },
+    "Oxford Lifestyle": {
+      "Magical Oxford": "/oxford-lifestyle#facilities",
+      "College Accommodation": "/oxford-lifestyle#facilities",
+      "Dining Experience": "/oxford-lifestyle#facilities",
+      "Teaching Facilities": "/oxford-lifestyle#facilities",
+      "Extracurricular Activities": "/oxford-lifestyle#extracurricular",
+      "Entertainment": "/oxford-lifestyle#extracurricular",
+      "Sports and Indoor Games": "/oxford-lifestyle#extracurricular",
+      "Punting": "/oxford-lifestyle#extracurricular",
+      "Excursion Trips": "/oxford-lifestyle#extracurricular",
+    },
+    "Oxford Leadership": {
+      "Debating at Oxford Union": "/oxford-leadership",
+      "Career Guidance": "/oxford-leadership",
+      "Admissions Counselling": "/oxford-leadership",
     },
   };
 
@@ -57,7 +87,7 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
     <div className="relative">
       {/* Top Triangle */}
       <div
-        className="absolute -top-2 left-10 w-0 h-0 
+        className="absolute -top-2 left-72 w-0 h-0 
           border-l-8 border-r-8 border-b-8 
           border-l-transparent border-r-transparent border-b-white"
       />
@@ -73,7 +103,8 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
                     ? "bg-[#003180] bg-opacity-10"
                     : "hover:bg-[#003180] hover:bg-opacity-10"
                 }`}
-                onClick={() => setSelectedSection(key)}
+                onMouseEnter={!isMobile ? () => setSelectedSection(key) : undefined}
+                onClick={isMobile ? () => setSelectedSection(key) : undefined}
               >
                 {/* Right Arrow on selected item */}
                 {selectedSection === key && (
@@ -83,7 +114,9 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
                       border-t-transparent border-b-transparent border-l-[#003180] border-opacity-10"
                   />
                 )}
-                <div className="flex items-center justify-between">
+                <Link
+                href={section.href}
+                className="flex items-center justify-between">
                   <div>
                     <div className="text-lg font-medium text-textColor">
                       {section.title}
@@ -96,7 +129,7 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
                       className="w-6 h-6"
                     />
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -108,13 +141,13 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
                 {sections[selectedSection].fields.map((field, index) => {
                   if (typeof field === "string") {
                     return (
-                      <button
+                      <Link
                         key={index}
+                        href={linksMapping[selectedSection][field] || "#"}
                         className="block cursor-pointer border-b border-mainYellow pb-4 hover:text-mainYellow transition-colors text-left w-full"
-                        onClick={() => console.log(field)}
                       >
                         <div className="text-base text-textColor">{field}</div>
-                      </button>
+                      </Link>
                     );
                   }
 
@@ -147,35 +180,23 @@ const OxfordExperienceMenu = ({ isMobile = false }) => {
                       {isOpen && (
                         <div className="mt-2 pl-4">
                           {field.children.map((child, childIndex) => (
-                            <button
+                            <Link
                               key={childIndex}
-                              className="block w-full text-left cursor-pointer border-b border-mainYellow pb-2 last:border-0 text-mainYellow transition-colors"
-                              onClick={() => console.log(child)}
+                              href={linksMapping[selectedSection][child] || "#"}
+                              className="block w-full text-left cursor-pointer pb-2 text-mainYellow transition-colors "
                             >
                               {child}
-                            </button>
+                            </Link>
                           ))}
                         </div>
                       )}
                     </div>
                   );
                 })}
-                <div className="flex items-center gap-2 text-mainYellow pt-4">
-                  <div className="grid place-items-center w-8 h-8 rounded">
-                    <img
-                      src="/svgs/widgets.svg"
-                      alt="Widget Icon"
-                      className="w-6 h-6"
-                    />
-                  </div>
-                  <a href="#" className="font-medium">
-                    Learn more
-                  </a>
-                </div>
               </div>
             ) : (
               <div className="text-gray-500 text-base">
-                Select a menu item to see details
+                {/* Select a menu item to see details */}
               </div>
             )}
           </div>

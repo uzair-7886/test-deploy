@@ -37,7 +37,7 @@ const deansData = [
 
 const Administration = () => {
   return (
-    <section className="bg-offWhite py-16">
+    <section className="bg-offWhite pt-12 ">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="mb-12">

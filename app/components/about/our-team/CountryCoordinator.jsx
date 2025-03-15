@@ -22,10 +22,15 @@ function useIsMobile(breakpoint = 640) {
 // 2) Helper: active card = 600px (desktop) or 320px (mobile); inactive is smaller
 function getWidths(activeIndex, dataLength, isMobile) {
   const inactiveWidth = isMobile ? 260 : 400;
-  const activeWidth = isMobile ? 320 : 600;
+  const activeWidth = isMobile ? 320 : 700;
   const widths = new Array(dataLength).fill(inactiveWidth);
   widths[activeIndex] = activeWidth;
   return widths;
+}
+
+// 3) Helper to truncate text with '...'
+function truncateText(text, maxLength = 200) {
+  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 }
 
 // 3) Sample data
@@ -112,10 +117,10 @@ const testimonialData = [
 
 const CountryCoordinator = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  // 4) Determine if we’re on mobile
+  // Determine if on mobile
   const isMobile = useIsMobile();
 
-  // 5) Carousel control
+  // Carousel controls
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % testimonialData.length);
   };
@@ -123,7 +128,7 @@ const CountryCoordinator = () => {
     setActiveIndex((prev) => (prev - 1 + testimonialData.length) % testimonialData.length);
   };
 
-  // 6) Calculate widths & offset
+  // Calculate widths & offset
   const widths = getWidths(activeIndex, testimonialData.length, isMobile);
   const offset = widths.slice(0, activeIndex).reduce((sum, w) => sum + w, 0);
   const totalWidth = widths.reduce((sum, w) => sum + w, 0);
@@ -131,17 +136,15 @@ const CountryCoordinator = () => {
   return (
     <div className="w-full px-4 py-16 bg-white font-roboto">
       <div className="relative max-w-6xl mx-auto">
-        {/* Title + Comma centered and responsive */}
+        {/* Title */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
-         
           <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold text-center">
-          Country Coordinator
+            Country Coordinator
           </h2>
         </div>
 
         {/* Carousel Container (overflow hidden) */}
         <div className="relative overflow-hidden">
-          {/* Inner Track: total width, flex row, shift left by offset */}
           <div
             className="flex transition-transform duration-300"
             style={{
@@ -149,16 +152,21 @@ const CountryCoordinator = () => {
               transform: `translateX(-${offset}px)`,
             }}
           >
-            {testimonialData.map((testimonial, index) => {
+            {testimonialData.map((item, index) => {
               const isActive = index === activeIndex;
               return (
                 <div
-                  key={testimonial.id}
+                  key={item.id}
                   className="flex-shrink-0 h-auto py-4 transition-all duration-300 mr-4 last:mr-0"
                   style={{ width: `${widths[index]}px` }}
                 >
+                  {/* 
+                    Fixed or minimum height to keep cards consistent.
+                    Adjust 'h-[300px]' as needed. 
+                  */}
                   <div
-                    className={`rounded-[20px] p-6 shadow-lg border transition-colors h-full
+                    className={`rounded-[20px] p-6 shadow-lg border transition-colors 
+                      h-[350px] flex flex-col 
                       ${
                         isActive
                           ? "border-mainYellow bg-white opacity-100 CardDeop"
@@ -168,23 +176,31 @@ const CountryCoordinator = () => {
                     {/* Header: Avatar, Name, Country */}
                     <div className="flex items-center gap-4 mb-4">
                       <div className="relative w-16 h-16 overflow-hidden rounded-full">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          fill
-                          style={{ objectFit: "cover" }}
-                        />
+                        {item.image && (
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fill
+                            style={{ objectFit: "cover" }}
+                          />
+                        )}
                       </div>
                       <div>
                         <h3 className="text-xl font-medium text-mainBlue">
-                          {testimonial.name}
+                          {item.name}
                         </h3>
-                        <p className="text-gray-600 text-sm">{testimonial.country}</p>
+                        <p className="text-gray-600 text-sm">{item.country}</p>
                       </div>
                     </div>
-                    {/* Body: Text */}
-                    <p className="text-mainBlue leading-relaxed">
-                      &quot;{testimonial.text}&quot;
+
+                    {/* Body: Show truncated text if inactive, full if active */}
+                    <p className="text-mainBlue leading-relaxed overflow-hidden">
+                      &quot;
+                      {isActive 
+                        ? item.text 
+                        : truncateText(item.text, 110) /* adjust as needed */
+                      }
+                      &quot;
                     </p>
                   </div>
                 </div>
@@ -206,7 +222,12 @@ const CountryCoordinator = () => {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M15 19l-7-7 7-7" 
+              />
             </svg>
           </button>
           <button
@@ -220,7 +241,12 @@ const CountryCoordinator = () => {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M9 5l7 7-7 7" 
+              />
             </svg>
           </button>
         </div>

@@ -129,8 +129,8 @@ const Ambassadors = () => {
   };
 
   return (
-    <section className="bg-white py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-offWhite ">
+      <div className="max-w-7xl mx-auto py-16 px-4">
         {/* Title Section */}
         <h2 className="text-4xl md:text-5xl font-bold text-center text-[#FFD700] mb-8 font-enriqueta">
           Ambassadors

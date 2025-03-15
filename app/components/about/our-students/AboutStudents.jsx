@@ -2,6 +2,9 @@ import React from 'react';
 
 const AboutStudents = () => {
   return (
+    <div className='bg-offWhite'>
+
+    
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <div className="text-primary text-textColor text-justify leading-relaxed space-y-4 font-roboto">
         <p>
@@ -12,6 +15,7 @@ const AboutStudents = () => {
         </p>
         
       </div>
+    </div>
     </div>
   );
 };

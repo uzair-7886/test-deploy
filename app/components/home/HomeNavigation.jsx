@@ -37,8 +37,8 @@ const HomeNavigation = () => {
     { id: 'oxford-experience', label: 'Experience' },
     { id: 'oxford-leadership', label: 'Leadership' },
     { id: 'subjects-home', label: 'Subjects' },
-    { id: 'gallery-home', label: 'Gallery' },
     { id: 'testimonials', label: 'Testimonials' },
+    { id: 'gallery-home', label: 'Gallery' },
     // { id: 'download-section', label: 'Download' },
     { id: 'programs-download', label: 'Information Pack' },
   ];

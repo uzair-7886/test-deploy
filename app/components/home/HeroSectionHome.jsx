@@ -16,10 +16,10 @@ const HeroSectionHome = () => {
       />
       
       {/* Content Container */}
-      <div className="relative max-w-7xl container mx-auto px-4 py-8 md:py-16 flex flex-col lg:flex-row items-center lg:justify-between">
+      <div className="relative max-w-7xl container mx-auto px-4 py-8 md:py-20 flex flex-col lg:flex-row items-center lg:justify-between">
         {/* Left Content */}
         <div className="max-w-xl w-full lg:w-auto mb-8 lg:mb-0">
-          <h1 className="text-white text-[50px] md:text-[50px] font-enriqueta mb-4 md:mb-6 text-center lg:text-left">
+          <h1 className="text-white text-[50px] md:text-[50px] font-enriqueta mb-4 md:mb-6 text-center lg:text-left font-bold">
             OXFORD <span className="text-mainYellow">SUMMER</span><br />
             PROGRAM
           </h1>

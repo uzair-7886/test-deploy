@@ -26,11 +26,11 @@ export default function Home() {
       <section id="subjects-home">
         <SubjectsHome />
       </section>
-      <section id="gallery-home">
-        <GalleryHome />
-      </section>
       <section id="testimonials">
         <Testimonials />
+      </section>
+      <section id="gallery-home">
+        <GalleryHome />
       </section>
       <section id="download-section">
         <DownloadSection />

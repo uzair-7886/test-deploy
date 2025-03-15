@@ -206,7 +206,7 @@ const TutorsGuestsLectures = () => {
 
 
         {/* Tutors Slider */}
-        <div className="relative">
+        <div className="relative md:min-h-[300px]">
           <div className="flex transition-transform duration-300 gap-8">
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
               {tutorsData.slice(activeSlide * slidesPerView, (activeSlide * slidesPerView) + slidesPerView).map((tutor) => (
@@ -234,7 +234,9 @@ const TutorsGuestsLectures = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-center items-center gap-4 mt-12">
+          
+        </div>
+        <div className="flex justify-center items-center gap-4 mt-6">
             {/* Dots */}
             <div className="flex gap-2">
               {[...Array(totalSlides)].map((_, index) => (
@@ -271,7 +273,6 @@ const TutorsGuestsLectures = () => {
               </button>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );

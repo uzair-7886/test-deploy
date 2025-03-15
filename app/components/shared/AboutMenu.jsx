@@ -8,6 +8,7 @@ const AboutMenu = ({ isMobile = false }) => {
   const sections = {
     "Our Organisation": {
       title: "Our Organisation",
+      href:"/about/our-organization",
       fields: [
         { label: "Why Oxford?", href: "/about/our-organization#why-oxford" },
         { label: "The University of Oxford", href: "/about/our-organization#uni-oxford" },
@@ -16,6 +17,7 @@ const AboutMenu = ({ isMobile = false }) => {
     },
     "Our Philosophy": {
       title: "Our Philosophy",
+      href:"/about/our-philosophy",
       fields: [
         { label: "Teaching Philosophy", href: "/about/our-philosophy#teaching-philosophy" },
         { label: "Our Vision", href: "/about/our-philosophy#vision" },
@@ -25,6 +27,7 @@ const AboutMenu = ({ isMobile = false }) => {
     },
     "Our Team": {
       title: "Our Team",
+      href:"/about/our-team",
       fields: [
         { label: "Deans", href: "/about/our-team#deans" },
         { label: "Academic Coordinators", href: "/about/our-team#academic-coordinator" },
@@ -36,6 +39,7 @@ const AboutMenu = ({ isMobile = false }) => {
     },
     "Our Students": {
       title: "Our Students",
+      href:"/about/our-students",
       fields: [
         { label: "Testimonials", href: "/about/our-students#testimonials" },
         { label: "Ambassadors", href: "/about/our-students#ambassadors" },
@@ -49,7 +53,7 @@ const AboutMenu = ({ isMobile = false }) => {
     : "bg-white rounded-[30px] p-6 cursor-pointer CardShadow";
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       {/* Top Triangle */}
       <div
         className="absolute -top-2 left-10 w-0 h-0 
@@ -80,7 +84,9 @@ const AboutMenu = ({ isMobile = false }) => {
                       border-t-transparent border-b-transparent border-l-[#003180] border-opacity-10"
                   />
                 )}
-                <div className="flex items-center justify-between">
+                <Link
+                href={section.href}
+                className="flex items-center justify-between">
                   <div>
                     <div className="text-lg font-medium text-textColor">
                       {section.title}
@@ -93,7 +99,7 @@ const AboutMenu = ({ isMobile = false }) => {
                       className="w-6 h-6"
                     />
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -111,18 +117,7 @@ const AboutMenu = ({ isMobile = false }) => {
                     <div className="text-base text-textColor hover:text-mainYellow">{field.label}</div>
                   </Link>
                 ))}
-                <div className="flex items-center gap-2 text-mainYellow pt-4">
-                  <div className="grid place-items-center w-8 h-8 rounded">
-                    <img
-                      src="/svgs/widgets.svg"
-                      alt="Widget Icon"
-                      className="w-6 h-6"
-                    />
-                  </div>
-                  <Link href="#" className="font-medium">
-                    Learn more
-                  </Link>
-                </div>
+                
               </div>
             ) : (
               <div className="text-gray-500 text-base">

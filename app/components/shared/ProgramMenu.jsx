@@ -65,6 +65,7 @@ const ProgramsMenu = ({ isMobile = false }) => {
 
   // Left side programs as objects with label and a link
   const programs = [
+    {label:"Overview",link:"/about/our-programs"},
     { label: "Oxford Summer Program", link: "/oxford-summer-program" },
     { label: "Executive Leadership Program", link: "/executive-leadership-program" },
     { label: "Oxford China Summer Program", link: "/oxford-china-summer-program" },
@@ -76,10 +77,10 @@ const ProgramsMenu = ({ isMobile = false }) => {
     {
       label: "Subjects",
       children: [
-        { label: "STEM", link: "/subjects/#stem" },
-        { label: "Humanities and Social Sciences", link: "/subjects#humanities-social-sciences" },
-        { label: "Arts and Creativity", link: "/subjects#arts-creativity" },
-        { label: "Leadership and Business", link: "/subjects#leadership-business" },
+        { label: "STEM", link: "/subjects" },
+        { label: "Humanities and Social Sciences", link: "/subjects" },
+        { label: "Arts and Creativity", link: "/subjects" },
+        { label: "Leadership and Business", link: "/subjects" },
       ],
     },
     {
@@ -104,13 +105,13 @@ const ProgramsMenu = ({ isMobile = false }) => {
 
   const baseClasses = isMobile
     ? "w-full bg-white"
-    : "bg-white rounded-[15px] p-6 cursor-pointer CardShadow";
+    : "bg-white rounded-[30px] p-6 cursor-pointer CardShadow";
 
   return (
     <div className="relative z-auto">
       {/* Top Triangle Indicator */}
       <div
-        className="absolute -top-2 left-10 w-0 h-0 
+        className="absolute -top-2 left-36 w-0 h-0 
           border-l-8 border-r-8 border-b-8 
           border-l-transparent border-r-transparent border-b-white"
       />
@@ -182,19 +183,7 @@ const ProgramsMenu = ({ isMobile = false }) => {
                   )}
                 </div>
               ))}
-              {/* Optional Learn More Link */}
-              <div className="flex items-center gap-2 text-mainYellow pt-4">
-                <div className="grid place-items-center w-8 h-8 rounded">
-                  <img
-                    src="/svgs/widgets.svg"
-                    alt="Widget Icon"
-                    className="w-6 h-6"
-                  />
-                </div>
-                <Link href="/learn-more" className="font-medium">
-                  Learn more
-                </Link>
-              </div>
+            
             </div>
           </div>
         </div>

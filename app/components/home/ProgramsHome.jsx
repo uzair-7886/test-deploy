@@ -42,7 +42,7 @@ const ProgramsHome = () => {
     <section className="py-12 bg-offWhite">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Title */}
-        <h2 className="text-center text-mainYellow text-[42px] font-enriqueta">
+        <h2 className="text-center text-mainYellow text-[42px] font-enriqueta font-bold">
           Our Programs
         </h2>
 

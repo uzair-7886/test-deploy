@@ -3,13 +3,13 @@ import Image from 'next/image';
 
 const OxfordLifestyle = () => {
   return (
-    <div className="space-y-8 px-4 sm:px-6 lg:px-8 font-poppins">
+    <div className="space-y-8 px-4 sm:px-6 lg:px-8 py-4 font-poppins">
       <div className="text-center space-y-4">
         {/* Responsive heading sizes */}
-        <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta">
+        <h2 className="text-mainYellow text-2xl font-bold sm:text-3xl md:text-4xl font-enriqueta">
           Oxford Lifestyle
         </h2>
-        <p className="text-gray-600 mx-auto max-w-xl font-roboto">
+        <p className="text-gray-600 mx-auto  font-roboto">
           We offer our students the opportunity to fully immerse themselves in Oxford's
           unique student life, living, dining, and studying at its historic colleges.
         </p>

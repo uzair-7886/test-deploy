@@ -10,8 +10,7 @@ const Button = ({ href, children }) => {
         text-white
         font-poppins
         text-[16px]
-        font-medium
-        px-4
+        px-6
         py-2
         rounded-[8px]
         inline-flex

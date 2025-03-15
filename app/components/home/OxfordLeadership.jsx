@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const OxfordLeadership = () => {
   return (
-    <div className="bg-white pb-10 pt-20 max-w-7xl mx-auto">
+    <div className="bg-white pb-24 pt-20 max-w-7xl mx-auto">
       {/* 1) Center the entire section in a responsive container */}
       <div
         className="
@@ -161,7 +161,7 @@ const OxfordLeadership = () => {
 
         {/* 3) Right side: heading, paragraph, button */}
         <div className="flex-1 space-y-4 pt-4 md:pt-0">
-          <h2 className="text-mainYellow text-3xl sm:text-4xl font-enriqueta">
+          <h2 className="text-mainYellow text-3xl md:text-[50px] py-4 sm:text-4xl font-enriqueta font-bold">
             Oxford Leadership
           </h2>
           <p className="text-[#4B5D68] max-w-md font-roboto">

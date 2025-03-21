@@ -35,13 +35,13 @@ const AgeGroups = () => {
       <div className="max-w-7xl mx-auto flex flex-col  gap-8">
         {/* Heading Column */}
         <div className=" w-full">
-          <h1 className="text-mainYellow text-4xl text-center md:text-[42px] font-enriqueta font-bold">
+          <h1 className="text-mainYellow text-4xl text-center md:text-[42px] font-enriqueta font-bold uppercase">
             Age Groups
           </h1>
         </div>
         {/* Text Column */}
         <div className=" w-full">
-          <p className="text-textColor text-lg md:text-[18px] font-roboto leading-relaxed text-justify">
+          <p className="text-textColor text-lg md:text-[16px] font-roboto leading-relaxed text-justify">
           The Oxford Institute’s Summer Programs offer a mix of academic excellence, skill development and a fun summer holiday. They provide students a chance to immerse themselves in a ‘Hogwarts’ styled ‘Oxford Experience’ with accommodation in the University premises, dining at historic college halls, attending courses delivered by Oxford scholars and exploring the student life in the city.
           </p>
         </div>

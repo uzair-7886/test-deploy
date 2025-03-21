@@ -39,7 +39,7 @@ const programData = [
 const LifestyleCards = () => {
   return (
     <div className="w-full bg-offWhite">
-    <div className="max-w-7xl mx-auto px-4 py-16 grid gap-8 grid-cols-1 md:grid-cols-2">
+    <div className="max-w-7xl mx-auto px-4 p-8 grid gap-8 grid-cols-1 md:grid-cols-2">
       {programData.map((program) => (
         <div
           key={program.id}

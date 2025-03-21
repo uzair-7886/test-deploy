@@ -138,7 +138,7 @@ const CountryCoordinator = () => {
       <div className="relative max-w-6xl mx-auto">
         {/* Title */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
-          <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold text-center">
+          <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-[42px] font-enriqueta font-bold text-center uppercase">
             Country Coordinator
           </h2>
         </div>
@@ -194,7 +194,7 @@ const CountryCoordinator = () => {
                     </div>
 
                     {/* Body: Show truncated text if inactive, full if active */}
-                    <p className="text-mainBlue leading-relaxed overflow-hidden">
+                    <p className="text-textColor fontt-roboto textt-base text-justify leading-relaxed overflow-hidden">
                       &quot;
                       {isActive 
                         ? item.text 

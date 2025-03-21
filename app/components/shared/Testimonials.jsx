@@ -73,7 +73,7 @@ const Testimonials = () => {
     return (
       <div className="w-full py-16 bg-white font-roboto">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold text-center text-mainYellow">
+          <h2 className="text-2xl sm:text-3xl uppercase md:text-[42px] font-enriqueta font-bold text-center text-mainYellow">
             Testimonials
           </h2>
           <p className="text-center mt-4">No testimonials found.</p>
@@ -94,7 +94,7 @@ const Testimonials = () => {
             height={80}
             className="block"
           />
-          <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold text-center">
+          <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-[42px] uppercase font-enriqueta font-bold text-center">
             TESTIMONIALS
           </h2>
         </div>
@@ -147,7 +147,7 @@ const Testimonials = () => {
                       </div>
                     </div>
                     {/* Body: Text */}
-                    <p className="text-mainBlue leading-relaxed">
+                    <p className="text-textColor text-base font-roboto text-justify leading-relaxed">
                       {testimonial.text};
                     </p>
                   </div>

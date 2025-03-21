@@ -7,7 +7,7 @@ const TeamLeader = () => {
       <div className="py-8">
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="w-full md:w-1/3">
-                      <div className="relative w-full aspect-[4/3] rounded-[30px] overflow-hidden">
+                      <div className="relative w-full aspect-[6/5] rounded-[30px] overflow-hidden">
                         <Image
                           src={"/Our Team/Lucy.jpg"}
                           alt={"Lucy"}
@@ -17,7 +17,7 @@ const TeamLeader = () => {
                       </div>
                     </div>
                     <div className="w-full md:w-2/3">
-                      <h3 className="text-2xl font-enriqueta text-mainYellow md:text-[42px] mb-4 font-bold"> 
+                      <h3 className="text-2xl font-enriqueta text-mainYellow md:text-[42px] mb-4 font-bold uppercase"> 
                       Team Leader
                       </h3>
                       <h3 className="text-2xl font-roboto font-bold text-mainBlue md:text-[22px] mb-4">

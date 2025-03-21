@@ -64,7 +64,7 @@ function FAQ() {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-2">
-      <h1 className="text-center text-4xl font-semibold font-enriqueta md:text-[42px] text-mainYellow my-16">
+      <h1 className="text-center text-4xl font-semibold font-enriqueta md:text-[42px] text-mainYellow my-16 uppercase">
         Frequently Asked Questions
       </h1>
       {faqSections.map((section, index) => (

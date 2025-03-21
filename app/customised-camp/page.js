@@ -6,7 +6,7 @@ const page = () => {
     <>
       <HeroSectionCC />
       <div className="max-w-5xl mx-auto p-4">
-        <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta mt-10 text-mainYellow leading-tight py-4">
+      <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta  text-mainYellow leading-tight py-4 uppercase font-bold">
           CUSTOMIZED CAMPS & TRAINING PROGRAMS
         </h1>
         <p className="font-roboto text-textColor justify-center py-4 text-justify">

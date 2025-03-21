@@ -31,17 +31,17 @@ const EducationSystems = () => {
   ];
 
   return (
-    <div className="bg-offWhite py-12 px-6 md:px-12 lg:px-24">
+    <div className="bg-offWhite pt-8 pb-16 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col  gap-8">
         {/* Heading Column */}
         <div className=" w-full">
-          <h1 className="text-mainYellow text-4xl text-center md:text-[42px] font-enriqueta font-bold">
+          <h1 className="text-mainYellow text-4xl text-center md:text-[42px] font-enriqueta font-bold uppercase">
           Education Systems 
           </h1>
         </div>
         {/* Text Column */}
         <div className=" w-full">
-          <p className="text-textColor text-lg md:text-[18px] font-roboto leading-relaxed text-justify">
+          <p className="text-textColor text-lg md:text-[16px] font-roboto leading-relaxed text-justify py-2">
           The Oxford Summer Program welcomes students from all over the world. Our participants are enrolled in various local and international examination systems such as IB (Diploma Programme), CP (Career-related Programme), O or A levels, IGCSE, GCSE, as well as local education systems followed in different parts of the world. All courses are taught in tutorials - the unique Oxford teaching method of intensive daily sessions between 1-3 students per tutor. 
           </p>
         </div>

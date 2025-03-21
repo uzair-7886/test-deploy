@@ -1,22 +1,17 @@
 "use client";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
 
 function useMediaQuery(query) {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia(query);
-    // Set the initial state
     if (media.matches !== matches) {
       setMatches(media.matches);
     }
-
-    // Listener callback
     const listener = () => setMatches(media.matches);
     media.addEventListener("change", listener);
-
     return () => {
       media.removeEventListener("change", listener);
     };
@@ -69,121 +64,109 @@ const alumniData = [
   },
 ];
 
-// Helper function to chunk array
-function chunkArray(array, size) {
-  const result = [];
-  for (let i = 0; i < array.length; i += size) {
-    result.push(array.slice(i, i + size));
-  }
-  return result;
-}
-
 const Alumni = () => {
-  // 2) Use your custom hook to see if screen is >= 768px
   const isMediumUp = useMediaQuery("(min-width: 768px)");
-
-  // Decide how many cards per slide
   const cardsPerSlide = isMediumUp ? 4 : 2;
 
-  // 3) Chunk alumniData according to screen size
-  const slides = chunkArray(alumniData, cardsPerSlide);
-
-  // State to track current slide index
+  // Current index: leftmost card in view
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Move to previous slide (wrap around if desired)
+  // Maximum index so we don't slide beyond last card
+  const maxIndex = alumniData.length - cardsPerSlide;
+
+  // Move to previous card
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
-  // Move to next slide (wrap around if desired)
+  // Move to next card
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === slides.length - 1 ? 0 : prev + 1
-    );
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
-  // Jump to a specific slide
+  // Jump to a specific "page" via dots
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
 
   return (
-    <section className="w-full px-4 py-16 bg-white font-roboto">
+    <section className="w-full px-4 pb-16 pt-8 bg-white font-roboto">
       <div className="max-w-7xl mx-auto">
-        {/* Title Section */}
-        <h2 className="text-mainYellow text-3xl sm:text-4xl font-bold text-center mb-8 font-enriqueta">
+        <h2 className="text-mainYellow text-3xl uppercase md:text-[42px] sm:text-4xl font-bold text-center mb-8 font-enriqueta">
           Alumni
         </h2>
-        <p className="text-gray-600 text-center mb-16">
+        <p className="text-textColor text-base text-center mb-16">
           Every year the Oxford Institute summer camp attracts talented students
-          from various different parts of the world. Many of our former students
-          made it to Oxbridge and some of the top Ivy League Universities and
-          have great success stories to share – academically and beyond.
+          from various different parts of the world...
         </p>
 
         {/* Slider Container */}
         <div className="relative w-full overflow-hidden">
-          {/* Slides Wrapper */}
+          {/* Slider track with gap */}
           <div
-            className="flex transition-transform duration-500"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            className="flex gap-6 transition-transform duration-500"
+            style={{
+              width: `${(alumniData.length * 100) / cardsPerSlide}%`,
+              transform: `translateX(-${(currentIndex * 100) / cardsPerSlide}%)`,
+            }}
           >
-            {slides.map((slideGroup, idx) => (
-              // Each "slide" holds up to 2 or 4 items
+            {alumniData.map((alumnus) => (
               <div
-                key={idx}
-                className="w-full flex-shrink-0 flex justify-center gap-6"
+                key={alumnus.id}
+                className="flex-shrink-0"
+                style={{ width: `${100 / alumniData.length}%` }}
               >
-                {slideGroup.map((alumnus) => (
-                  <div
-                    key={alumnus.id}
-                    className="
-      w-[250px] 
-      relative 
-      bg-mainBlue 
-      text-white 
-      shadow-lg 
-      rounded-[12px] 
-      mt-4 
-      mb-8 
-      overflow-visible    
-    "
-                  >
-                    <div className="w-full h-64 relative">
-                      <div className="w-[170px] h-[170px] absolute left-1/2 transform -translate-x-1/2 top-2">
-                        <Image
-                          src={alumnus.image}
-                          alt={alumnus.name}
-                          fill
-                          className="object-cover rounded-full"
-                        />
-                      </div>
-                    </div>
-                    {/* White background text div */}
-                    <div className="absolute -bottom-8 rounded-tr-[15px] border-mainYellow border-[1px] bg-white p-4 w-[85%] h-[130px] ">
-                      <h3 className="text-lg font-bold text-mainBlue">
-                        {alumnus.name}
-                      </h3>
-                      <p className="text-sm text-[#4C4C4D]">
-                        Country of Origin: {alumnus.country}
-                      </p>
-                      <p className="text-sm text-[#4C4C4D]">Batch {alumnus.batch}</p>
-                      <p className="text-sm text-[#4C4C4D]">
-                        Studies at {alumnus.university}
-                      </p>
+                {/* Card */}
+                <div
+                  className="
+                    w-[250px]
+                    relative
+                    bg-mainBlue
+                    text-white
+                    shadow-lg
+                    rounded-[12px]
+                    mt-4
+                    mb-8
+                    overflow-visible
+                  "
+                >
+                  <div className="w-full h-64 relative">
+                    <div className="w-[170px] h-[170px] absolute left-1/2 transform -translate-x-1/2 top-2">
+                      <Image
+                        src={alumnus.image}
+                        alt={alumnus.name}
+                        fill
+                        className="object-cover rounded-full"
+                      />
                     </div>
                   </div>
-                ))}
+                  {/* White background text box */}
+                  <div className="absolute -bottom-8 rounded-tr-[15px] border-mainYellow border bg-white p-4 w-[85%] h-[130px]">
+                    <h3 className="text-lg font-bold text-mainBlue">
+                      {alumnus.name}
+                    </h3>
+                    <p className="text-sm text-[#4C4C4D]">
+                      Country of Origin: {alumnus.country}
+                    </p>
+                    <p className="text-sm text-[#4C4C4D]">
+                      Batch {alumnus.batch}
+                    </p>
+                    <p className="text-sm text-[#4C4C4D]">
+                      Studies at {alumnus.university}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
+        </div>
 
+        {/* Bottom Navigation (arrows + dots) */}
+        <div className="flex items-center justify-center gap-6 mt-8">
           {/* Left Arrow */}
           <button
             onClick={prevSlide}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2
-                       p-2 text-gray-600 hover:text-mainYellow transition-colors"
+            className="p-2 text-gray-600 hover:text-mainYellow transition-colors"
           >
             <svg
               className="w-6 h-6"
@@ -200,11 +183,23 @@ const Alumni = () => {
             </svg>
           </button>
 
+          {/* Dots */}
+          <div className="flex items-center gap-2">
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full ${
+                  index === currentIndex ? "bg-mainYellow" : "bg-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+
           {/* Right Arrow */}
           <button
             onClick={nextSlide}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2
-                       p-2 text-gray-600 hover:text-mainYellow transition-colors"
+            className="p-2 text-gray-600 hover:text-mainYellow transition-colors"
           >
             <svg
               className="w-6 h-6"
@@ -220,19 +215,6 @@ const Alumni = () => {
               />
             </svg>
           </button>
-        </div>
-
-        {/* Dots: one per slide */}
-        <div className="flex justify-center mt-8">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`mx-1 w-2 h-2 rounded-full ${
-                index === currentIndex ? "bg-mainYellow" : "bg-gray-300"
-              }`}
-            />
-          ))}
         </div>
       </div>
     </section>

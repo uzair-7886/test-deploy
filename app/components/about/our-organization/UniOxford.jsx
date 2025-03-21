@@ -38,13 +38,13 @@ const UniOxford = () => {
       <div className=" max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
         {/* Heading Column */}
         <div className="md:w-1/3 w-full">
-          <h1 className="text-mainYellow text-4xl md:text-[42px] font-enriqueta font-bold">
+          <h1 className="text-mainYellow text-4xl  uppercase md:text-[42px] font-enriqueta font-bold">
             The University Of Oxford
           </h1>
         </div>
         {/* Text Column */}
         <div className="md:w-2/3 w-full">
-          <p className="text-textColor text-lg md:text-[18px] font-roboto leading-relaxed text-justify">
+          <p className="text-textColor text-lg md:text-[16px] font-roboto leading-relaxed text-justify">
             Oxford, one of the oldest and most prestigious universities in the
             world, has been a leader in higher education since 1096 AD. Renowned
             globally for its academic excellence, rich traditions, and vibrant

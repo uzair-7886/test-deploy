@@ -26,8 +26,9 @@ const GalleryHome = () => {
         {/* Heading */}
         <h2 className="
           text-mainYellow 
-          text-2xl sm:text-3xl md:text-4xl 
+          text-2xl sm:text-3xl md:text-[42px] 
           font-enriqueta 
+          uppercase
           font-bold 
           mb-8 
           text-center

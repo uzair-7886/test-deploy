@@ -52,7 +52,7 @@ const SafetyContent = () => {
             <h2 className="text-mainBlue text-2xl md:text-[28px] py-4 font-enriqueta font-bold">
               {item.title}
             </h2>
-            <p className="text-textColor md:text-[16px] pb-4 font-poppins leading-relaxed text-justify">
+            <p className="text-textColor md:text-[16px] pb-4 font-roboto leading-relaxed text-justify">
               {item.description}
             </p>
             {item.additionalContent && (
@@ -62,7 +62,7 @@ const SafetyContent = () => {
                     <h3 className="text-mainBlue text-lg font-enriqueta font-semibold">
                       {content.subtitle}
                     </h3>
-                    <p className="text-textColor md:text-[16px] pb-4 font-poppins leading-relaxed text-justify">
+                    <p className="text-textColor md:text-[16px] pb-4 font-roboto leading-relaxed text-justify">
                       {content.text}
                     </p>
                   </div>
@@ -81,7 +81,7 @@ const SafetyContent = () => {
                   text-[16px] 
                   font-medium 
                   bg-transparent 
-                  px-4
+                  px-6
                   py-2
                   inline-flex
                   items-center 

@@ -38,10 +38,10 @@ const AcademicCoordinator = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="mb-12">
-          <h2 className="text-4xl md:text-[42px] font-bold font-enriqueta text-center text-mainYellow mb-6">
+          <h2 className="text-4xl md:text-[42px] font-bold font-enriqueta text-center text-mainYellow mb-6 uppercase">
             Academic Coordinator
           </h2>
-          <p className="text-textColor font-roboto  mx-auto leading-relaxed mb-16">
+          <p className="text-textColor text-base font-roboto  mx-auto leading-relaxed mb-16">
             Our Academic Coordinators are leading researchers and academics in their field. They define the overall academic direction and standard of the Programme. Besides monitoring the quality of tutorials, academic coordinators plan keynote lectures, workshops, academic counseling sessions, and evaluate student progress and feedback.
           </p>
 
@@ -62,7 +62,7 @@ const AcademicCoordinator = () => {
                 <h3 className="text-2xl font-enriqueta text-mainBlue md:text-[42px] mb-4">
                   {coordinatorData.featured.name} - <span className="text-mainYellow">{coordinatorData.featured.role}</span>
                 </h3>
-                <p className="text-textColor leading-relaxed">
+                <p className="text-textColor leading-relaxed text-base font-roboto text-justify">
                   {coordinatorData.featured.description}
                 </p>
               </div>

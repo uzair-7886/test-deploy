@@ -1,10 +1,11 @@
 import React from 'react';
+import Image from 'next/image';
 
 const HeroSectionAdmissions = () => {
   return (
     <div className="relative w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
       {/* Background Image */}
-      <div 
+      {/* <div 
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `
@@ -16,7 +17,23 @@ const HeroSectionAdmissions = () => {
           backgroundPosition: 'center',
           backgroundBlendMode: 'multiply, normal, normal'
         }}
-      />
+      /> */}
+
+                       <Image
+                                                                    src="/Admissions/Admission Banner.JPG"
+                                                                    alt="Hero Image"
+                                                                    fill
+                                                                    className="object-cover object-top"
+                                                                  />
+                                                                  {/* Gradient overlay */}
+                                                            <div
+                                                              className="absolute inset-0 z-0"
+                                                              style={{
+                                                                background: `
+                                                                linear-gradient(360deg, rgba(0, 0, 0, 0) 63.35%, rgba(0, 0, 0, 0.89) 82.74%, rgba(0, 0, 0, 0.89) 100%)`,
+                                                                backgroundBlendMode: 'multiply, normal'
+                                                              }}
+                                                            />
 
       {/* Content Container */}
       <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">

@@ -8,12 +8,12 @@ const VisaImmigration = () => {
       <div className=" flex flex-col md:flex-row gap-8">
         {/* Heading Column */}
         <div className="md:w-1/3 w-full">
-          <h1 className="text-mainYellow text-4xl md:text-[42px] font-enriqueta font-bold">
+          <h1 className="text-mainYellow text-4xl uppercase md:text-[42px] font-enriqueta font-bold">
           Visa & Immigration         </h1>
         </div>
         {/* Text Column */}
         <div className="md:w-2/3 w-full">
-          <p className="text-textColor text-lg md:text-[18px] font-roboto leading-relaxed text-justify">Participants attending the Oxford Institute Summer Program may require a visa to enter the United Kingdom. Visitors are permitted to study for up to six months, which allows attendance at the Oxford Summer Program. We recommend that all international students check the UK Government’s visa requirements well in advance to determine if they need a Standard Visitor Visa or an electronic travel authorization (ETA). Depending on nationality, some students may enter without a visa but will require an ETA. Upon acceptance, the Oxford Institute will provide an official letter of enrollment to support your visa application. Students must also present financial and accommodation evidence (if they plan to stay in the UK beyond the program duration). We advise applying for your visa early, as processing times can vary.         </p>
+          <p className="text-textColor text-lg md:text-[16px] font-roboto leading-relaxed text-justify">Participants attending the Oxford Institute Summer Program may require a visa to enter the United Kingdom. Visitors are permitted to study for up to six months, which allows attendance at the Oxford Summer Program. We recommend that all international students check the UK Government’s visa requirements well in advance to determine if they need a Standard Visitor Visa or an electronic travel authorization (ETA). Depending on nationality, some students may enter without a visa but will require an ETA. Upon acceptance, the Oxford Institute will provide an official letter of enrollment to support your visa application. Students must also present financial and accommodation evidence (if they plan to stay in the UK beyond the program duration). We advise applying for your visa early, as processing times can vary.         </p>
         </div>
       </div>
       <div className="w-full space-y-6">
@@ -40,7 +40,7 @@ const VisaImmigration = () => {
           ].map((item, index) => (
             <div key={index} className="border-b-[1px] border-mainYellow pb-4">
               <h3 className="text-mainBlue text-lg md:text-[28px] font-bold font-enriqueta">{item.title}</h3>
-              <p className="text-textColor text-justify leading-relaxed font-roboto py-2">{item.description}</p>
+              <p className="text-textColor text-base  text-justify leading-relaxed font-roboto py-2">{item.description}</p>
             </div>
           ))}
         </div>

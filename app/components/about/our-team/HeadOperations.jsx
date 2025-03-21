@@ -20,7 +20,7 @@ const HeadOperations = () => {
 
           {/* Content Section */}
           <div className="w-full md:w-1/2 lg:w-3/5">
-            <h2 className="text-4xl md:text-[42px] font-enriqueta font-bold text-mainYellow mb-6">
+            <h2 className="text-4xl md:text-[42px] uppercase font-enriqueta font-bold text-mainYellow mb-6">
               Head Of Operations And Campus Head
             </h2>
             
@@ -28,7 +28,7 @@ const HeadOperations = () => {
               Nazish Gulzar
             </h3>
 
-            <p className="text-textColor font-roboto leading-relaxed">
+            <p className="text-textColor text-base text-justify font-roboto leading-relaxed">
             With nearly two decades of experience in the British education and technology sectors, Nazish brings exceptional expertise in program management, operations, and strategic development. Over the past decade at The Oxford Institute, she has excelled as Head of Operations, overseeing all facets of student affairs, operational logistics, and disciplinary protocols. During the program, Nazish serves as campus head, ensuring seamless operations and an outstanding experience for every student. A keen traveller and painter in her spare time, she has explored diverse parts of the world, including the Middle East, South and Latin America, and South and East Asia. Nazish studied Social Entrepreneurship at Oxford and holds a Master’s degree in Management and Information Systems from the University of Manchester.
             </p>
           </div>

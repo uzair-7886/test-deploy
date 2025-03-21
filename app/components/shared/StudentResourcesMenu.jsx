@@ -12,7 +12,7 @@ const StudentResourcesMenu = ({ isMobile = false }) => {
   const menuItems = [
     { label: "Health & Safety", href: "/student-resources#health-safety" },
     { label: "Rules & Regulations", href: "/student-resources#rules-regulations" },
-    { label: "Key Documents", href: "/student-resources" },
+    { label: "Key Documents", href: "/admissions#visa-immigration" },
     { label: "FAQs", href: "/student-resources#faqs" },
   ];
 

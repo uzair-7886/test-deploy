@@ -40,13 +40,15 @@ const Administration = () => {
     <section className="bg-offWhite pt-12 ">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-[42px] font-bold font-enriqueta text-center text-mainYellow mb-6">
+        <div className="mb-4">
+          <h2 className="text-4xl md:text-[42px] font-bold font-enriqueta text-center text-mainYellow mb-6 uppercase">
             Administration
           </h2>
-          <p className="text-textColor font-roboto  mx-auto leading-relaxed mb-16">
+          <p className="text-textColor text-base font-roboto  mx-auto leading-relaxed mb-4">
           Our administration team, composed of Oxford-affiliated professionals, ensures the smooth running of the program while delivering an exceptional experience for all participants
           </p>
+          <hr className="border-t-2  border-mainYellow my-4" />
+
 
           {/* Featured Coordinator */}
           <div className="mb-8">

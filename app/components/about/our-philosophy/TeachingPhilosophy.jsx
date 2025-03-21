@@ -7,10 +7,10 @@ const TeachingPhilosophy = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-center px-6 ">
         {/* Text Section */}
         <div className="w-full md:w-1/2">
-          <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4">
+          <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight uppercase mb-4">
             Our Teaching Philosophy
           </h2>
-          <p className="text-textColor text-base md:text-[18px] leading-relaxed font-roboto mb-6 text-justify">
+          <p className="text-textColor text-base md:text-[16px] leading-relaxed font-roboto mb-6 text-justify">
             "Educating the mind without educating the heart is no education at all." — Brad
             Henry. At the Oxford Summer Camp, we inspire curiosity, imagination, and
             self-confidence, fostering holistic learning that goes beyond the classroom. Our

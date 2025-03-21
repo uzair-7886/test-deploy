@@ -34,13 +34,13 @@ const ExtraCurricular = () => {
       <div className="max-w-7xl px-4 mx-auto flex flex-col md:flex-row gap-8">
         {/* Heading Column */}
         <div className="md:w-1/3 w-full">
-          <h1 className="text-mainYellow text-4xl md:text-[42px] font-enriqueta font-bold">
+          <h1 className="text-mainYellow text-4xl md:text-[42px] uppercase font-enriqueta font-bold">
           Extracurricular  Activities
           </h1>
         </div>
         {/* Text Column */}
         <div className="md:w-2/3 w-full">
-          <p className="text-textColor text-lg md:text-[18px] font-roboto leading-relaxed text-justify">
+          <p className="text-textColor text-base md:text-[16px] font-roboto leading-relaxed text-justify">
           The Oxford Summer Programme offers a wide range of activities that extend learning beyond the classroom, providing students with opportunities for cultural exploration, recreation, and personal development. These experiences are designed to complement the academic rigor of the program and ensure a balanced, memorable summer.
           </p>
         </div>

@@ -132,12 +132,12 @@ const Ambassadors = () => {
     <section className="bg-offWhite ">
       <div className="max-w-7xl mx-auto py-16 px-4">
         {/* Title Section */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-[#FFD700] mb-8 font-enriqueta">
+        <h2 className="text-4xl md:text-[42px] font-bold text-center text-mainYellow uppercase mb-8 font-enriqueta">
           Ambassadors
         </h2>
         
         {/* Description Text */}
-        <p className="text-textColor font-roboto text-justify mx-auto my-4">
+        <p className="text-textColor text-base font-roboto text-justify mx-auto my-4">
          Each year, we select student ambassadors in various countries to help prospective students connect with Oxford Summer Program alumni and ask any questions they may have about the summer camp. This provides a great opportunity for students to gain firsthand knowledge about the program and clarify any doubts. To reach an ambassador, please email us at info@theoxfordinstitute.co.uk, mentioning the name of the ambassador you’d like to contact.</p>
 
         <hr className="border-b-2  border-mainYellow mb-16" />
@@ -162,7 +162,7 @@ const Ambassadors = () => {
                       {tutor.name}
                     </h3>
                     <p className="text-lg text-mainBlue font-poppins mb-4">{tutor.role}</p>
-                    <p className="text-textColor font-roboto text-justify leading-relaxed">
+                    <p className="text-textColor text-base font-roboto text-justify leading-relaxed">
                       {tutor.description}
                     </p>
                   </div>

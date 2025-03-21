@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Content = ({ content, viewCourse=false }) => {
     return (
-      <div className="w-full max-w-7xl mx-auto flex flex-col space-y-8  py-8">
+      <div className="w-full max-w-7xl mx-auto flex flex-col space-y-8  pb-16">
         {content.map((item, index) => (
           <div
             key={index} 
@@ -30,7 +30,7 @@ const Content = ({ content, viewCourse=false }) => {
               <h2 className="text-mainBlue text-2xl md:text-[28px] py-4 font-enriqueta font-bold mb-4">
                 {item.title}
               </h2>
-              <p className="text-textColor md:text-[16px] pb-4 font-poppins leading-relaxed text-justify">
+              <p className="text-textColor md:text-[16px] pb-4 font-roboto leading-relaxed text-justify">
                 {item.description}
               </p>
               {viewCourse && (
@@ -44,7 +44,7 @@ const Content = ({ content, viewCourse=false }) => {
                     text-[16px] 
                     font-medium 
                     bg-transparent 
-                    px-4
+                    px-6
                     py-2
                     inline-flex
                     items-center 

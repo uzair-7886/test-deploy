@@ -5,12 +5,12 @@ const WhyOxford = () => {
     <div className="bg-offWhite py-12">
       <div className="container mx-auto max-w-7xl px-4">
         {/* Heading */}
-        <h2 className="text-center text-3xl md:text-4xl font-bold font-enriqueta text-mainYellow mb-6">
+        <h2 className="text-center text-3xl md:text-[42px] uppercase font-bold font-enriqueta text-mainYellow mb-6">
           Why Oxford
         </h2>
 
         {/* Description */}
-        <p className="text-primary text-justify leading-relaxed py-4 font-roboto">
+        <p className="text-primary text-textColor text-justify leading-relaxed py-4 font-roboto">
           For over nine centuries, the University of Oxford has stood as a beacon of knowledge, 
           learning, and scholarly excellence. Known for its academic rigour and intellectual distinction, 
           Oxford has drawn the brightest minds from across the globe, shaping them into extraordinary leaders. 
@@ -28,7 +28,7 @@ const WhyOxford = () => {
         </div>
 
         {/* Additional Description */}
-        <p className="text-primary text-justify leading-relaxed py-4 font-roboto">
+        <p className="text-primary text-textColor text-justify leading-relaxed py-4 font-roboto">
           The town of Oxford and the university share a unique, symbiotic relationship that fosters an 
           exceptional social and academic environment. This blend of tradition and innovation creates 
           an inspiring setting for promising young individuals who aspire to achieve greatness. Oxford is 

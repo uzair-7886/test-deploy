@@ -6,20 +6,20 @@ export default function page() {
   return (
     <>
       <HeroSectionELP />
-      <div className="max-w-5xl mx-auto p-4">
-        <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta mt-10 text-mainYellow leading-tight py-4">
+      <div className="max-w-5xl mx-auto py-4">
+        <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta font-bold text-mainYellow leading-tight py-4 uppercase">
           EXECUTIVE LEADERSHIP PROGRAM
         </h1>
         <p className="font-roboto text-textColor justify-center py-4 text-justify">
         The Executive Leadership Program invites leaders from across the globe to connect, learn, and engage with peers facing similar global challenges. This immersive one-week program, held from 5th – 12th July 2025, is crafted to address the pressing issues of today and equip leaders with the practical, forward-thinking skills needed for a sustainable future.
         </p>
-        <h2 className="text-2xl md:text-3xl lg:text-[36px] font-enriqueta mt-5 text-mainBlue leading-tight py-4">
+        <h2 className="text-2xl md:text-3xl lg:text-[22px] font-roboto font-bold mt-5 text-mainBlue leading-tight ">
           An Opportunity to Step Back and Gain Perspective
         </h2>
         <p className="font-roboto text-textColor justify-center py-4 text-justify">
         In a world of constant change, this program offers leaders a unique opportunity to step back, consider the broader picture, and develop strategies for long-term success. Designed as a journey of transformation, the program goes beyond immediate concerns, fostering the foresight and skills necessary to meet future challenges with confidence and resilience.
         </p>
-        <h2 className="text-2xl md:text-3xl lg:text-[36px] font-enriqueta mt-5 text-mainBlue leading-tight py-4">
+        <h2 className="text-2xl md:text-3xl lg:text-[22px] font-roboto font-bold mt-5 text-mainBlue leading-tight ">
           A Dynamic Learning Experience
         </h2>
         <ul className="list-disc pl-5 font-roboto text-textColor justify-center text-justify">
@@ -43,7 +43,7 @@ export default function page() {
 
           </li>
         </ul>
-        <h2 className="text-2xl md:text-3xl lg:text-[36px] font-enriqueta mt-5 text-mainBlue leading-tight py-4">
+        <h2 className="text-2xl md:text-3xl lg:text-[22px] font-roboto font-bold mt-5 text-mainBlue leading-tight ">
           Who Should Attend
         </h2>
         <p className="font-roboto text-textColor justify-center py-4 text-justify">

@@ -194,12 +194,12 @@ const TutorsGuestsLectures = () => {
     <section className="bg-offWhite py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Title Section */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-[#FFD700] mb-8 font-enriqueta">
+        <h2 className="text-4xl md:text-[42px] font-bold text-center text-mainYellow mb-8 font-enriqueta uppercase">
           Tutors & Guest Lecturers
         </h2>
         
         {/* Description Text */}
-        <p className="text-textColor font-roboto text-justify mx-auto my-4">
+        <p className="text-textColor text-base font-roboto text-justify mx-auto my-4">
         All our tutors are former or current Lecturers or researchers at the University of Oxford. Our tutors have experience teaching undergraduate students of Oxford University. This means that the participants of the summer programme will receive the best quality learning. We are proud to involve highly qualified and passionate people at our summer programs for the past 10 years. They motivate students to explore and enhance their academic abilities and creative talents. Participants aspiring to a world-class experience and education can be sure to receive great mentorship while in Oxford. The tutors who have taught various courses at our summer programme are listed below, however this is not an exhaustive list and includes only a few of the tutors who have taught at the Oxford Institute.</p>
 
         <hr className="border-b-2  border-mainYellow mb-16" />
@@ -216,7 +216,7 @@ const TutorsGuestsLectures = () => {
                       src={tutor.image}
                       alt={tutor.name}
                       fill
-                      className="object-cover rounded-full CardDeop"
+                      className="object-cover rounded-full CardShadow2"
                     />
                   </div>
                   <div className="flex-grow">
@@ -224,7 +224,7 @@ const TutorsGuestsLectures = () => {
                       {tutor.name}
                     </h3>
                     <p className="text-lg text-mainBlue font-poppins mb-4">{tutor.role}</p>
-                    <p className="text-textColor font-roboto text-justify leading-relaxed">
+                    <p className="text-textColor text-base font-roboto text-justify leading-relaxed">
                       {tutor.description}
                     </p>
                   </div>

@@ -8,12 +8,12 @@ const ApplicationProcess = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row px-4 md:px-12 gap-8">
         {/* Left Content */}
         <div className="w-full md:w-1/3">
-          <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4">
+          <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4 uppercase">
           Oxford Summer Program
 
           </h2>
           
-          <p className="text-textColor text-justify text-base md:text-[18px]  leading-relaxed mb-6 font-roboto md:py-4">
+          <p className="text-textColor text-justify text-base md:text-[16px]  leading-relaxed mb-6 font-roboto md:py-4">
           Students enrolled in school, college, or university, as well as homeschooled students, are eligible to apply for our Oxford Summer Camp. We attract highly motivated individuals who aspire to secure positions at top universities worldwide. The program is ideal for those who thrive on challenges, are eager to explore new subjects, and enjoy exchanging ideas with world-class researchers and academics. While there are no strict English language requirements, we recommend choosing English as one of the modules if proficiency needs improvement.
           </p>
 
@@ -54,7 +54,7 @@ const ApplicationProcess = () => {
           ].map((item, index) => (
             <div key={index} className="border-b-[1px] border-mainYellow pb-4">
               <h3 className="text-mainBlue text-lg md:text-[28px]  font-enriqueta">{item.title}</h3>
-              <p className="text-textColor text-sm leading-relaxed font-roboto py-2">{item.description}</p>
+              <p className="text-textColor text-base leading-relaxed font-roboto py-2">{item.description}</p>
             </div>
           ))}
         </div>

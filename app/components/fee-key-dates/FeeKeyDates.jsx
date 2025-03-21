@@ -86,7 +86,7 @@ const FeeKeyDates = () => {
           </div>
           </div>
 
-          <div className="container mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="container mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 pb-8">
         {/* Card 1: Fee Includes */}
         <div className="bg-white rounded-[20px] CardShadow2 CardDeop p-8">
           <h3 className="text-mainBlue font-enriqueta text-xl  font-bold mb-6">

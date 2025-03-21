@@ -6,7 +6,7 @@ const AboutStudents = () => {
 
     
     <div className="container mx-auto px-4 py-8 max-w-7xl">
-      <div className="text-primary text-textColor text-justify leading-relaxed space-y-4 font-roboto">
+      <div className="text-primary text-textColor text-base text-justify leading-relaxed space-y-4 font-roboto">
         <p>
         Every year, the Oxford Summer Programme attracts some of the brightest, most hardworking, and committed young individuals from across the globe. Our students are our pride, and we are honoured to play a meaningful role in shaping their journeys and helping them achieve their life goals. Over the years, we have cultivated an extraordinary community of alumni who are now spread across the world, excelling in diverse fields and embodying the values of intellectual curiosity and excellence fostered during their time with us. Many have gone on to secure places at the University of Oxford itself, a testament to their determination and the strong foundation laid during their experiences in our programmes.        </p>
         <br />

@@ -374,7 +374,7 @@ export default function GalleryViewer() {
             <ChevronRight className="w-5 h-5" />
           </button>
 
-          <nav className="sections-nav rounded-b-[30px] flex overflow-x-auto scrollbar-hide relative bg-mainBlue space-x-0">
+          <nav className="sections-nav  flex overflow-x-auto scrollbar-hide relative bg-mainBlue space-x-0">
             {sections.map((section) => (
               <button
                 key={section.name}

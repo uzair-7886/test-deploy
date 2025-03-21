@@ -26,10 +26,10 @@ const MainContent = ({ content, viewCourse=false }) => {
           </div>
           {/* Text Section */}
           <div className="max-w-lg md:max-w-[633px]">
-            <h2 className="text-mainBlue text-2xl md:text-[42px] py-4 font-enriqueta  mb-4">
+            <h2 className="text-mainBlue text-2xl font-bold md:text-[28px] py-2 font-enriqueta  mb-4">
               {item.heading}
             </h2>
-            <p className="text-textColor md:text-[18px] pb-4 font-poppins leading-relaxed text-justify">
+            <p className="text-textColor md:text-[16px] pb-4 font-roboto leading-relaxed text-justify">
               {item.text}
             </p>
             {
@@ -44,7 +44,7 @@ const MainContent = ({ content, viewCourse=false }) => {
         text-[16px] 
         font-medium 
         bg-transparent 
-        px-4
+        px-6
         py-2
         inline-flex
         items-center 

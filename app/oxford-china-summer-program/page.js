@@ -5,14 +5,14 @@ const page = () => {
   return (
     <>
       <HeroSectionOCP />
-      <div className="max-w-5xl mx-auto p-4">
-        <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta mt-10 text-mainYellow leading-tight py-4">
-          OXFORD-CHINA SUMMER CAMP
+      <div className="max-w-5xl mx-auto py-4">
+      <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta  text-mainYellow leading-tight py-4 uppercase font-bold">
+      OXFORD-CHINA SUMMER CAMP
         </h1>
         <p className="font-roboto text-textColor justify-center py-4 text-justify">
           The Oxford Institute’s unique two-week summer program in Chengdu, China, merges Oxford’s academic excellence with China’s rich cultural heritage, offering students a transformative blend of rigorous learning and cultural immersion. Led by tutors from the University of Oxford and organized in collaboration with esteemed Chinese colleagues, the Oxford-China Summer Camp bridges knowledge and cultural boundaries between two global centers of tradition and discovery. Students engage in a one-week academic program focused on developing communication, debating, and critical thinking skills, followed by a week of cultural exploration, including visits to the iconic panda reserves, sampling Sichuan cuisine, and more. This immersive experience provides young students from around the world with a modern, integrated approach to learning and personal growth.
         </p>
-        <h2 className="text-2xl md:text-3xl lg:text-[36px] font-enriqueta mt-5 text-mainBlue leading-tight py-4">
+        <h2 className="text-2xl md:text-3xl lg:text-[22px] font-roboto font-bold mt-5 text-mainBlue leading-tight ">
           Program Highlights
         </h2>
         <ul className="list-disc pl-5 font-roboto text-textColor justify-center text-justify">
@@ -41,7 +41,7 @@ const page = () => {
             <span className="font-enriqueta font-bold text-mainBlue">Personal Growth:</span> Build confidence, adaptability, and leadership skills by stepping out of your comfort zone and embracing new experiences.
           </li>
         </ul>
-        <h2 className="text-2xl md:text-3xl lg:text-[36px] font-enriqueta mt-5 text-mainBlue leading-tight py-4">
+        <h2 className="text-2xl md:text-3xl lg:text-[22px] font-roboto font-bold mt-5 text-mainBlue leading-tight ">
           Unique Oxford Camp Model
         </h2>
         <p className="font-roboto text-textColor justify-center py-4 text-justify">

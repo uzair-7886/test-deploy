@@ -6,8 +6,8 @@ const RulesRegulations = () => {
 
 
     <div className=" py-12 mx-auto max-w-7xl px-8">
-      <div className="container bg-white CardShadow2 rounded-[20px] py-10 px-4">
-        <h2 className="text-mainYellow text-center py-4 text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4">
+      <div className="container bg-white CardShadow2 rounded-[20px] py-10 px-12">
+        <h2 className="text-mainYellow text-center py-4 text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4 uppercase">
           Rules & Regulations
         </h2>
 

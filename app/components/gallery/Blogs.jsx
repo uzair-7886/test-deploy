@@ -45,7 +45,6 @@ const Blogs = () => {
 
   return (
     <div className="min-h-screen px-5 py-4 md:px-10 max-w-7xl mx-auto">
-      <h1 className="text-xl font-semibold mb-6 md:text-[42px] text-center text-mainYellow font-enriqueta py-4">Latest Blogs</h1>
 
       {isLoading ? (
         // Render skeleton placeholders

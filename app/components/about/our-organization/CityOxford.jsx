@@ -34,20 +34,20 @@ const CityOxford = () => {
   ];
 
   return (
-    <div className="bg-offWhite py-12 px-6 md:px-12 lg:px-24">
+    <div className="bg-offWhite pt-12 pb-16 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
         {/* Heading Column */}
         <div className="md:w-1/3 w-full">
-          <h1 className="text-mainYellow text-4xl md:text-[42px] font-enriqueta font-bold">
+          <h1 className="text-mainYellow uppercase text-4xl md:text-[42px] font-enriqueta font-bold">
           THE CITY OF
           OXFORD          </h1>
         </div>
         {/* Text Column */}
         <div className="md:w-2/3 w-full">
-          <p className="text-textColor text-lg md:text-[18px] font-roboto leading-relaxed text-justify">
+          <p className="text-textColor text-lg md:text-[16px] font-roboto leading-relaxed text-justify">
           Oxford, famously known as "the city of dreaming spires," is renowned worldwide as one of the most beautiful and livable cities. With a rich history spanning over 800 years, it has long been home to royalty, scholars, and thinkers. The city offers a perfect blend of ancient charm and modern conveniences, with an array of activities for both tourists and residents to explore in the town centre.          </p>
           <br />
-          <p className="text-textColor text-lg md:text-[18px] font-roboto leading-relaxed text-justify">
+          <p className="text-textColor text-lg md:text-[16px] font-roboto leading-relaxed text-justify">
           Whether you’re visiting the city's many historic buildings, colleges, and museums, enjoying a drink or meal, catching a show, or indulging in some retail therapy, Oxford truly has something for everyone. Here are some glimpses of life in Oxford:          </p>
         </div>
       </div>

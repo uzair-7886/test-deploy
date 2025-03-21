@@ -5,20 +5,20 @@ const page = () => {
   return (
     <>
       <HeroSectionOSP />
-      <div className="max-w-5xl mx-auto p-4">
-        <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta mt-10 text-mainYellow leading-tight py-4">
+      <div className="max-w-5xl mx-auto py-4">
+        <h1 className="text-3xl md:text-4xl lg:text-[42px] font-enriqueta  text-mainYellow leading-tight py-4 uppercase font-bold">
         OXFORD SUMMER PROGRAM
         </h1>
-        <p className="font-roboto text-textColor justify-center py-4 text-justify ">
+        <p className="font-roboto text-textColor justify-center text-justify ">
         The Oxford Institute’s prestigious Oxford Summer Program 2025 is a two-week residential camp held at St Anne’s College, University of Oxford, from 20th July to 1st August. This program offers students aged 15–19+ an unparalleled opportunity to explore the latest developments and debates in two subjects of their choice. Guided by esteemed academics, tutors, lecturers, and deans from Oxford University, participants experience world-class teaching, innovative learning methods, and an authentic immersion in life at one of the world’s premier institutions.
         </p>
-        <h2 className="text-2xl md:text-3xl lg:text-[36px] font-enriqueta mt-5 text-mainBlue leading-tight py-4">
+        <h2 className="text-2xl md:text-3xl lg:text-[22px] font-roboto font-bold mt-5 text-mainBlue leading-tight ">
         Program Overview
         </h2>
-        <p className="font-roboto text-textColor justify-center py-4 text-justify">
+        <p className="font-roboto text-textColor justify-center pb-4 text-justify">
         We are dedicated to providing a highly personalized experience through our flagship Oxford Summer Program. With over a decade of experience, this program has been honed and perfected to deliver the finest educational practices. Small cohort sizes ensure each student receives focused attention, while Oxford’s renowned tutorial method allows the curriculum to be tailored to reflect individual interests—sparking intellectual curiosity and fostering critical thinking.
         </p>
-        <ul className="list-disc pl-5 font-roboto text-textColor justify-center text-justify">
+        <ul className="list-disc pl-5 font-roboto text-textColor text-base justify-center text-justify">
           <li className="py-2">
             <span className="font-enriqueta font-bold text-mainBlue">Oxford Tutorial Method:</span> Daily one-on-one or small-group sessions designed around students’ interests, encouraging exploration beyond traditional academic boundaries.
           </li>

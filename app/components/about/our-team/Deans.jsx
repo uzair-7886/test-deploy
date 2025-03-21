@@ -34,17 +34,17 @@ const deansData = [
 
 const Deans = () => {
   return (
-    <section className="bg-offWhite py-16">
+    <section className="bg-offWhite py-8">
       <div className="max-w-7xl mx-auto px-6">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Heading Column */}
         <div className="md:w-1/3 w-full">
-          <h1 className="text-mainYellow text-4xl md:text-[42px] font-enriqueta font-bold">
+          <h1 className="text-mainYellow text-4xl md:text-[42px] uppercase font-enriqueta font-bold">
           Deans         </h1>
         </div>
         {/* Text Column */}
         <div className="md:w-2/3 w-full">
-          <p className="text-textColor text-lg md:text-[18px] font-roboto leading-relaxed text-justify">
+          <p className="text-textColor text-lg md:text-[16px] font-roboto leading-relaxed text-justify">
           Each student is assigned to a male or female residential dean in groups of 10-15 students. Deans are responsible for pastoral care - living on-site, helping students with challenges, facilitating their participation in all activities academic and social, and easing their transition to independent living and learning. While the Programme values and encourages student independence, the Deans are also responsible for maintaining discipline when needed.</p>
         </div>
       </div>
@@ -69,7 +69,7 @@ const Deans = () => {
                 <p className="text-sm font-poppins text-textColor mb-4 ">
                   {dean.role}
                 </p>
-                <p className="text-textColor font-roboto text-justify text-sm leading-relaxed">
+                <p className="text-textColor font-roboto text-justify text-base leading-relaxed">
                   {dean.description}
                 </p>
               </div>

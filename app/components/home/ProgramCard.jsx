@@ -27,7 +27,7 @@ const ProgramCard = ({ program }) => {
             src={imageSrc}
             alt={title}
             fill
-            className="rounded-[18px] object-cover"
+            className="rounded-[18px] object-cover object-top"
             // priority // optionally if you want
           />
         </div>

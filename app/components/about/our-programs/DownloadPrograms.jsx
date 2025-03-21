@@ -44,19 +44,19 @@ const programData = [
 const DownloadPrograms = () => {
   return (
 
-    <div className="max-w-7xl mx-auto px-4 py-16 grid gap-8 grid-cols-1 md:grid-cols-2">
+    <div className="max-w-7xl mx-auto px-4 pb-16 grid gap-8 grid-cols-1 md:grid-cols-2">
       {programData.map((program) => (
         <div
           key={program.id}
-          className="bg-white CardShadow2 rounded-[20px] overflow-hidden"
+          className="bg-white CardShadow rounded-[20px] overflow-hidden"
         >
           {/* Image Section */}
-          <div className="w-full h-[251px] relative">
+          <div className="w-full h-[280px] relative">
             <Image
               src={program.image}
               alt={program.title}
               layout="fill"
-              className="object-cover"
+              className="object-cover "
             />
           </div>
 
@@ -69,7 +69,7 @@ const DownloadPrograms = () => {
               </h3>
             </Link>
 
-            <p className="text-sm text-textColor font-roboto text-justify mb-4">
+            <p className=" text-textColor text-base font-roboto text-justify mb-4">
               {program.description}
             </p>
 

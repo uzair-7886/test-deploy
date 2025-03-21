@@ -10,16 +10,16 @@ const EAContent = ({ content, viewCourse = false }) => {
         <div className="w-full md:w-3/5 flex flex-col justify-start space-y-12">
           {content.map((item, index) => (
             <div key={index} className="space-y-4">
-              <h2 className="text-mainBlue text-2xl md:text-[28px] font-enriqueta font-bold">
+              <h2 className="text-mainBlue text-2xl md:text-[22px] font-enriqueta font-bold">
                 {item.heading}
               </h2>
-              <p className="text-textColor md:text-[16px] font-poppins leading-relaxed text-justify">
+              <p className="text-textColor md:text-[16px] font-roboto leading-relaxed text-justify">
                 {item.text}
               </p>
               {viewCourse && (
                 <Link
                   href={item.link}
-                  className="border border-mainYellow rounded-[8px] text-textColor font-poppins text-[16px] font-medium bg-transparent px-4 py-2 inline-flex items-center justify-center whitespace-nowrap"
+                  className="border border-mainYellow rounded-[8px] text-textColor font-poppins text-[16px] font-medium bg-transparent px-6 py-2 inline-flex items-center justify-center whitespace-nowrap"
                 >
                   Apply Now
                 </Link>

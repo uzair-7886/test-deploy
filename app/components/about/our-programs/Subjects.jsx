@@ -8,7 +8,7 @@ const Subjects = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row px-6 md:px-12 gap-8">
         {/* Left Content */}
         <div className="w-full md:w-1/3">
-          <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4">
+          <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4 uppercase">
             Subjects
           </h2>
           {/* Image */}
@@ -20,7 +20,7 @@ const Subjects = () => {
               objectFit="cover"
             />
           </div>
-          <p className="text-textColor text-justify text-base md:text-[18px]  leading-relaxed mb-6 font-roboto md:py-4">
+          <p className="text-textColor text-justify text-base md:text-[16px]  leading-relaxed mb-6 font-roboto md:py-4">
           At the Oxford Summer Program, students can choose from a wide range of subjects, organised into four main categories. Each student selects two subjects: one as their major and the other as their minor. This allows them to dive deeper into their areas of interest while gaining a broader understanding of different subjects.
           </p>
 
@@ -57,8 +57,8 @@ const Subjects = () => {
             
           ].map((item, index) => (
             <div key={index} className="border-b-[1px] border-mainYellow pb-4">
-              <h3 className="text-mainBlue text-lg md:text-[28px] font-bold font-enriqueta">{item.title}</h3>
-              <p className="text-textColor text-justify leading-relaxed font-roboto py-2">{item.description}</p>
+              <h3 className="text-mainBlue text-lg md:text-[22px] pt-4 font-bold font-enriqueta">{item.title}</h3>
+              <p className="text-textColor text-justify text-base leading-relaxed font-roboto py-2">{item.description}</p>
               <Button href={item.link}>View Course</Button>
             </div>
           ))}

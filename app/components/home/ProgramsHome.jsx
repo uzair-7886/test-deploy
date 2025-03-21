@@ -1,6 +1,6 @@
-// ProgramsHome.jsx
 import React from 'react'
 import ProgramCard from './ProgramCard'
+import Marquee from 'react-fast-marquee'
 
 const ProgramsHome = () => {
   const programsData = [
@@ -42,25 +42,22 @@ const ProgramsHome = () => {
     <section className="py-12 bg-offWhite">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Title */}
-        <h2 className="text-center text-mainYellow text-[42px] font-enriqueta font-bold">
+        <h2 className="text-center uppercase text-mainYellow text-[42px] font-enriqueta font-bold pb-4">
           Our Programs
         </h2>
-
-        {/* ** Horizontal scroll on mobile, grid/wrap on larger screens ** */}
-        <div className="overflow-x-auto">
-          {/* 
-            flex-nowrap on small screens => horizontal scrolling
-            md:flex-wrap on medium+ => wraps into multiple rows
-          */}
-          <div className="overflow-x-auto scrollbar-hide py-6">
-  <div className="flex flex-nowrap gap-4">
-    {programsData.map((item) => (
-      <ProgramCard key={item.id} program={item} />
-    ))}
-  </div>
-</div>
-
-        </div>
+        {/* Marquee container */}
+        <Marquee pauseOnHover gradient={false} speed={50}>
+          <div className="flex flex-nowrap gap-8 py-4">
+            {programsData.map((item, index) => (
+              <div
+                key={item.id}
+                className={`${index === 0 ? "ml-4" : ""} ${index === programsData.length - 1 ? "mr-4" : ""}`}
+              >
+                <ProgramCard program={item} />
+              </div>
+            ))}
+          </div>
+        </Marquee>
       </div>
     </section>
   )

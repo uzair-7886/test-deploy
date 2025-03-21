@@ -6,11 +6,11 @@ const OurValues = () => {
     <div className="bg-white py-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row px-6 md:px-12 gap-8">
         {/* Left Content */}
-        <div className="w-full md:w-1/2">
-          <h2 className="text-mainYellow text-3xl md:text-[42px] font-bold font-enriqueta leading-tight mb-4">
+        <div className="w-full md:w-1/3">
+          <h2 className="text-mainYellow text-3xl md:text-[42px] uppercase font-bold font-enriqueta leading-tight mb-4">
             Our Values
           </h2>
-          <p className="text-textColor text-base md:text-[18px]  leading-relaxed mb-6 font-roboto text-justify">
+          <p className="text-textColor text-base md:text-[16px]  leading-relaxed mb-6 font-roboto text-justify">
             "The function of education is to teach one to think intensively and to think
             critically. Intelligence plus character—that is the goal of true education." —
             Through an authentic Oxford experience, we foster a diverse community, lifelong
@@ -18,7 +18,7 @@ const OurValues = () => {
           </p>
 
           {/* Image */}
-          <div className="relative w-full md:w-[100%] h-[300px] md:h-[1325px] rounded-[30px] overflow-hidden  ">
+          <div className="relative w-full md:w-[100%] h-[300px] md:h-[1400px] rounded-[30px] overflow-hidden">
             <Image
               src='/Our Philosphy/values.png'
               alt="Oxford Values"
@@ -29,7 +29,7 @@ const OurValues = () => {
         </div>
 
         {/* Right Content */}
-        <div className="w-full md:w-1/2 space-y-6">
+        <div className="w-full md:w-2/3 space-y-6">
           {[
             {
               title: 'Excellence',
@@ -103,8 +103,8 @@ const OurValues = () => {
               },
           ].map((item, index) => (
             <div key={index} className="border-b-[1px] border-mainYellow pb-4">
-              <h3 className="text-mainBlue text-lg font-bold font-enriqueta">{item.title}</h3>
-              <p className="text-textColor text-sm leading-relaxed font-roboto">{item.description}</p>
+              <h3 className="text-mainBlue text-lg md:text[22px] font-bold font-enriqueta">{item.title}</h3>
+              <p className="text-textColor text-base leading-relaxed font-roboto">{item.description}</p>
             </div>
           ))}
         </div>

@@ -9,7 +9,7 @@ const SubjectCard = ({ title, description, image }) => {
       className="
         relative
         w-full sm:w-[300px]
-        md:h-[580px]
+        md:h-[620px]
         h-[500px]
         p-3
         flex
@@ -41,13 +41,13 @@ const SubjectCard = ({ title, description, image }) => {
       </div>
 
       {/* Title */}
-      <h3 className="text-[#0E2F5A] text-lg font-bold mt-3 mb-1">
+      <h3 className="text-mainBlue text-lg md:text-[22px] font-roboto font-bold mt-3 mb-1">
         {title}
       </h3>
 
       {/* Description, scrollable if it overflows */}
       <div className="flex-1 overflow-auto pr-2">
-        <p className="text-textColor text-justify text-sm font-roboto">
+        <p className="text-textColor text-base text-justify  font-roboto">
           {description}
         </p>
       </div>
@@ -59,8 +59,8 @@ const SubjectCard = ({ title, description, image }) => {
         alt="Arrow"
         className="
           absolute
-          bottom-3
-          right-3
+          bottom-2
+          right-4
           w-10
           h-10
           cursor-pointer
@@ -127,7 +127,7 @@ const SubjectsHome = () => {
     <div className="bg-offWhite py-10">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading centered, using font-enriqueta */}
-        <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-4xl font-enriqueta font-bold mb-8 text-center">
+        <h2 className="text-mainYellow text-2xl sm:text-3xl md:text-[42px] font-enriqueta font-bold mb-8 text-center uppercase">
           SUBJECTS
         </h2>
 

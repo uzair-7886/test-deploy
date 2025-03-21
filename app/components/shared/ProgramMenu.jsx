@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 
@@ -29,12 +29,13 @@ const NestedList = ({ items }) => {
           return (
             <li
               key={index}
-              className="text-lg  py-1 cursor-pointer text-mainYellow transition-colors"
+              className="text-lg py-1 cursor-pointer text-mainYellow transition-colors"
             >
               <Link href={item.link}>{item.label}</Link>
             </li>
           );
         }
+
         // If item has children, render nested items recursively.
         const isOpen = openStates[index] || false;
         return (
@@ -47,7 +48,9 @@ const NestedList = ({ items }) => {
               <img
                 src="/svgs/chev-down.svg"
                 alt="Arrow Down"
-                className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
               />
             </div>
             {isOpen && <NestedList items={item.children} />}
@@ -63,16 +66,16 @@ const ProgramsMenu = ({ isMobile = false }) => {
   const [selectedProgram, setSelectedProgram] = useState(null);
   const [openDetailGroups, setOpenDetailGroups] = useState({});
 
-  // Left side programs as objects with label and a link
+  // Left side programs as objects with label + link
   const programs = [
-    {label:"Overview",link:"/about/our-programs"},
+    { label: "Overview", link: "/about/our-programs" },
     { label: "Oxford Summer Program", link: "/oxford-summer-program" },
     { label: "Executive Leadership Program", link: "/executive-leadership-program" },
     { label: "Oxford China Summer Program", link: "/oxford-china-summer-program" },
     { label: "Customised Camp", link: "/customised-camp" },
   ];
 
-  // Right side detail groups with nested items (each nested subitem now has its own link)
+  // Right side detail groups with nested items
   const detailGroups = [
     {
       label: "Subjects",
@@ -103,13 +106,14 @@ const ProgramsMenu = ({ isMobile = false }) => {
     },
   ];
 
+  // Apply the same “CardShadow” and top-triangle style as your other menus
   const baseClasses = isMobile
     ? "w-full bg-white"
     : "bg-white rounded-[30px] p-6 cursor-pointer CardShadow";
 
   return (
     <div className="relative z-auto">
-      {/* Top Triangle Indicator */}
+      {/* Top Triangle Indicator (desktop style) */}
       <div
         className="absolute -top-2 left-36 w-0 h-0 
           border-l-8 border-r-8 border-b-8 
@@ -136,54 +140,69 @@ const ProgramsMenu = ({ isMobile = false }) => {
                         border-t-transparent border-b-transparent border-l-[#003180] border-opacity-10"
                     />
                   )}
-                  <div className="text-lg font-medium text-textColor">
-                    {program.label}
+                  {/* 
+                    ADD WIDGET ICON ON THE RIGHT, 
+                    just like your OxfordExperienceMenu
+                  */}
+                  <div className="flex items-center justify-between">
+                    <div className="text-lg font-medium text-textColor">
+                      {program.label}
+                    </div>
+                    <div className="grid place-items-center w-8 h-8 text-mainYellow">
+                      <img
+                        src="/svgs/widgets.svg"
+                        alt="Widget Icon"
+                        className="w-6 h-6"
+                      />
+                    </div>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* Vertical Separator (for desktop only) */}
+          {/* Vertical Separator (desktop only) */}
           {!isMobile && (
             <div className="w-px bg-mainYellow" style={{ height: "auto" }}></div>
           )}
 
-          {/* Right Side: Dropdown Details – always visible */}
+          {/* Right Side: Always visible detail groups with nested dropdowns */}
           <div className={`${isMobile ? "w-full" : "w-1/2"}`}>
             <div className="space-y-4">
-              {detailGroups.map((group, index) => (
-                <div key={index} className="relative border-b border-mainYellow pb-4">
-                  <button
-                    className="block w-full text-left cursor-pointer hover:text-mainYellow transition-colors"
-                    onClick={() =>
-                      setOpenDetailGroups((prev) => ({
-                        ...prev,
-                        [index]: !prev[index],
-                      }))
-                    }
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-xl text-textColor">
-                        {group.label}
-                      </span>
-                      <img
-                        src="/svgs/chev-down.svg"
-                        alt="Arrow Down"
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          openDetailGroups[index] ? "rotate-180" : ""
-                        }`}
-                      />
-                    </div>
-                  </button>
-                  {openDetailGroups[index] && (
-                    <div className="mt-2">
-                      <NestedList items={group.children} />
-                    </div>
-                  )}
-                </div>
-              ))}
-            
+              {detailGroups.map((group, index) => {
+                const isOpen = openDetailGroups[index] || false;
+                return (
+                  <div key={index} className="relative border-b border-mainYellow pb-4">
+                    <button
+                      className="block w-full text-left cursor-pointer hover:text-mainYellow transition-colors"
+                      onClick={() =>
+                        setOpenDetailGroups((prev) => ({
+                          ...prev,
+                          [index]: !prev[index],
+                        }))
+                      }
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-xl text-textColor">
+                          {group.label}
+                        </span>
+                        <img
+                          src="/svgs/chev-down.svg"
+                          alt="Arrow Down"
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
+                    </button>
+                    {isOpen && (
+                      <div className="mt-2">
+                        <NestedList items={group.children} />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

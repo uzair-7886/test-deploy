@@ -5,14 +5,17 @@ const galleryData = [
   {
     title: "STUDENTS BLOGS",
     image:  "/HomePage/sb.png",
+    href:"/gallery?section=blogs"
   },
   {
     title: "VIDEO GALLERY",
     image:  "/HomePage/vg.jpg",
+    href:"/gallery?section=videos"
   },
   {
     title: "PHOTO GALLERY",
     image: "/HomePage/pg.jpg",
+    href:"/gallery?section=photo"
   },
 ]
 
@@ -34,7 +37,7 @@ const GalleryHome = () => {
 
         {/* Cards (3 columns on md+, 1 column on mobile) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
-          {galleryData.map(({ title, image }, idx) => (
+          {galleryData.map(({ title, image,href }, idx) => (
             <div
               key={idx}
               className="
@@ -94,7 +97,7 @@ const GalleryHome = () => {
                   justify-center
                 "
               >
-                <Link href={'/gallery'}>
+                <Link href={href}>
                 <img
                   src="/homepage/toprightchev.svg"
                   alt="arrow"

@@ -66,8 +66,8 @@ const Footer = () => {
               <h3 className="font-semibold mb-4 uppercase">Programmes</h3>
               <ul className="space-y-3">
                 <li><a href="/about/our-programs" className="hover:text-gray-300">Overview</a></li>
-                <li><a href="about/our-programs#education-systems" className="hover:text-gray-300">Education System</a></li>
-                <li><a href="about/our-programs#subjects" className="hover:text-gray-300">List of Subjects</a></li>
+                <li><a href="/about/our-programs#education-systems" className="hover:text-gray-300">Education System</a></li>
+                <li><a href="/about/our-programs#subjects" className="hover:text-gray-300">List of Subjects</a></li>
                 <li><a href="/contact-us" className="hover:text-gray-300">Locations</a></li>
                 <li><a href="/customised-camp" className="hover:text-gray-300">Customised Camp</a></li>
               </ul>

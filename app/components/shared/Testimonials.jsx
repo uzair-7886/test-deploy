@@ -83,10 +83,10 @@ const Testimonials = () => {
   }
 
   return (
-    <div className="w-full py-16 bg-white font-roboto">
+    <div className="w-full pb-8 bg-white font-roboto">
       <div className="relative max-w-7xl px-4 mx-auto">
         {/* Title + Comma centered and responsive */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-10 mb-8">
           <Image
             src="/homepage/comma.svg"
             alt="Decorative comma"

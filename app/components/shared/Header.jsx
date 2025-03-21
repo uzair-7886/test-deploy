@@ -4,15 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
+// --- Import your existing dropdown components ---
 import ProgramMenu from "./ProgramMenu";
 import OxfordExperienceMenu from "./OxfordExperienceMenu";
 import AboutMenu from "./AboutMenu";
+import AdmissionsMenu from "./AdmissionsMenu";
+import StudentResourcesMenu from "./StudentResourcesMenu";
+import GalleryMenu from "./GalleryMenu";
+
+// --- Import your button component ---
 import ButtonOutlined from "./ButtonOutlined";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Mobile toggles
+  // Mobile accordion toggles
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const [oxfordExperienceDropdownOpen, setOxfordExperienceDropdownOpen] =
@@ -21,13 +27,26 @@ const Header = () => {
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
   const [galleryDropdownOpen, setGalleryDropdownOpen] = useState(false);
 
-  // Desktop hover states
+  // Desktop hover states (only one open at a time)
   const [showAboutMenu, setShowAboutMenu] = useState(false);
   const [showProgramMenu, setShowProgramMenu] = useState(false);
   const [showOxfordMenu, setShowOxfordMenu] = useState(false);
+  const [showAdmissionsMenu, setShowAdmissionsMenu] = useState(false);
+  const [showResourcesMenu, setShowResourcesMenu] = useState(false);
+  const [showGalleryMenu, setShowGalleryMenu] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Helper to close all desktop dropdowns at once
+  const closeAllDesktopMenus = () => {
+    setShowAboutMenu(false);
+    setShowProgramMenu(false);
+    setShowOxfordMenu(false);
+    setShowAdmissionsMenu(false);
+    setShowResourcesMenu(false);
+    setShowGalleryMenu(false);
   };
 
   return (
@@ -69,9 +88,8 @@ const Header = () => {
             {/* ABOUT US */}
             <li
               onMouseEnter={() => {
+                closeAllDesktopMenus();
                 setShowAboutMenu(true);
-                setShowProgramMenu(false);
-                setShowOxfordMenu(false);
               }}
               className="cursor-pointer hover:opacity-80 transition z-50"
             >
@@ -84,9 +102,8 @@ const Header = () => {
             {/* PROGRAMS */}
             <li
               onMouseEnter={() => {
-                setShowAboutMenu(false);
+                closeAllDesktopMenus();
                 setShowProgramMenu(true);
-                setShowOxfordMenu(false);
               }}
               className="cursor-pointer hover:opacity-80 transition z-50"
             >
@@ -99,8 +116,7 @@ const Header = () => {
             {/* OXFORD EXPERIENCE */}
             <li
               onMouseEnter={() => {
-                setShowAboutMenu(false);
-                setShowProgramMenu(false);
+                closeAllDesktopMenus();
                 setShowOxfordMenu(true);
               }}
               className="cursor-pointer hover:opacity-80 transition z-50"
@@ -111,142 +127,46 @@ const Header = () => {
               </div>
             </li>
 
-            {/* ADMISSIONS */}
-            <li className="relative group z-50">
-              <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
+            {/* ADMISSIONS (Single-level dropdown with separate component) */}
+            <li
+              onMouseEnter={() => {
+                closeAllDesktopMenus();
+                setShowAdmissionsMenu(true);
+              }}
+              className="cursor-pointer hover:opacity-80 transition z-50"
+            >
+              <div className="flex items-center space-x-1">
                 <span>ADMISSIONS</span>
                 <img src="/Vector.png" alt="dropdown" />
               </div>
-              <ul
-                className="absolute left-0 mt-2 w-56 bg-white text-mainBlue text-sm
-                opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                transition-all duration-200 shadow-lg"
-              >
-                <li>
-                  <Link
-                    href="/application"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Application Form
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/admissions"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Eligibility Criteria
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/fee-key-dates"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Fee & Key Dates
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/admissions"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Visa & Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/admissions"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Travel Info & Immigration
-                  </Link>
-                </li>
-              </ul>
             </li>
 
-            {/* STUDENT RESOURCES */}
-            <li className="relative group z-50">
-              <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
+            {/* STUDENT RESOURCES (Single-level dropdown with separate component) */}
+            <li
+              onMouseEnter={() => {
+                closeAllDesktopMenus();
+                setShowResourcesMenu(true);
+              }}
+              className="cursor-pointer hover:opacity-80 transition z-50"
+            >
+              <div className="flex items-center space-x-1">
                 <span>STUDENT RESOURCES</span>
                 <img src="/Vector.png" alt="dropdown" />
               </div>
-              <ul
-                className="absolute left-0 mt-2 w-56 bg-white text-mainBlue text-sm
-                opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                transition-all duration-200 shadow-lg"
-              >
-                <li>
-                  <Link
-                    href="/student-resources#health-safety"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Health & Safety
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/student-resources#rules-regulations"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Rules & Regulations
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/student-resources"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Key Documents
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/student-resources#faqs"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    FAQs
-                  </Link>
-                </li>
-              </ul>
             </li>
 
-            {/* GALLERY */}
-            <li className="relative group z-50">
-              <div className="flex items-center space-x-1 cursor-pointer hover:opacity-80 transition">
+            {/* GALLERY (Single-level dropdown with separate component) */}
+            <li
+              onMouseEnter={() => {
+                closeAllDesktopMenus();
+                setShowGalleryMenu(true);
+              }}
+              className="cursor-pointer hover:opacity-80 transition z-50"
+            >
+              <div className="flex items-center space-x-1">
                 <span>GALLERY</span>
                 <img src="/Vector.png" alt="dropdown" />
               </div>
-              <ul
-                className="absolute left-0 mt-2 w-56 bg-white text-mainBlue text-sm 
-                opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                transition-all duration-200 shadow-lg"
-              >
-                <li>
-                  <Link
-                    href="/gallery?section=photo"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Photo
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/gallery?section=videos"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Videos
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/gallery?section=blogs"
-                    className="block px-4 py-2 hover:bg-mainBlue hover:text-white"
-                  >
-                    Blogs
-                  </Link>
-                </li>
-              </ul>
             </li>
 
             {/* APPLY NOW */}
@@ -258,9 +178,10 @@ const Header = () => {
           </ul>
 
           {/* 
-            -------------
-            DROP DOWNS RENDERED OUTSIDE THE <li>'s
-            -------------
+            ----------------------------------------------------------------------------
+            MENUS RENDERED OUTSIDE THE <ul> 
+            (We position them absolutely and use onMouseLeave to close)
+            ----------------------------------------------------------------------------
           */}
 
           {/* ABOUT MENU */}
@@ -292,10 +213,42 @@ const Header = () => {
               <OxfordExperienceMenu />
             </div>
           )}
+
+          {/* ADMISSIONS MENU */}
+          {showAdmissionsMenu && (
+            <div
+              className="absolute pl-24 left-0 right-0 top-full pt-2 z-50"
+              onMouseLeave={() => setShowAdmissionsMenu(false)}
+            >
+              <AdmissionsMenu />
+            </div>
+          )}
+
+          {/* STUDENT RESOURCES MENU */}
+          {showResourcesMenu && (
+            <div
+              className="absolute pl-24 left-0 right-0 top-full pt-2 z-50"
+              onMouseLeave={() => setShowResourcesMenu(false)}
+            >
+              <StudentResourcesMenu />
+            </div>
+          )}
+
+          {/* GALLERY MENU */}
+          {showGalleryMenu && (
+            <div
+              className="absolute pl-24 left-0 right-0 top-full pt-2 z-50"
+              onMouseLeave={() => setShowGalleryMenu(false)}
+            >
+              <GalleryMenu />
+            </div>
+          )}
         </nav>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* -------------------------------------------------
+          MOBILE Navigation (drawer)
+          -------------------------------------------------*/}
       <div
         className={`lg:hidden fixed inset-y-0 right-0 w-64 bg-mainBlue transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -303,7 +256,7 @@ const Header = () => {
       >
         <div className="p-4">
           <ul className="space-y-4">
-            {/* ABOUT US */}
+            {/* ABOUT US (Mobile accordion) */}
             <li>
               <button
                 onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
@@ -360,7 +313,7 @@ const Header = () => {
               )}
             </li>
 
-            {/* PROGRAMS */}
+            {/* PROGRAMS (Mobile accordion) */}
             <li>
               <button
                 onClick={() => setProgramsDropdownOpen(!programsDropdownOpen)}
@@ -444,7 +397,7 @@ const Header = () => {
               )}
             </li>
 
-            {/* OXFORD EXPERIENCE */}
+            {/* OXFORD EXPERIENCE (Mobile accordion) */}
             <li>
               <button
                 onClick={() =>
@@ -494,7 +447,7 @@ const Header = () => {
               )}
             </li>
 
-            {/* ADMISSIONS */}
+            {/* ADMISSIONS (Mobile accordion) */}
             <li>
               <button
                 onClick={() => setAdmissionsDropdownOpen(!admissionsDropdownOpen)}
@@ -560,7 +513,7 @@ const Header = () => {
               )}
             </li>
 
-            {/* STUDENT RESOURCES */}
+            {/* STUDENT RESOURCES (Mobile accordion) */}
             <li>
               <button
                 onClick={() => setResourcesDropdownOpen(!resourcesDropdownOpen)}
@@ -617,7 +570,7 @@ const Header = () => {
               )}
             </li>
 
-            {/* GALLERY */}
+            {/* GALLERY (Mobile accordion) */}
             <li>
               <button
                 onClick={() => setGalleryDropdownOpen(!galleryDropdownOpen)}

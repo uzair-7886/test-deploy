@@ -138,7 +138,17 @@ const Alumni = () => {
                 {slideGroup.map((alumnus) => (
                   <div
                     key={alumnus.id}
-                    className="w-[250px] relative bg-mainBlue text-white shadow-lg overflow-hidden rounded-[12px] mt-4 mb-8"
+                    className="
+      w-[250px] 
+      relative 
+      bg-mainBlue 
+      text-white 
+      shadow-lg 
+      rounded-[12px] 
+      mt-4 
+      mb-8 
+      overflow-visible    
+    "
                   >
                     <div className="w-full h-64 relative">
                       <div className="w-[170px] h-[170px] absolute left-1/2 transform -translate-x-1/2 top-2">
@@ -151,7 +161,7 @@ const Alumni = () => {
                       </div>
                     </div>
                     {/* White background text div */}
-                    <div className="absolute -bottom-4 rounded-tr-[15px] border-mainYellow border-[1px] bg-white p-4 w-[85%] ">
+                    <div className="absolute -bottom-8 rounded-tr-[15px] border-mainYellow border-[1px] bg-white p-4 w-[85%] h-[130px] ">
                       <h3 className="text-lg font-bold text-mainBlue">
                         {alumnus.name}
                       </h3>

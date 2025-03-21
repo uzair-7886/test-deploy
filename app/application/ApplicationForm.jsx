@@ -337,10 +337,10 @@ const ApplicationForm = () => {
 
   const AccountCreationStep = () => (
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
-      <h1 className="text-2xl font-bold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center">
+      <h1 className="text-2xl font-semibold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center uppercase tracking-widest">
         The Oxford Institute
       </h1>
-      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center">
+      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center uppercase tracking-widest">
         REGISTRATION FORM
       </h2>
       <div className="space-y-6 max-w-xl w-full text-textColor font-poppins">
@@ -408,10 +408,10 @@ const ApplicationForm = () => {
     return(
     
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
-      <h1 className="text-2xl font-bold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center">
+      <h1 className="text-2xl font-semibold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center uppercase tracking-widest">
         The Oxford Institute
       </h1>
-      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center">
+      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center uppercase tracking-widest">
         ACTIVE PROGRAMS
       </h2>
       <div className="space-y-6 max-w-xl w-full text-textColor font-poppins">
@@ -538,10 +538,10 @@ const ApplicationForm = () => {
   
   const ApplicationStep = () => (
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
-      <h1 className="text-2xl font-bold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center">
+      <h1 className="text-2xl font-semibold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center uppercase tracking-widest">
         The Oxford Institute
       </h1>
-      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center">
+      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center uppercase tracking-widest">
         APPLICATION FORM
       </h2>
       <div className="grid grid-cols-2 gap-6 max-w-4xl w-full text-textColor font-poppins">
@@ -674,10 +674,10 @@ const ApplicationForm = () => {
   
   const FurtherInfoStep = () => (
     <form onSubmit={handleSubmit(onSubmit)} className="p-8 flex flex-col items-center">
-      <h1 className="text-2xl font-bold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center">
+      <h1 className="text-2xl font-semibold text-mainBlue md:text-[22px] font-enriqueta mb-2 text-center uppercase tracking-widest">
         The Oxford Institute
       </h1>
-      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center">
+      <h2 className="text-xl text-mainYellow md:text-[22px] font-enriqueta font-semibold mb-8 text-center uppercase tracking-widest">
         APPLICATION FORM
       </h2>
       <div className="space-y-6 max-w-4xl w-full text-textColor font-poppins">

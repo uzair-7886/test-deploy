@@ -21,7 +21,7 @@ const deansData = [
     role: "Dean-Residential Mentor",
     description:
       "Jonathan, an Engineering graduate pursuing a master’s at Oxford, has been with the Oxford Institute since 2022. He specializes in Maths and Engineering tutoring and provides admissions support.",
-    image: "/Our Team/Jonathan+Kifle.jpeg",
+    image: "/Our Team/Jonathan.jpeg",
   },
   {
     name: "Lucy Aitchison",

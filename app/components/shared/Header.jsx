@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -17,6 +17,22 @@ import ButtonOutlined from "./ButtonOutlined";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // Track scroll to shrink/center the logo
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Adjust the threshold (50) as you see fit
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Mobile accordion toggles
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
@@ -39,7 +55,7 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Helper to close all desktop dropdowns at once
+  // Helper to close all desktop dropdowns
   const closeAllDesktopMenus = () => {
     setShowAboutMenu(false);
     setShowProgramMenu(false);
@@ -50,11 +66,24 @@ const Header = () => {
   };
 
   return (
-    <header className="text-white bg-mainBlue font-roboto border-b-white border-b-2">
+    // 1) Make the header sticky so it stays on top
+    <header className="sticky top-0 z-50 text-white bg-mainBlue font-roboto border-b-white border-b-2">
       {/* Top Row (Logo + Nav Toggle + Desktop Nav) */}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-5 lg:justify-between lg:h-[90px]">
         {/* Logo */}
-        <div className="w-[60px] h-[60px] lg:w-[150px] lg:h-[150px] relative lg:z-50 lg:top-14">
+        <div
+          className={
+            // 2) Conditional classes for logo on scroll
+            `transition-all duration-300
+             ${
+               scrolled
+                 ? // When scrolled: shrink & center
+                   "mx-auto w-[40px] h-[40px] lg:w-[80px] lg:h-[80px] relative top-0"
+                 : // Original styling
+                   "w-[60px] h-[60px] lg:w-[150px] lg:h-[150px] relative lg:z-50 lg:top-14"
+             }`
+          }
+        >
           <Link href="/">
             <Image
               src="/osi-logo.jpeg"
@@ -127,7 +156,7 @@ const Header = () => {
               </div>
             </li>
 
-            {/* ADMISSIONS (Single-level dropdown with separate component) */}
+            {/* ADMISSIONS */}
             <li
               onMouseEnter={() => {
                 closeAllDesktopMenus();
@@ -141,7 +170,7 @@ const Header = () => {
               </div>
             </li>
 
-            {/* STUDENT RESOURCES (Single-level dropdown with separate component) */}
+            {/* STUDENT RESOURCES */}
             <li
               onMouseEnter={() => {
                 closeAllDesktopMenus();
@@ -155,7 +184,7 @@ const Header = () => {
               </div>
             </li>
 
-            {/* GALLERY (Single-level dropdown with separate component) */}
+            {/* GALLERY */}
             <li
               onMouseEnter={() => {
                 closeAllDesktopMenus();
@@ -176,13 +205,6 @@ const Header = () => {
               </ButtonOutlined>
             </li>
           </ul>
-
-          {/* 
-            ----------------------------------------------------------------------------
-            MENUS RENDERED OUTSIDE THE <ul> 
-            (We position them absolutely and use onMouseLeave to close)
-            ----------------------------------------------------------------------------
-          */}
 
           {/* ABOUT MENU */}
           {showAboutMenu && (
@@ -248,7 +270,7 @@ const Header = () => {
 
       {/* -------------------------------------------------
           MOBILE Navigation (drawer)
-          -------------------------------------------------*/}
+      -------------------------------------------------*/}
       <div
         className={`lg:hidden fixed inset-y-0 right-0 w-64 bg-mainBlue transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -450,7 +472,9 @@ const Header = () => {
             {/* ADMISSIONS (Mobile accordion) */}
             <li>
               <button
-                onClick={() => setAdmissionsDropdownOpen(!admissionsDropdownOpen)}
+                onClick={() =>
+                  setAdmissionsDropdownOpen(!admissionsDropdownOpen)
+                }
                 className="flex items-center justify-between w-full text-left hover:opacity-80"
               >
                 <span>Admissions</span>

@@ -37,7 +37,7 @@ const ContactNavigation = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-mainBlue text-white">
+    <nav className="sticky top-0 md:top-[90px] border-t border-mainYellow z-30  bg-mainBlue text-white">
       <div className="max-w-7xl mx-auto px-4 overflow-x-auto">
         <div className="flex space-x-4 md:space-x-8 justify-start md:justify-center py-2 md:py-4 whitespace-nowrap">
           {navItems.map((item) => (

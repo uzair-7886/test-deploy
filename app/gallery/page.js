@@ -38,7 +38,7 @@ function GalleryContent() {
     <>
       <HeroSectionGallery />
       {/* Navigation Bar */}
-      <nav className="sections-nav border-b border-white justify-center flex overflow-x-auto scrollbar-hide relative bg-mainBlue">
+      <nav className="sections-nav sticky  top-0 md:top-[90px] border-t border-mainYellow z-30 border-b border-b-white justify-center flex overflow-x-auto scrollbar-hide  bg-mainBlue">
         {sections.map((section) => (
           <button
             key={section.name}

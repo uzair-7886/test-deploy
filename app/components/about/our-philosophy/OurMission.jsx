@@ -16,7 +16,7 @@ const OurMission = () => {
 
       {/* Text Section */}
       <div className="p-6 md:p-12 flex-1">
-        <h2 className="text-mainYellow text-center font-enriqueta text-3xl md:text-[42px] font-bold leading-tight mb-4 uppercase">
+        <h2 className="text-mainYellow font-enriqueta text-3xl md:text-[42px] font-bold leading-tight mb-4 uppercase">
           Our Mission
         </h2>
         <p className="text-textColor text-base md:text-[16px] leading-relaxed font-roboto">

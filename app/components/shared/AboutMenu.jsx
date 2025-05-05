@@ -56,7 +56,7 @@ const AboutMenu = ({ isMobile = false }) => {
     <div className="relative w-full">
       {/* Top Triangle */}
       <div
-        className="absolute -top-2 left-10 w-0 h-0 
+        className="absolute -top-2 left-24 w-0 h-0 
           border-l-8 border-r-8 border-b-8 
           border-l-transparent border-r-transparent border-b-white"
       />

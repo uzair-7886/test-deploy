@@ -17,7 +17,7 @@ const GalleryMenu = ({ isMobile = false }) => {
     <div className="relative z-auto">
       {/* Top Triangle */}
       <div
-        className="absolute -top-2 left-[800px] w-0 h-0 
+        className="absolute -top-2 left-[850px] w-0 h-0 
           border-l-8 border-r-8 border-b-8
           border-l-transparent border-r-transparent border-b-white"
       />

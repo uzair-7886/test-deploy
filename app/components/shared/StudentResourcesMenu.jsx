@@ -20,7 +20,7 @@ const StudentResourcesMenu = ({ isMobile = false }) => {
     <div className="relative z-auto">
       {/* Top Triangle (if you want it exactly like your other dropdowns) */}
       <div
-        className="absolute -top-2 left-[650px] w-0 h-0 
+        className="absolute -top-2 left-[700px] w-0 h-0 
           border-l-8 border-r-8 border-b-8 
           border-l-transparent border-r-transparent border-b-white"
       />
